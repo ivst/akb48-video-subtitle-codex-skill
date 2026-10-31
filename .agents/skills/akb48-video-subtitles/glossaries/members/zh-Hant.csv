@@ -1,0 +1,84 @@
+entity_id,source_ja,source_romaji,target_locale,target_form,kind,source_url,reviewer,reviewed_on,confidence,review_status,notes
+001,岩立沙穂,Saho Iwatate,zh-Hant,岩立沙穗,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+002,福岡聖菜,Seina Fukuoka,zh-Hant,福岡聖菜,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+003,小栗有以,Yui Oguri,zh-Hant,小栗有以,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+004,行天優莉奈,Yurina Gyoten,zh-Hant,行天優莉奈,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+005,倉野尾成美,Narumi Kuranoo,zh-Hant,倉野尾成美,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+006,坂川陽香,Hiyuka Sakagawa,zh-Hant,坂川陽香,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+007,下尾みう,Miu Shitao,zh-Hant,下尾美羽,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+008,髙橋彩音,Ayane Takahashi,zh-Hant,高橋彩音,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+009,徳永羚海,Remi Tokunaga,zh-Hant,德永羚海,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+010,永野芹佳,Serika Nagano,zh-Hant,永野芹佳,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+011,橋本陽菜,Haruna Hashimoto,zh-Hant,橋本陽菜,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+012,千葉恵里,Erii Chiba,zh-Hant,千葉惠里,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+013,黒須遥香,Haruka Kurosu,zh-Hant,黑須遙香,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+014,長友彩海,Ayami Nagatomo,zh-Hant,長友彩海,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+015,武藤小麟,Orin Muto,zh-Hant,武藤小麟,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+016,山内瑞葵,Mizuki Yamauchi,zh-Hant,山內瑞葵,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+017,山根涼羽,Suzuha Yamane,zh-Hant,山根涼羽,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+018,太田有紀,Yuki Ota,zh-Hant,太田有紀,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+019,佐藤綺星,Airi Sato,zh-Hant,佐藤綺星,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+020,橋本恵理子,Eriko Hashimoto,zh-Hant,橋本惠理子,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+021,畠山希美,Nozomi Hatakeyama,zh-Hant,畠山希美,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+022,平田侑希,Yuki Hirata,zh-Hant,平田侑希,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+023,布袋百椛,Moka Hotei,zh-Hant,布袋百椛,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+024,正鋳真優,Mayuu Masai,zh-Hant,正鑄真優,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+025,水島美結,Miyuu Mizushima,zh-Hant,水島美結,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+026,山﨑空,Sora Yamazaki,zh-Hant,山崎空,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+027,秋山由奈,Yuna Akiyama,zh-Hant,秋山由奈,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+028,新井彩永,Sae Arai,zh-Hant,新井彩永,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+029,工藤華純,Kasumi Kudo,zh-Hant,工藤華純,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+030,久保姫菜乃,Hinano Kubo,zh-Hant,久保姬菜乃,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+031,迫由芽実,Yumemi Sako,zh-Hant,迫由芽實,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+032,成田香姫奈,Kohina Narita,zh-Hant,成田香姬奈,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+033,八木愛月,Azuki Yagi,zh-Hant,八木愛月,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+034,山口結愛,Yui Yamaguchi,zh-Hant,山口結愛,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+035,伊藤百花,Momoka Ito,zh-Hant,伊藤百花,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+036,奥本カイリ,Kairi Okumoto,zh-Hant,奧本凱莉,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+037,川村結衣,Yui Kawamura,zh-Hant,川村結衣,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+038,大賀彩姫,Saki Oga,zh-Hant,大賀彩姬,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+039,近藤沙樹,Saki Kondo,zh-Hant,近藤沙樹,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+040,丸山ひなた,Hinata Maruyama,zh-Hant,丸山日向,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+041,髙橋舞桜,Mao Takahashi,zh-Hant,高橋舞櫻,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+042,田中沙友利,Sayuri Tanaka,zh-Hant,田中沙友利,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+043,牧戸愛茉,Ema Makito,zh-Hant,牧戶愛茉,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+044,森川優,Yu Morikawa,zh-Hant,森川優,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+045,渡邉葵心,Kiko Watanabe,zh-Hant,渡邊葵心,person,https://zh.wikipedia.org/wiki/AKB48%E6%88%90%E5%93%A1%E5%88%97%E8%A1%A8,,,medium,community_reference,Traditional Chinese community reference; not native-editor approved
+046,前田敦子,Atsuko Maeda,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+047,大島優子,Yuko Oshima,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+048,高橋みなみ,Minami Takahashi,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+049,渡辺麻友,Mayu Watanabe,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+050,小嶋陽菜,Haruna Kojima,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+051,篠田麻里子,Mariko Shinoda,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+052,板野友美,Tomomi Itano,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+053,柏木由紀,Yuki Kashiwagi,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+054,峯岸みなみ,Minami Minegishi,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+055,指原莉乃,Rino Sashihara,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+056,宮澤佐江,Sae Miyazawa,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+057,秋元才加,Sayaka Akimoto,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+058,河西智美,Tomomi Kasai,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+059,北原里英,Rie Kitahara,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+060,高城亜樹,Aki Takajo,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+061,大家志津香,Shizuka Oya,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+062,島崎遥香,Haruka Shimazaki,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+063,横山由依,Yui Yokoyama,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+064,川栄李奈,Rina Kawaei,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+065,入山杏奈,Anna Iriyama,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+066,加藤玲奈,Rena Kato,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+067,高橋朱里,Juri Takahashi,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+068,岡田奈々,Nana Okada,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+069,村山彩希,Yuiri Murayama,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+070,向井地美音,Mion Mukaichi,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+071,武藤十夢,Tomu Muto,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+072,西野未姫,Miki Nishino,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+073,小嶋真子,Mako Kojima,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+074,本田仁美,Hitomi Honda,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+075,岡部麟,Rin Okabe,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+076,荻野由佳,Yuka Ogino,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+077,矢作萌夏,Moeka Yahagi,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+078,矢吹奈子,Nako Yabuki,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+079,倉持明日香,Asuka Kuramochi,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+080,梅田彩佳,Ayaka Umeda,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+081,増田有華,Yuka Masuda,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+082,仁藤萌乃,Moeno Nito,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed
+083,市川美織,Miori Ichikawa,zh-Hant,,person,,,,low,pending_native_review,Unverified localized form; do not infer from another language. Refer to source_ja/source_romaji when needed

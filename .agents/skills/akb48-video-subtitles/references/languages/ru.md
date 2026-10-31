@@ -11,3 +11,5 @@
 - Produce dialogue SRT separately from inscription SRT when both are requested; ASS may combine them with positioning/styles.
 
 Name spellings are episode-dependent. Use a project-supplied glossary and record its revision.
+
+**Member glossary:** `../../glossaries/members/ru.csv` preserves the contributor's 83 Russian spellings verbatim (`user_supplied`), without independent audit. Respect the supplied forms unless the episode's glossary explicitly overrides them.

@@ -33,3 +33,5 @@ Minimum final checks, when the requested output includes a render:
 - ZIP or other package opens and contains the current subtitle files, not an earlier revision.
 
 An output report should distinguish language review, speaker/visual review, and technical media checks.
+
+Name validation: consult `glossaries/members/{locale}.csv` and `glossaries/aliases.csv` in the installed skill folder. Preserve row-level `review_status` and never call an unverified spelling approved. Episode-specific contributor glossaries take precedence. If the localized field is blank, request verification or explicitly disclose a fallback instead of inventing a spelling.

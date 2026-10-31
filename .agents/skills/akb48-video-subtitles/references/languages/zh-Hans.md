@@ -7,3 +7,5 @@
 - Keep honorifics only when they carry character or relationship meaning; otherwise use natural Chinese address or omit them.
 - Follow Chinese punctuation and line breaks. Review CJK reading speed and avoid splitting names or fixed expressions.
 - Verify CJK font coverage and actual rendering, including punctuation and embedded Japanese text.
+
+**Member-name glossary:** `../../glossaries/members/zh-Hans.csv` has 45 converted forms derived from a Traditional Chinese community reference. They need native review, while 38 older member forms remain pending.

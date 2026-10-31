@@ -12,3 +12,5 @@ Profiles define target-language choices; they do not replace a fluent editor. Lo
 - [Traditional Chinese](zh-Hant.md) — draft.
 
 When contributing a profile, preserve the shared workflow and document regional variants separately when needed. Never guess an official member spelling or claim native review without a named reviewer and date.
+
+Bundled member-name glossaries live in `../../glossaries/members/{locale}.csv`, relative to this file. Always load the selected language profile *and* matching locale CSV. A listed language profile does not imply names are fluent-reviewed. See [glossary provenance and fallback rules](../../glossaries/README.md). Episode-specific user spellings override bundled names.
