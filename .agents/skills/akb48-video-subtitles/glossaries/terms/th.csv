@@ -1,0 +1,36 @@
+term_id,source_ja,source_reading,target_locale,target_form,category,source_url,target_reference_url,review_status,reviewer,reviewed_on,notes
+oshi-men,推しメン,oshimen,th,,fandom,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,The member a fan primarily supports.
+kami-oshi,神推し,kami-oshi,th,,fandom,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,A fan's strongest personal favorite.
+oshi-hen,推し変,oshi-hen,th,,fandom,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,Changing which member is favored.
+hako-oshi,箱推し,hako-oshi,th,,fandom,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,Supporting a group rather than one specific member.
+dd,DD,DD,th,,fandom,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,Fandom acronym meaning dare demo daisuki; not a formal role.
+graduation,卒業,sotsugyō,th,,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Leaving the idol group; not necessarily retiring from entertainment.
+graduation-announcement,卒業発表,sotsugyō happyō,th,,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,An announcement of a member's future departure.
+graduation-stage,卒業公演,sotsugyō kōen,th,,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Do not conflate with a large graduation concert.
+graduation-concert,卒業コンサート,sotsugyō konsāto,th,,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Larger concert distinct from a theater graduation performance.
+trainee,研究生,kenkyūsei,th,,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,A trainee member category; not a student in a school.
+regular-member,正規メンバー,seiki menbā,th,,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Full member category as distinct from a trainee.
+promotion,昇格,shōkaku,th,,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Typically a trainee becoming a regular member.
+senbatsu,選抜,senbatsu,th,,music,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Selected members for a specific song or release; distinct from an election.
+center,センター,sentā,th,,music,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,A performance/formation role not an administrative title.
+election,選抜総選挙,senbatsu sōsenkyo,th,,historical,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,Historical fan-vote event; never imply it is a current annual practice.
+kami-seven,神7,kami sebun,th,,historical,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,Context-specific historical top seven; not a fixed roster across all years.
+under-girls,アンダーガールズ,andā gāruzu,th,,historical,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,Named song or election unit; do not translate as literally underground girls.
+theater-performance,劇場公演,gekijō kōen,th,,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,A regular performance in the group's dedicated theater.
+birthday-stage,生誕祭,seitansai,th,,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,A birthday-themed theater event; differs from the person's actual birth date.
+final-performance,千秋楽,senshūraku,th,,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,End of a production's run; not necessarily a member graduation.
+first-performance,初日,shonichi,th,,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,First performance of a particular stage or setlist.
+unit-song,ユニット曲,yunitto kyoku,th,,music,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,A song performed by a smaller subset within a stage.
+handshake,握手会,akushukai,th,,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Meet-and-greet with actual handshakes; format subject to current rules.
+individual-handshake,個別握手会,kobetsu akushukai,th,,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,A specific ticketed or member-specific handshake event.
+group-handshake,グループ握手会,gurūpu akushukai,th,,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Distinct from individual handshake events.
+online-talk,オンラインお話し会,onrain ohanashikai,th,,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Video or online conversation; not an in-person handshake.
+two-shot,2ショット写真会,tsū shotto shashinkai,th,,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,A photo with a member; venue-specific rules apply.
+autograph,サイン会,sainkai,th,,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Autograph event; may have different ticket rules.
+sendoff,お見送り,omiokuri,th,,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Member-to-audience send-off; context determines exact format.
+generation,期生,kisei,th,,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Members who joined in the same audition intake.
+concurrent,兼任,kennin,th,,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Formal simultaneous affiliation; distinguish from transfer.
+transfer,移籍,iseki,th,,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,pending_native_review,,,Leaving one formal group or team for another.
+reorganization,組閣,sokaku,th,,historical,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,Historical team-system reshuffle; current structure can differ.
+fan-call,コール,kōru,th,,fandom,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,Chanted names or phrases at performances.
+penlight,ペンライト,penraito,th,,fandom,https://www.universal-music.co.jp/akb48/biography/,,pending_native_review,,,Handheld audience light; not necessarily a chemical glowstick.

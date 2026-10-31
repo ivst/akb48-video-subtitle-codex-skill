@@ -35,3 +35,7 @@ Minimum final checks, when the requested output includes a render:
 An output report should distinguish language review, speaker/visual review, and technical media checks.
 
 Name validation: consult `glossaries/members/{locale}.csv` and `glossaries/aliases.csv` in the installed skill folder. Preserve row-level `review_status` and never call an unverified spelling approved. Episode-specific contributor glossaries take precedence. If the localized field is blank, request verification or explicitly disclose a fallback instead of inventing a spelling.
+
+## Subtitle terminology
+
+Consult `glossaries/terms/{locale}.csv` for member-facing event terms, fan terminology, and theater stages; use `scripts/lookup_term.py` for a JSON lookup with semantic cautions. The locale forms are marked `editorial_draft` except blank Thai entries, which remain pending. Prefer an episode-specific user-approved lexicon over this starter dataset. Do not treat the Russian name glossary as approval of newly introduced Russian term translations. Historical formats (such as elections and former team arrangements) must be interpreted in the period described by the program.

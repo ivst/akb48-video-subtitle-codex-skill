@@ -7,4 +7,4 @@
 - Adapt Japanese honorifics only when their relationship meaning matters. Preserve natural dialogue and the requested regional register.
 - Check CJK font coverage, punctuation, reading speed, and line breaks in the actual player.
 
-**Member-name glossary:** `../../glossaries/members/zh-Hant.csv` includes 45 traditional Chinese community-reference forms, not independently native-reviewed, and 38 older member names awaiting review.
+**Member-name glossary:** `../../glossaries/members/zh-Hant.csv` includes 83 traditional Chinese community-reference forms including 38 historical people; native-editor review remains necessary.

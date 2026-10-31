@@ -11,4 +11,4 @@
 - Set reading-speed and line-width limits with the Korean reviewer; do not reuse a Latin-script character limit without checking actual frames.
 - This profile has not yet been reviewed by a Korean native speaker. Mark Korean-language outputs as draft until that review is contributed.
 
-**Member-name glossary:** `../../glossaries/members/ko.csv` contains 45 Korean community-reference spellings; 38 older names remain pending. The reference is not official or native-editor reviewed.
+**Member-name glossary:** `../../glossaries/members/ko.csv` contains 83 Korean community-reference spellings, including 38 historical names; none is native-editor reviewed. The reference is not official or native-editor reviewed.

@@ -14,3 +14,5 @@ Profiles define target-language choices; they do not replace a fluent editor. Lo
 When contributing a profile, preserve the shared workflow and document regional variants separately when needed. Never guess an official member spelling or claim native review without a named reviewer and date.
 
 Bundled member-name glossaries live in `../../glossaries/members/{locale}.csv`, relative to this file. Always load the selected language profile *and* matching locale CSV. A listed language profile does not imply names are fluent-reviewed. See [glossary provenance and fallback rules](../../glossaries/README.md). Episode-specific user spellings override bundled names.
+
+Bundled term translations are in `../../glossaries/terms/{locale}.csv` alongside the member names. The 35-term translations are editorial drafts in ru/en/ko/es-419/id/zh-Hans/zh-Hant and blank pending review in th; none should be presented as native-editor-approved. See [terminology notes](../../glossaries/terms/README.md). When in doubt, prefer the episode-specific user-approved glossary.
