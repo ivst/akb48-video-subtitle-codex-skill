@@ -136,7 +136,7 @@ def main(argv: list[str] | None = None) -> int:
                 (errors if args.strict_japanese else warnings).append(message)
     ordered = sorted(cues, key=lambda c: (c[1], c[2]))
     if [c[0] for c in ordered] != [c[0] for c in cues]:
-        errors.append("cue timing is out of chronological order")
+        errors.append("cue starts before an earlier cue (out of chronological order)")
     max_end, max_n = -1, None
     for n, start, end in ordered:
         if start < max_end:

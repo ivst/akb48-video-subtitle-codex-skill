@@ -13,7 +13,7 @@ def timestamp_ms(value: str) -> int:
     h, m, remainder = value.split(":")
     s, ms = remainder.split(",")
     if int(m) > 59 or int(s) > 59:
-        raise ValueError(f"invalid timestamp {value}")
+        raise ValueError(f"invalid minutes/seconds in {value}")
     return ((int(h) * 60 + int(m)) * 60 + int(s)) * 1000 + int(ms)
 
 

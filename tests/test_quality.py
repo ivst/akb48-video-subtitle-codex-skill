@@ -26,7 +26,7 @@ class QualityTests(unittest.TestCase):
                 path = Path(d) / name
                 path.write_bytes(content.encode("utf-8"))
                 paths[name] = str(path)
-            args = [sys.executable, str(SCRIPTS / script)] + [x.format(**paths) for x in options] + ["--json"]
+            args = [sys.executable, str(SCRIPTS / script)] + [next((value for name, value in paths.items() if x == "{" + name + "}"), x) for x in options] + ["--json"]
             proc = subprocess.run(args, capture_output=True, encoding="utf-8", text=True)
             self.assertTrue(proc.stdout, proc.stderr)
             return proc.returncode, json.loads(proc.stdout)
