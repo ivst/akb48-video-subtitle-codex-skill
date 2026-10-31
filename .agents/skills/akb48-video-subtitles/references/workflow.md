@@ -26,7 +26,7 @@ Review a spread of frames, plus each key title card, sign, result, and scene wit
 
 Minimum final checks, when the requested output includes a render:
 
-- Subtitle timestamps fall within the source duration; cues do not overlap unintentionally.
+- Subtitle timestamps fall within the source duration; cues do not overlap unintentionally. Supply source duration in seconds via `check_srt.py --duration` when validating an SRT track.
 - Main text and speaker labels fit at the actual video resolution and remain readable over busy scenes.
 - Final video decodes to completion; frame rate and duration match the source within expected encoder tolerance.
 - Audio stream is present and its packet hash matches the source if audio was meant to remain unchanged.

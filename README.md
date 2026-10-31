@@ -36,7 +36,27 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py
 python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogue.srt
 ```
 
+For a rendered ASS deliverable, require a working libass-enabled FFmpeg build with `python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass`. You can pass the video length to the SRT checker using `--duration 120` (seconds). SRT errors cause exit code 1; readability warnings are informational and exit 0.
+
 The included scripts use the Python standard library; no `pip install` step is needed. See the skill's [resource requirements](.agents/skills/akb48-video-subtitles/references/resources.md) for machine sizing and optional ASR/download tools.
+
+## Reproduce a synthetic ASS subtitle panel
+
+The repository includes [`examples/demo.ass`](examples/demo.ass): a **synthetic** layout with a speaker rail, background panel, and captions at 1920×1080. It contains no frames or translations from an AKB48 episode. After checking `--require-ass`, run the following from the repository root (requires FFmpeg's standard MPEG-4 encoder):
+
+```sh
+ffmpeg -f lavfi -i "color=c=0x263443:s=1920x1080:d=6:r=24" -vf "ass=examples/demo.ass" -c:v mpeg4 -q:v 5 -y demo-preview.mp4
+```
+
+The generated six-second MP4 is silent and intentionally synthetic. The demo gives a reproducible *style reference*, not a one-command speech recognition, translation, or finished-episode pipeline. Font substitution can change line metrics across systems; inspect the final frames when using real video. The original screenshots above are visual references, not part of the MIT-licensed assets.
+
+## Regression tests
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+Tests run in GitHub Actions on Ubuntu and Windows with Python 3.11 and 3.13. The checker does not evaluate translation accuracy or correct speaker identity. Its characters-per-second count includes visible spaces, strips simple formatting tags, decodes HTML entities, and excludes line breaks; adapt the threshold to the target language.
 
 ## Workflow
 
@@ -58,4 +78,4 @@ Only process and publish material you are authorized to use. Keep local episode 
 
 ## License
 
-See the [Codex skills guide](https://developers.openai.com/plugins/build/skills) for the skill format. Original documentation and scripts are MIT-licensed. Demonstration images and depicted program material are excluded; see [NOTICE](NOTICE) and [LICENSE](LICENSE).
+See the [Codex skills guide](https://developers.openai.com/plugins/build/skills) for the skill format. Original documentation, scripts, and the synthetic ASS demo are MIT-licensed. The third-party program screenshots and depicted material are **not** covered by MIT; see [NOTICE](NOTICE) and [LICENSE](LICENSE). GitHub's license detection does not establish permissions for third-party images.

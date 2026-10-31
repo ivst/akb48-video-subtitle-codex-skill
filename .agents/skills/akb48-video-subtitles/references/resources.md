@@ -26,7 +26,8 @@ Windows: install a recent FFmpeg build and add its `bin` directory to `PATH`. ma
 
 ```text
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py
-python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path/to/subtitles.srt
+python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass  # when rendering ASS
+python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path/to/subtitles.srt --duration 120
 ```
 
-No Python packages are needed for these two checks. If you installed the skill into the user skills directory instead of opening this repository, run each script by its path inside that installed skill folder. If optional ASR is installed, follow that project's current platform-specific instructions rather than assuming one CUDA setup works everywhere.
+No Python packages are needed for these checks. The duration flag is in seconds and should match the source video rather than the synthetic example. Exit 1 means validation failed; exit 2 means a command-line or file-reading problem for the SRT checker. Readability warnings do not fail validation. If you installed the skill into the user skills directory instead of opening this repository, run each script by its path inside that installed skill folder. If optional ASR is installed, follow that project's current platform-specific instructions rather than assuming one CUDA setup works everywhere.
