@@ -10,3 +10,5 @@
 - Review the actual Korean font/rendering for Hangul coverage and spacing. Use a Korean-capable sans-serif font; verify fallback fonts on the target system. Keep speaker colors paired with visible names and sufficient contrast.
 - Set reading-speed and line-width limits with the Korean reviewer; do not reuse a Latin-script character limit without checking actual frames.
 - This profile has not yet been reviewed by a Korean native speaker. Mark Korean-language outputs as draft until that review is contributed.
+
+**Member-name glossary:** `../../glossaries/members/ko.csv` contains 45 Korean community-reference spellings; 38 older names remain pending. The reference is not official or native-editor reviewed.

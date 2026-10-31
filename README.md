@@ -68,6 +68,19 @@ Tests run in GitHub Actions on Ubuntu and Windows with Python 3.11 and 3.13. The
 
 Read the skill's [workflow reference](.agents/skills/akb48-video-subtitles/references/workflow.md) and choose a profile from [language profiles](.agents/skills/akb48-video-subtitles/references/languages/README.md).
 
+## Multilingual member name glossaries
+
+The installed Codex skill bundles member-name CSV files for **all eight supported target languages** inside `.agents/skills/akb48-video-subtitles/glossaries/members/`. This keeps the names available when only the skill folder is installed.
+
+The 83 Japanese name keys cover selected current and historical AKB48 members, **not the entire 48 Group or a live roster**. Russian forms preserve the contributor's original `member_names.ja-ru.json`. Official AKB48 romanizations cover 45 names in English; historical Latin names need additional checking. Korean and Traditional Chinese have 45 community-reference forms, Simplified Chinese has 45 unreviewed derived forms, Spanish and Indonesian use explicit Latin-name fallbacks, and Thai spelling is pending.
+
+Each CSV row records its source, confidence, and review status. Read the [glossary guide](.agents/skills/akb48-video-subtitles/glossaries/README.md) before treating any name as approved. The lookup tool produces machine-readable results:
+
+```sh
+python .agents/skills/akb48-video-subtitles/scripts/lookup_member.py --locale ru "武藤小麟"
+```
+
+The lookup also supports `--strict` (trusted only) and `--allow-fallback` (explicitly labeled Latin fallback). Episode-specific contributor glossaries take precedence.
 ## Resource requirements
 
 For a typical 1080p, 20–40 minute episode, 8 GB RAM and a recent 4-core CPU are a workable baseline; 16 GB RAM and 6–8 cores are more comfortable for local ASR. Keep roughly 10 GB free for source, intermediates, output, and backup. GPU acceleration is optional. 4K or high-bitrate media may need substantially more disk and memory. These are planning estimates; actual use depends on codec, ASR model, and encoder.
