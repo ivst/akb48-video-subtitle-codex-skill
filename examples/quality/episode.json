@@ -1,0 +1,24 @@
+{
+  "episode_id": "synthetic-demo",
+  "locale": "ru",
+  "source_locale": "ja",
+  "duration_seconds": 14,
+  "glossary_revision": "synthetic-demo-v1",
+  "names": {
+    "武藤小麟": {
+      "target": "Муто Орин",
+      "aliases": [
+        "Орин"
+      ],
+      "forbidden": [
+        "Муто Олин"
+      ]
+    },
+    "岡田奈々": {
+      "target": "Окада Нана",
+      "forbidden": [
+        "Окада Нанна"
+      ]
+    }
+  }
+}

@@ -103,3 +103,14 @@ Only process and publish material you are authorized to use. Keep local episode 
 ## License
 
 See the [Codex skills guide](https://developers.openai.com/plugins/build/skills) for the skill format. Original documentation, scripts, and the synthetic ASS demo are MIT-licensed. The third-party program screenshots and depicted material are **not** covered by MIT; see [NOTICE](NOTICE) and [LICENSE](LICENSE). GitHub's license detection does not establish permissions for third-party images.
+
+## Quality checks for translated SRT
+
+Translation accuracy still requires an editor, but the bundled scripts flag suspicious Japanese text and check name consistency. The `--profile ru` reading profile has a **700 ms minimum** review threshold and a **900 ms preferred** target; neither is a hard linguistic rule. CPS includes visible spaces.
+
+```sh
+python .agents/skills/akb48-video-subtitles/scripts/check_srt.py examples/quality/ru.srt --profile ru --duration 14 --json
+python .agents/skills/akb48-video-subtitles/scripts/check_names.py --source examples/quality/ja.srt --target examples/quality/ru.srt --members .agents/skills/akb48-video-subtitles/glossaries/members/ru.csv --episode examples/quality/episode.json --json
+```
+
+For suspected untranslated Japanese, set `--target-lang ru` (enabled by `--profile ru`), and optionally `--strict-japanese`. Kanji are also used in Chinese and may appear as titles, so detection is deliberately **heuristic**, with `--allow-japanese` for approved expressions. For intentionally simultaneous SRT cues, `--allow-overlap` downgrades overlap to warnings. `check_names.py` flags unconfirmed translated names as warnings unless `--strict` is set, to avoid penalizing natural pronouns and nicknames. Explicit forbidden name variants are errors. Neither tool establishes semantic translation completeness.

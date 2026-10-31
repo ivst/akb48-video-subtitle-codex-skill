@@ -1,0 +1,9 @@
+{
+  "locale": "ru",
+  "min_duration_ms": 700,
+  "preferred_duration_ms": 900,
+  "max_duration_ms": 10000,
+  "max_cps": 23,
+  "max_lines": 2,
+  "notes": "Advisory thresholds: brief reactions and staged dialogue may be shorter/longer. The 900-ms preference comes from an episode practice, not a universal rule."
+}

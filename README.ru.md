@@ -83,3 +83,14 @@ python .agents/skills/akb48-video-subtitles/scripts/lookup_term.py --locale ru "
 ## Лицензия
 
 Оригинальная документация и скрипты доступны по MIT. Изображения и показанные в них материалы программы исключены из лицензии; см. [NOTICE](NOTICE) и [LICENSE](LICENSE).
+
+## Контроль русского перевода
+
+Добавлены проверка оставшегося японского текста, минимальной/максимальной длительности, допустимых перекрытий и обратная проверка написаний участниц. Для русского профиля **700 мс — минимальный ориентир**, **900 мс — предпочтительная длительность** (не универсальное правило). CPS включает видимые пробелы.
+
+```powershell
+python .agents/skills/akb48-video-subtitles/scripts/check_srt.py examples/quality/ru.srt --profile ru --duration 14 --json
+python .agents/skills/akb48-video-subtitles/scripts/check_names.py --source examples/quality/ja.srt --target examples/quality/ru.srt --episode examples/quality/episode.json --json
+```
+
+Проверки японского письма эвристические: иероглифы допустимы в китайском, а названия песен и имена могут сохраняться на японском. Настройки: `--strict-japanese`, повторяемый `--allow-japanese`, `--allow-overlap`. `check_names.py` учитывает временные интервалы и варианты имён. Пропуск полного имени считается предупреждением (местоимение может быть переводчески правильным), запрещённые варианты — ошибкой.
