@@ -8,4 +8,4 @@
 - Follow Chinese punctuation and line breaks. Review CJK reading speed and avoid splitting names or fixed expressions.
 - Verify CJK font coverage and actual rendering, including punctuation and embedded Japanese text.
 
-**Member-name glossary:** `../../glossaries/members/zh-Hans.csv` has 45 converted forms derived from a Traditional Chinese community reference. They need native review, while 38 older member forms remain pending.
+**Member-name glossary:** `../../glossaries/members/zh-Hans.csv` has 83 unreviewed Simplified Chinese name forms derived from Traditional Chinese community usages, including 38 historical names. All need native review.

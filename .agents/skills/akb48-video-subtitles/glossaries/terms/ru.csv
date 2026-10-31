@@ -1,0 +1,36 @@
+term_id,source_ja,source_reading,target_locale,target_form,category,source_url,target_reference_url,review_status,reviewer,reviewed_on,notes
+oshi-men,推しメン,oshimen,ru,ошимен (любимая участница),fandom,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,The member a fan primarily supports.
+kami-oshi,神推し,kami-oshi,ru,ками-оши (главная любимица),fandom,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,A fan's strongest personal favorite.
+oshi-hen,推し変,oshi-hen,ru,смена ошимена,fandom,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,Changing which member is favored.
+hako-oshi,箱推し,hako-oshi,ru,фанат всей группы,fandom,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,Supporting a group rather than one specific member.
+dd,DD,DD,ru,DD (нравятся все),fandom,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,Fandom acronym meaning dare demo daisuki; not a formal role.
+graduation,卒業,sotsugyō,ru,уход из группы (сотсугё),membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Leaving the idol group; not necessarily retiring from entertainment.
+graduation-announcement,卒業発表,sotsugyō happyō,ru,объявление об уходе,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,An announcement of a member's future departure.
+graduation-stage,卒業公演,sotsugyō kōen,ru,прощальное выступление в театре,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Do not conflate with a large graduation concert.
+graduation-concert,卒業コンサート,sotsugyō konsāto,ru,прощальный концерт,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Larger concert distinct from a theater graduation performance.
+trainee,研究生,kenkyūsei,ru,кэнкюсэй (стажёрка),membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,A trainee member category; not a student in a school.
+regular-member,正規メンバー,seiki menbā,ru,основная участница,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Full member category as distinct from a trainee.
+promotion,昇格,shōkaku,ru,повышение до основного состава,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Typically a trainee becoming a regular member.
+senbatsu,選抜,senbatsu,ru,сэмбацу (выбранный состав),music,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Selected members for a specific song or release; distinct from an election.
+center,センター,sentā,ru,центр (центральная участница),music,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,A performance/formation role not an administrative title.
+election,選抜総選挙,senbatsu sōsenkyo,ru,выборы сэмбацу (сосэнкё),historical,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,Historical fan-vote event; never imply it is a current annual practice.
+kami-seven,神7,kami sebun,ru,Ками-7 (семёрка лидеров),historical,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,Context-specific historical top seven; not a fixed roster across all years.
+under-girls,アンダーガールズ,andā gāruzu,ru,Under Girls (андер-гёрлз),historical,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,Named song or election unit; do not translate as literally underground girls.
+theater-performance,劇場公演,gekijō kōen,ru,театральное выступление,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,A regular performance in the group's dedicated theater.
+birthday-stage,生誕祭,seitansai,ru,сэйтансай (праздник дня рождения),performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,A birthday-themed theater event; differs from the person's actual birth date.
+final-performance,千秋楽,senshūraku,ru,заключительный спектакль постановки,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,End of a production's run; not necessarily a member graduation.
+first-performance,初日,shonichi,ru,премьерный показ,performance,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,First performance of a particular stage or setlist.
+unit-song,ユニット曲,yunitto kyoku,ru,юнит-песня (номер малой группы),music,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,A song performed by a smaller subset within a stage.
+handshake,握手会,akushukai,ru,встреча с рукопожатиями,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Meet-and-greet with actual handshakes; format subject to current rules.
+individual-handshake,個別握手会,kobetsu akushukai,ru,индивидуальная встреча с рукопожатиями,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,A specific ticketed or member-specific handshake event.
+group-handshake,グループ握手会,gurūpu akushukai,ru,групповая встреча с рукопожатиями,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Distinct from individual handshake events.
+online-talk,オンラインお話し会,onrain ohanashikai,ru,онлайн-разговор с участницей,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Video or online conversation; not an in-person handshake.
+two-shot,2ショット写真会,tsū shotto shashinkai,ru,двухместное фото (2-shot),event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,A photo with a member; venue-specific rules apply.
+autograph,サイン会,sainkai,ru,автограф-сессия,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Autograph event; may have different ticket rules.
+sendoff,お見送り,omiokuri,ru,проводы после выступления,event,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Member-to-audience send-off; context determines exact format.
+generation,期生,kisei,ru,набор (поколение участниц),membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Members who joined in the same audition intake.
+concurrent,兼任,kennin,ru,совмещение участия в группах,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Formal simultaneous affiliation; distinguish from transfer.
+transfer,移籍,iseki,ru,переход в другую группу,membership,https://www.akb48.co.jp/modal/tutorial.php?h=92,,editorial_draft,,,Leaving one formal group or team for another.
+reorganization,組閣,sokaku,ru,переформирование команд (сокаку),historical,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,Historical team-system reshuffle; current structure can differ.
+fan-call,コール,kōru,ru,фанатские кричалки (коллы),fandom,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,Chanted names or phrases at performances.
+penlight,ペンライト,penraito,ru,световая палочка,fandom,https://www.universal-music.co.jp/akb48/biography/,,editorial_draft,,,Handheld audience light; not necessarily a chemical glowstick.

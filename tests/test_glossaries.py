@@ -59,8 +59,8 @@ class GlossaryTests(unittest.TestCase):
     def test_profile_coverage(self):
         for locale, populated, status in (
             ("en", 83, None), ("ru", 83, None),
-            ("ko", 45, "community_reference"), ("zh-Hant", 45, "community_reference"),
-            ("zh-Hans", 45, "derived_unreviewed"),
+            ("ko", 83, "community_reference"), ("zh-Hant", 83, "community_reference"),
+            ("zh-Hans", 83, "derived_unreviewed"),
             ("es-419", 83, "romanized_fallback"), ("id", 83, "romanized_fallback"),
             ("th", 0, "pending_native_review"),
         ):
@@ -69,6 +69,24 @@ class GlossaryTests(unittest.TestCase):
                 self.assertEqual(sum(bool(r["target_form"]) for r in rows), populated)
                 if status is not None:
                     self.assertTrue(all(r["review_status"] == status for r in rows if r["target_form"] or locale == "th"))
+
+    def test_historical_forms_are_sourced_without_changing_russian(self):
+        historical = {
+            "宮澤佐江": ("미야자와 사에", "宮澤佐江", "宫泽佐江"),
+            "高橋みなみ": ("타카하시 미나미", "高橋南", "高桥南"),
+            "岡田奈々": ("오카다 나나", "岡田奈奈", "冈田奈奈"),
+            "矢吹奈子": ("야부키 나코", "矢吹奈子", "矢吹奈子"),
+        }
+        indexed = {locale: {r["source_ja"]: r for r in self.content[locale]}
+                   for locale in LOCALES}
+        for ja, expected in historical.items():
+            for locale, value in zip(("ko", "zh-Hant", "zh-Hans"), expected):
+                row = indexed[locale][ja]
+                with self.subTest(locale=locale, ja=ja):
+                    self.assertEqual(row["target_form"], value)
+                    self.assertTrue(row["source_url"])
+                    self.assertIn(row["review_status"], {"community_reference", "derived_unreviewed"})
+        self.assertIn("former NGT48", indexed["ko"]["荻野由佳"]["notes"])
 
     def test_official_english_form(self):
         self.assertEqual(self.content["en"][14]["target_form"], "Orin Muto")

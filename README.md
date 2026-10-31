@@ -72,7 +72,7 @@ Read the skill's [workflow reference](.agents/skills/akb48-video-subtitles/refer
 
 The installed Codex skill bundles member-name CSV files for **all eight supported target languages** inside `.agents/skills/akb48-video-subtitles/glossaries/members/`. This keeps the names available when only the skill folder is installed.
 
-The 83 Japanese name keys cover selected current and historical AKB48 members, **not the entire 48 Group or a live roster**. Russian forms preserve the contributor's original `member_names.ja-ru.json`. Official AKB48 romanizations cover 45 names in English; historical Latin names need additional checking. Korean and Traditional Chinese have 45 community-reference forms, Simplified Chinese has 45 unreviewed derived forms, Spanish and Indonesian use explicit Latin-name fallbacks, and Thai spelling is pending.
+The 83 Japanese name keys cover selected current and historical AKB48 / 48 Group members, **not the entire 48 Group or a live roster**. Some historical entries belong to sister groups (for example former NGT48 member 荻野由佳), not AKB48 itself. Russian forms preserve the contributor's original `member_names.ja-ru.json`. Official AKB48 romanizations cover 45 names in English; historical Latin names need additional checking. Korean and Traditional Chinese now have 83 community-reference forms each, Simplified Chinese has 83 unreviewed derived forms, Spanish and Indonesian use explicit Latin-name fallbacks, and Thai spelling is pending.
 
 Each CSV row records its source, confidence, and review status. Read the [glossary guide](.agents/skills/akb48-video-subtitles/glossaries/README.md) before treating any name as approved. The lookup tool produces machine-readable results:
 
@@ -81,6 +81,17 @@ python .agents/skills/akb48-video-subtitles/scripts/lookup_member.py --locale ru
 ```
 
 The lookup also supports `--strict` (trusted only) and `--allow-fallback` (explicitly labeled Latin fallback). Episode-specific contributor glossaries take precedence.
+
+## AKB48 terms for subtitles
+
+The skill also bundles **35 recurring terms** in eight locale files (`glossaries/terms/{locale}.csv`), covering oshimen, senbatsu, graduation, theater stages, handshakes, online talks, and other AKB48 conventions. Russian and six other target languages contain *editorial drafts*, not user-approved or fluent-reviewed translations; Thai entries remain explicitly pending. The member-name JSON is **not** used as a source for terminology. See the [terminology guide](.agents/skills/akb48-video-subtitles/glossaries/terms/README.md).
+
+```sh
+python .agents/skills/akb48-video-subtitles/scripts/lookup_term.py --locale ru "選抜"
+```
+
+The CLI reports each term's review status and semantic caveat to prevent confusing, for example, `卒業公演` with `卒業コンサート`.
+
 ## Resource requirements
 
 For a typical 1080p, 20–40 minute episode, 8 GB RAM and a recent 4-core CPU are a workable baseline; 16 GB RAM and 6–8 cores are more comfortable for local ASR. Keep roughly 10 GB free for source, intermediates, output, and backup. GPU acceleration is optional. 4K or high-bitrate media may need substantially more disk and memory. These are planning estimates; actual use depends on codec, ASR model, and encoder.
