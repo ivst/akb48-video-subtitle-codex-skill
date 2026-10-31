@@ -1,0 +1,4 @@
+interface:
+  display_name: "AKB48 Video Subtitles"
+  short_description: "Translate and review AKB48 video subtitles"
+  default_prompt: "Use $akb48-video-subtitles to work on this AKB48 video. Target language: [language]. Requested outputs: [SRT, ASS, rendered video]. Source: [local file or URL]."

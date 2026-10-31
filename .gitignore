@@ -1,0 +1,12 @@
+__pycache__/
+.venv/
+venv/
+outputs/
+work/
+*.mp4
+*.mkv
+*.mov
+*.wav
+*.mp3
+*.jsonl
+.env

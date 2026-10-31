@@ -1,0 +1,61 @@
+# AKB48 Video Subtitle Skill for Codex
+
+[English](README.md) · [Русский](README.ru.md) · [한국어](README.ko.md) · [Español (LatAm)](README.es-419.md) · [Bahasa Indonesia](README.id.md) · [ไทย](README.th.md) · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
+
+Localized README files are community-ready drafts and should be reviewed by fluent speakers before being treated as authoritative.
+
+
+A reusable workflow for translating and subtitling AKB48 and 48 Group videos. It helps Codex keep dialogue, speaker attribution, songs, and on-screen text organized; use verified name spellings; and check subtitle and rendered-video deliverables.
+
+The repository contains a Codex skill, language-profile starters, a basic SRT checker, setup notes, and two visual examples from recent Russian-localized episodes. Russian reflects a workflow used on full episodes. Korean is a draft pending fluent-speaker review; the other language profiles are starter guidance for contributors.
+
+## Preview
+
+**Episode 12 — speaker label and compact subtitle panel** ([source video](https://www.youtube.com/watch?v=aPznmLtjedw))
+
+![Episode 12 subtitle example](examples/preview-episode-12.jpg)
+
+**Episode 13 — compact panel during the final handshake segment** ([source video](https://www.youtube.com/watch?v=mHF3TEk6lwQ))
+
+![Episode 13 subtitle example](examples/preview-episode-13.jpg)
+
+These are illustrative frames from the source programs. The underlying footage, logos, and performers remain the property of their respective rights holders. This repository does not include the videos or full episode subtitle files.
+
+## Use with Codex
+
+Clone the repository and open its folder in Codex. The skill is in `.agents/skills/akb48-video-subtitles/`; Codex can discover it as a project skill. For other projects, copy that folder into your Codex skills directory (usually `%USERPROFILE%\.codex\skills\akb48-video-subtitles` on Windows or `$CODEX_HOME/skills/akb48-video-subtitles` when configured). Start a new Codex session after installing.
+
+Invoke it with `$akb48-video-subtitles`, or ask Codex to translate or review an AKB48 video and specify the target language and requested files. Supply the local source file or an authorized source, a cast/name list if available, and the desired deliverables. No API key is required for the documented workflow.
+
+## Quick setup
+
+Required: Python 3.11+, FFmpeg, and FFprobe. ASS rendering needs FFmpeg built with libass support. Install FFmpeg using your operating system's package manager and make `ffmpeg` and `ffprobe` available on `PATH`.
+
+```powershell
+python .agents/skills/akb48-video-subtitles/scripts/check_environment.py
+python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogue.srt
+```
+
+The included scripts use the Python standard library; no `pip install` step is needed. See the skill's [resource requirements](.agents/skills/akb48-video-subtitles/references/resources.md) for machine sizing and optional ASR/download tools.
+
+## Workflow
+
+1. Verify the Japanese source transcript and capture signs, titles, rules, and results separately.
+2. Translate into the requested language using its profile and a reviewed episode glossary.
+3. Attribute speakers only when evidence supports it; leave ambiguous reactions neutral.
+4. Create portable SRT, styled ASS, and/or rendered MP4 as requested.
+5. Review frames throughout the episode and inspect the final render. Check decode, timing, packaging, and audio preservation when applicable.
+
+Read the skill's [workflow reference](.agents/skills/akb48-video-subtitles/references/workflow.md) and choose a profile from [language profiles](.agents/skills/akb48-video-subtitles/references/languages/README.md).
+
+## Resource requirements
+
+For a typical 1080p, 20–40 minute episode, 8 GB RAM and a recent 4-core CPU are a workable baseline; 16 GB RAM and 6–8 cores are more comfortable for local ASR. Keep roughly 10 GB free for source, intermediates, output, and backup. GPU acceleration is optional. 4K or high-bitrate media may need substantially more disk and memory. These are planning estimates; actual use depends on codec, ASR model, and encoder.
+
+## Rights and privacy
+
+Only process and publish material you are authorized to use. Keep local episode transcripts, full subtitle files, credentials, cookies, and private glossaries out of public pull requests unless they are licensed for redistribution. The demonstration frames show subtitle layout; rights in the underlying program material remain with its owners.
+
+## License
+
+See the [Codex skills guide](https://developers.openai.com/plugins/build/skills) for the skill format. Original documentation and scripts are MIT-licensed. Demonstration images and depicted program material are excluded; see [NOTICE](NOTICE) and [LICENSE](LICENSE).

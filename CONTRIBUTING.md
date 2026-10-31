@@ -1,0 +1,11 @@
+# Contributing
+
+Language packs and review notes are welcome. Before adding a target-language profile:
+
+1. Start from `.agents/skills/akb48-video-subtitles/references/languages/` and state the intended locale and review status.
+2. Record name forms with a Japanese source form, approved target form, source/reference, and reviewer/date. Do not add guessed member spellings.
+3. Keep examples synthetic unless the contributor has permission to publish the source material and translation.
+4. Have a fluent editor review speech levels, address terms, idioms, typography, line breaks, and reading speed in actual frames.
+5. Mark unresolved choices as draft; do not present machine output as native-reviewed.
+
+For code changes, run `python .agents/skills/akb48-video-subtitles/scripts/check_environment.py` and `python .agents/skills/akb48-video-subtitles/scripts/check_srt.py examples/demo.srt`. Do not include videos, full episode subtitle files, credentials, cookies, or private fan glossaries in pull requests.

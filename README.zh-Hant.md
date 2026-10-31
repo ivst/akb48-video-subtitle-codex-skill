@@ -1,0 +1,61 @@
+# AKB48 影片字幕 Codex Skill
+
+[English](README.md) · [Русский](README.ru.md) · [한국어](README.ko.md) · [Español (LatAm)](README.es-419.md) · [Bahasa Indonesia](README.id.md) · [ไทย](README.th.md) · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
+
+**本中文文件為翻譯初稿，正式使用前建議由中文母語者審校。**
+
+
+用於翻譯及製作 AKB48 與 48 Group 影片字幕的可重複工作流程。它協助 Codex 區分對白、說話者標示、歌曲與畫面文字，核對姓名拼法，並檢查字幕及渲染後的影片。
+
+本儲存庫包含 Codex Skill、語言設定初稿、基本 SRT 檢查工具、安裝說明，以及兩張近期俄文翻譯影片的效果示例。俄文設定來自完整節目的製作流程；韓文設定仍是草稿，需要韓語母語者審閱；其他語言設定則是供貢獻者完善的起點。
+
+## 預覽
+
+**第 12 集——說話者標籤與精簡字幕面板**（[來源影片](https://www.youtube.com/watch?v=aPznmLtjedw)）
+
+![第 12 集字幕示例](examples/preview-episode-12.jpg)
+
+**第 13 集——最終握手環節的精簡字幕面板**（[來源影片](https://www.youtube.com/watch?v=mHF3TEk6lwQ)）
+
+![第 13 集字幕示例](examples/preview-episode-13.jpg)
+
+這些是節目畫面的示例影格。原始影片、標誌與演出者均屬於各自的權利人。本儲存庫不提供影片或完整集數的字幕檔。
+
+## 在 Codex 中使用
+
+複製儲存庫並在 Codex 中開啟資料夾。Skill 位於 `.agents/skills/akb48-video-subtitles/`，可作為專案 Skill 被發現。若要用於其他專案，請將該資料夾複製到 Codex 使用者 Skill 目錄（Windows 通常是 `%USERPROFILE%\.codex\skills\akb48-video-subtitles`；若設定 `CODEX_HOME`，則是 `$CODEX_HOME/skills/akb48-video-subtitles`）。安裝後請重新啟動 Codex 工作階段。
+
+使用 `$akb48-video-subtitles` 呼叫，或請 Codex 翻譯/審閱 AKB48 影片，並指定目標語言與需要的檔案。請提供本機影片或已獲授權的來源、成員/姓名清單（若有）以及輸出格式。本文所述流程不需要 API 金鑰。
+
+## 快速設定
+
+需要 Python 3.11 以上版本、FFmpeg 與 FFprobe。渲染 ASS 需要包含 libass 的 FFmpeg 建置版本。透過作業系統的套件管理器安裝 FFmpeg，並確保 `ffmpeg` 和 `ffprobe` 已加入 `PATH`。
+
+```powershell
+python .agents/skills/akb48-video-subtitles/scripts/check_environment.py
+python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogue.srt
+```
+
+內附腳本只使用 Python 標準函式庫，不需 `pip install`。硬體配置及可選 ASR/下載工具請參閱[資源需求](.agents/skills/akb48-video-subtitles/references/resources.md)。
+
+## 工作流程
+
+1. 核對日文對白，並分開整理標牌、標題、規則和結果文字。
+2. 依據所選語言設定及已審閱的單集詞彙表翻譯。
+3. 只有在證據充分時才標示說話者；不確定的反應使用中性標示。
+4. 按需求產生通用 SRT、具樣式的 ASS 和/或 MP4。
+5. 抽查整集不同位置的畫面並檢查最終成品；適用時檢查解碼、時間軸、封裝及音訊保留情形。
+
+詳見[工作流程說明](.agents/skills/akb48-video-subtitles/references/workflow.md)及[語言設定](.agents/skills/akb48-video-subtitles/references/languages/README.md)。
+
+## 資源需求
+
+一般 1080p、20–40 分鐘影片可從 8 GB 記憶體及較新的 4 核心 CPU 開始；若要在本機執行 ASR，16 GB 記憶體及 6–8 核心會較舒適。建議預留約 10 GB 空間存放來源、中間檔、成品及備份。GPU 加速為選用。4K 或高位元率影片可能需要更多磁碟與記憶體。以上為規劃估算，實際使用量取決於編碼格式、ASR 模型及編碼器。
+
+## 權利與隱私
+
+只處理及發布你有權使用的素材。未取得再散布許可前，請勿在公開 Pull Request 中加入單集逐字稿、完整字幕、憑證、Cookie 或私人詞彙表。示例影格用於展示字幕版面；節目素材的權利仍屬於其所有者。
+
+## 授權條款
+
+原創文件與腳本採用 MIT 授權。示例圖片及其中呈現的節目素材不包含在此授權內，請參閱 [NOTICE](NOTICE) 與 [LICENSE](LICENSE)。

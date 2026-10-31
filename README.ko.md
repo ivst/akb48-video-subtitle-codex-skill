@@ -1,0 +1,61 @@
+# Codex용 AKB48 영상 자막 Skill
+
+[English](README.md) · [Русский](README.ru.md) · [한국어](README.ko.md) · [Español (LatAm)](README.es-419.md) · [Bahasa Indonesia](README.id.md) · [ไทย](README.th.md) · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
+
+**한국어 안내문은 초안이며, 배포 전에 한국어 모어 화자의 검토가 필요합니다.**
+
+
+AKB48 및 48 Group 영상의 번역과 자막 작업을 위한 재사용 가능한 워크플로입니다. 대사, 화자 표시, 노래, 화면 속 문구를 구분하고, 확인된 이름 표기를 사용하며, 자막과 렌더링 결과를 점검하도록 Codex를 안내합니다.
+
+저장소에는 Codex Skill, 언어 프로필 초안, 기본 SRT 검사기, 설치 안내와 최근 러시아어 번역 영상의 예시 화면 두 장이 포함되어 있습니다. 러시아어 프로필은 전체 영상 작업에 사용한 절차를 바탕으로 합니다. 한국어 프로필은 아직 초안이므로 실제 사용 전에 한국어 모어 화자의 검토가 필요합니다. 다른 프로필도 기여자가 다듬을 시작점입니다.
+
+## 미리보기
+
+**12화 — 화자 이름과 간결한 자막 패널** ([원본 영상](https://www.youtube.com/watch?v=aPznmLtjedw))
+
+![12화 자막 예시](examples/preview-episode-12.jpg)
+
+**13화 — 악수 장면의 간결한 자막 패널** ([원본 영상](https://www.youtube.com/watch?v=mHF3TEk6lwQ))
+
+![13화 자막 예시](examples/preview-episode-13.jpg)
+
+프로그램 화면을 설명하기 위해 넣은 예시 이미지입니다. 원본 영상, 로고, 출연자의 권리는 각 권리자에게 있습니다. 이 저장소에는 영상 파일이나 전체 회차 자막 파일이 포함되어 있지 않습니다.
+
+## Codex에서 사용하기
+
+저장소를 복제한 뒤 Codex에서 폴더를 엽니다. Skill은 `.agents/skills/akb48-video-subtitles/`에 있으며 프로젝트 Skill로 찾을 수 있습니다. 다른 프로젝트에서도 사용하려면 해당 폴더를 Codex 사용자 Skill 경로에 복사하세요. Windows의 기본 경로는 보통 `%USERPROFILE%\.codex\skills\akb48-video-subtitles`이고, `CODEX_HOME`을 설정한 경우 `$CODEX_HOME/skills/akb48-video-subtitles`입니다. 설치 후 새 Codex 세션을 시작하세요.
+
+`$akb48-video-subtitles`를 호출하거나, 번역 대상 언어와 필요한 파일을 지정해 AKB48 영상 번역 또는 검토를 요청하세요. 로컬 영상 또는 사용 권한이 있는 출처, 출연자/이름 목록(있는 경우), 원하는 출력 형식을 제공하면 됩니다. 안내된 기본 과정에는 API 키가 필요하지 않습니다.
+
+## 빠른 설정
+
+Python 3.11 이상, FFmpeg, FFprobe가 필요합니다. ASS 렌더링에는 libass가 포함된 FFmpeg 빌드가 필요합니다. 운영체제 패키지 관리자로 FFmpeg를 설치하고 `ffmpeg`, `ffprobe`를 `PATH`에서 실행할 수 있게 하세요.
+
+```powershell
+python .agents/skills/akb48-video-subtitles/scripts/check_environment.py
+python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogue.srt
+```
+
+포함된 스크립트는 Python 표준 라이브러리만 사용합니다. 추가 `pip install`은 필요하지 않습니다. 자세한 내용은 [리소스 요구 사항](.agents/skills/akb48-video-subtitles/references/resources.md)을 참고하세요.
+
+## 작업 흐름
+
+1. 일본어 대사를 확인하고 화면 문구, 제목, 규칙, 결과를 별도로 기록합니다.
+2. 선택한 언어 프로필과 검토된 회차별 용어집을 사용해 번역합니다.
+3. 근거가 충분할 때만 화자를 표시하고, 불확실한 반응은 중립적으로 둡니다.
+4. 요청에 따라 SRT, 스타일이 적용된 ASS 및/또는 MP4를 만듭니다.
+5. 영상 전체에서 대표 장면을 살펴보고 최종 렌더를 확인합니다. 필요한 경우 디코딩, 타이밍, 패키지와 음성 보존도 점검합니다.
+
+자세한 내용은 [작업 지침](.agents/skills/akb48-video-subtitles/references/workflow.md)과 [언어 프로필](.agents/skills/akb48-video-subtitles/references/languages/README.md)을 확인하세요.
+
+## 컴퓨터 사양
+
+1080p, 20~40분 영상 기준으로 RAM 8GB와 최근 4코어 CPU면 기본 자막 편집 및 CPU 인코딩을 시작할 수 있습니다. 로컬 음성 인식을 함께 사용할 경우 RAM 16GB와 6~8코어가 더 쾌적합니다. 원본, 임시 파일, 출력본과 백업을 위해 약 10GB 이상의 여유 공간을 확보하세요. GPU는 선택 사항입니다. 4K 또는 고비트레이트 영상에는 더 많은 자원이 필요할 수 있습니다. 실제 사용량은 코덱, 인식 모델, 인코더에 따라 달라지는 예상치입니다.
+
+## 권리와 개인정보
+
+사용 및 공개가 허용된 자료만 처리하고 게시하세요. 공개 Pull Request에 권한이 확인되지 않은 회차별 대본, 전체 자막, 인증 정보, 쿠키 또는 개인 용어집을 넣지 마세요. 예시 이미지는 자막 배치를 보여주기 위한 것이며, 원 프로그램의 권리는 각 권리자에게 있습니다.
+
+## 라이선스
+
+직접 작성한 문서와 스크립트는 MIT 라이선스를 따릅니다. 예시 이미지와 그 안의 프로그램 자료는 라이선스에서 제외됩니다. [NOTICE](NOTICE)와 [LICENSE](LICENSE)를 확인하세요.
