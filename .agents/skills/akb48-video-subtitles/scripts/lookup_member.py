@@ -47,20 +47,20 @@ def main(argv: list[str] | None = None) -> int:
 
     record = find(args.japanese_name, args.locale)
     if record is None:
-        print(json.dumps({"error": "unknown_member", "query": args.japanese_name}, ensure_ascii=False))
+        print(json.dumps({"error": "unknown_member", "query": args.japanese_name}, ensure_ascii=True))
         return 1
 
     target = record["target_form"]
     status = record["review_status"]
     if args.strict and status not in APPROVED_STATUSES:
         print(json.dumps({"error": "unapproved_spelling", "source_ja": record["source_ja"],
-                          "review_status": status}, ensure_ascii=False))
+                          "review_status": status}, ensure_ascii=True))
         return 1
     fallback = False
     if not target:
         if not args.allow_fallback:
             print(json.dumps({"error": "pending_native_review", "source_ja": record["source_ja"],
-                              "fallback_romaji": record["source_romaji"]}, ensure_ascii=False))
+                              "fallback_romaji": record["source_romaji"]}, ensure_ascii=True))
             return 1
         target = record["source_romaji"]
         status = "romanized_fallback"
@@ -73,7 +73,7 @@ def main(argv: list[str] | None = None) -> int:
         "source_url": record["source_url"] or None,
         "is_unverified_fallback": fallback or status in
         {"secondary_romanization_draft", "derived_unreviewed", "romanized_fallback"},
-    }, ensure_ascii=False))
+    }, ensure_ascii=True))
     return 0
 
 
