@@ -35,7 +35,7 @@ class SRTTests(unittest.TestCase):
     def run_srt(self, content: str, *flags: str):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "example.srt"
-            path.write_text(content, encoding="utf-8")
+            path.write_bytes(content.encode("utf-8"))
             return subprocess.run([sys.executable, str(SCRIPTS / "check_srt.py"), str(path), *flags], text=True, capture_output=True)
 
     def test_valid_demo(self):
