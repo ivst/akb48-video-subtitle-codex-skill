@@ -107,7 +107,7 @@ def main(argv: list[str] | None = None) -> int:
     for name in sorted(unknown_overrides):
         warnings.append(f"episode override for unknown member {name}")
     result = report("check_names", args.target, errors, warnings,
-                    source=str(args.source), members=str(args.members), names=details,
+                    source_file=str(args.source), members=str(args.members), names=details,
                     explicit_japanese_mentions_only=True)
     emit(result, args.json)
     return 1 if errors else 0
