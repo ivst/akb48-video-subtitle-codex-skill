@@ -1,0 +1,24 @@
+[Script Info]
+Title: Synthetic AKB-style subtitle layout demo (no show footage)
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,DejaVu Sans,46,&H00222222,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: Speaker,DejaVu Sans,35,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: Panel,DejaVu Sans,10,&H00F5F5F5,&H000000FF,&H00F5F5F5,&H00F5F5F5,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.00,0:00:03.00,Panel,,0,0,0,,{\an7\pos(110,860)\p1\1c&H00F5F5F5&}m 0 0 l 1700 0 1700 170 0 170{\p0}
+Dialogue: 1,0:00:01.00,0:00:03.00,Panel,,0,0,0,,{\an7\pos(110,860)\p1\1c&H00A27741&}m 0 0 l 230 0 230 170 0 170{\p0}
+Dialogue: 2,0:00:01.00,0:00:03.00,Speaker,,0,0,0,,{\an5\pos(225,945)}HOST
+Dialogue: 2,0:00:01.00,0:00:03.00,Caption,,0,0,0,,{\an4\pos(370,945)}Welcome back!\NWho's ready?
+Dialogue: 0,0:00:03.20,0:00:05.00,Panel,,0,0,0,,{\an7\pos(110,860)\p1\1c&H00F5F5F5&}m 0 0 l 1700 0 1700 170 0 170{\p0}
+Dialogue: 1,0:00:03.20,0:00:05.00,Panel,,0,0,0,,{\an7\pos(110,860)\p1\1c&H00875A9D&}m 0 0 l 230 0 230 170 0 170{\p0}
+Dialogue: 2,0:00:03.20,0:00:05.00,Speaker,,0,0,0,,{\an5\pos(225,945)}GUEST
+Dialogue: 2,0:00:03.20,0:00:05.00,Caption,,0,0,0,,{\an4\pos(370,945)}I am! Let's do this.

@@ -9,3 +9,5 @@ Language packs and review notes are welcome. Before adding a target-language pro
 5. Mark unresolved choices as draft; do not present machine output as native-reviewed.
 
 For code changes, run `python .agents/skills/akb48-video-subtitles/scripts/check_environment.py` and `python .agents/skills/akb48-video-subtitles/scripts/check_srt.py examples/demo.srt`. Do not include videos, full episode subtitle files, credentials, cookies, or private fan glossaries in pull requests.
+
+Run `python -m unittest discover -s tests -v` before submitting helper-script changes. The test suite mocks external tool calls and does not require FFmpeg. When changing `examples/demo.ass`, verify an actual synthetic FFmpeg render on a libass-enabled build; do not add unlicensed program frames to this test fixture.
