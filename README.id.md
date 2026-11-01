@@ -24,9 +24,13 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 ## Contoh prompt
 
 ```text
-Gunakan $akb48-video-subtitles untuk menerjemahkan [path video lokal atau URL yang diizinkan] ke bahasa Indonesia, termasuk teks di layar.
-Siapkan SRT dan ASS terpisah, video dengan subtitle tertanam, serta laporan pemeriksaan. Gunakan tata letak ringkas terbaru di dekat tepi bawah. Beri label hanya dengan nama yang terverifikasi; jika suaranya belum diketahui, tampilkan barisnya tanpa label pembicara (tanpa «Suara ?» atau peran karangan); jangan gabungkan suara yang belum dikenal.
-Abaikan musik latar dan lirik. Periksa nama, makna dialog, teks di layar, serta frame akhir; catat bagian yang belum jelas. Jangan publikasikan apa pun.
+Gunakan $akb48-video-subtitles untuk membuat subtitle bahasa Indonesia bagi [path video atau URL]. Terjemahkan dialog dan teks di layar.
+
+Siapkan file SRT terpisah untuk dialog dan teks di layar, satu file ASS gabungan dengan format tampilannya, video dengan subtitle tertanam, serta laporan validasi.
+
+Sesuaikan desain subtitle dengan gaya visual video. Letakkan dialog di dekat tepi bawah tanpa menutupi wajah atau elemen grafis penting. Pertahankan audio asli dan jangan terjemahkan lirik lagu.
+
+Saat menyerahkan file, jelaskan bagian terjemahan yang masih belum pasti.
 ```
 
 ## Pratinjau

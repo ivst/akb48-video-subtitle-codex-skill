@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.5 — 2026-11-01
+- Rewrote all eight README prompt examples around deliverables and visual intent; explicitly preserve original audio while leaving lyrics untranslated.
+- Added scoped source-to-display ID coverage checks to detect translation cues dropped during presentation assembly, including split-turn and sign mappings.
+- Reject malformed name override arrays, invalid audio policies, unknown requested outputs and unsafe/unsupported locales rather than skipping checks or accepting character-by-character aliases.
+- Resolve source-video paths from the initializer's working directory, handle file-valued project paths cleanly, and accept UTF-8 BOM manifests in the runner and name/translation checks.
+- Reject numbered unknown-voice placeholders; added regression and end-to-end coverage tests. Corrected the stale song catalogue count.
+- Restore full decode checks on FFmpeg 4.4 (Ubuntu 22.04) using compatible frame passthrough while preserving exact decoded frame counts; verified with FFmpeg 4.4 and 8.1.
+
 ## 0.6.4 — 2026-11-01
 - Preserved the local unnamed-voice fix: no invented names, roles, rails or placeholder labels for unestablished voices; paired rows require two established voices.
 - Added an editorial review pass and a single uncertainty ledger, with a text/layout checkpoint before full encoding. Reuse established attribution evidence within its supported context.

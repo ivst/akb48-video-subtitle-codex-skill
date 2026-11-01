@@ -8,7 +8,7 @@ import json
 import re
 import unicodedata
 from pathlib import Path
-from subtitle_utils import emit, read_srt, report
+from subtitle_utils import emit, name_overrides, read_srt, report
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_MEMBERS = ROOT / "glossaries" / "members" / "ru.csv"
@@ -37,9 +37,8 @@ def main(argv: list[str] | None = None) -> int:
         source, target = read_srt(args.source), read_srt(args.target)
         with args.members.open(encoding="utf-8-sig", newline="") as handle:
             members = list(csv.DictReader(handle))
-        overrides = json.loads(args.episode.read_text(encoding="utf-8")).get("names", {}) if args.episode else {}
-        if not isinstance(overrides, dict):
-            raise ValueError("episode names must be an object")
+        episode = json.loads(args.episode.read_text(encoding="utf-8-sig")) if args.episode else {}
+        overrides = name_overrides(episode)
     except (OSError, UnicodeError, ValueError, json.JSONDecodeError) as exc:
         parser.error(str(exc))
 

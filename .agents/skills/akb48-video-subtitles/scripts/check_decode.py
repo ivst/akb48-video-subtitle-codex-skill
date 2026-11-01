@@ -17,10 +17,12 @@ def decode(path: Path, timeout: float = 1800) -> dict:
     if not ffmpeg:
         raise RuntimeError("ffmpeg not available")
     # Passthrough prevents the output muxer from duplicating/dropping frames.
+    # Numeric -vsync 0 is also understood by Ubuntu 22.04's FFmpeg 4.4;
+    # -fps_mode passthrough requires a newer FFmpeg despite equivalent semantics.
     # Force software decoding and fail on decoder errors, including concealed ones.
     command = [ffmpeg, "-nostdin", "-v", "error", "-xerror", "-err_detect", "explode",
                "-i", str(path), "-map", "0:v:0", "-map", "0:a?",
-               "-fps_mode", "passthrough", "-progress", "pipe:1", "-nostats",
+               "-vsync", "0", "-progress", "pipe:1", "-nostats",
                "-f", "null", "-"]
     with tempfile.TemporaryFile() as log:
         proc = subprocess.run(command, stdout=subprocess.PIPE, stderr=log,

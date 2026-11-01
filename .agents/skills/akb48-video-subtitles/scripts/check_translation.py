@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from check_srt import suspicious_japanese
 from check_names import normalized
-from subtitle_utils import emit, report
+from subtitle_utils import emit, name_overrides, report
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -41,12 +41,8 @@ def main(argv: list[str] | None = None) -> int:
     try:
         originals = cues_at(args.input)
         translated = cues_at(args.translated)
-        episode = json.loads(args.episode.read_text(encoding="utf-8")) if args.episode else {}
-        if not isinstance(episode,dict):
-            raise ValueError("episode must be an object")
-        overrides = episode.get("names", {})
-        if not isinstance(overrides, dict):
-            raise ValueError("episode names must be an object")
+        episode = json.loads(args.episode.read_text(encoding="utf-8-sig")) if args.episode else {}
+        overrides = name_overrides(episode)
         members = []
         if args.members:
             with args.members.open(encoding="utf-8-sig", newline="") as file:

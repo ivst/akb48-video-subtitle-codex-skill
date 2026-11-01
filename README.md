@@ -44,9 +44,13 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 ## Example prompt
 
 ```text
-Use $akb48-video-subtitles to translate [local video path or authorized URL] into English, including on-screen text.
-Deliver separate SRT and ASS, a video with burned-in subtitles, and the checks report. Use the current compact layout near the bottom edge. Label a line only with a name the evidence establishes; if the voice is unknown, publish the line with no speaker label at all (no Голос ?/Voice ?, no invented role); do not merge unknown voices.
-Omit background music and song lyrics. Review names, dialogue meaning, signs and final video frames; record uncertainties. Do not publish anything.
+Use $akb48-video-subtitles to create English subtitles for [video path or URL], translating the dialogue and on-screen text.
+
+Deliver separate SRT files for dialogue and on-screen text, a combined styled ASS file, a video with burned-in subtitles, and a validation report.
+
+Adapt the subtitle design to the video's visual style, keeping dialogue near the bottom without covering faces or important graphics. Preserve the original audio and leave song lyrics untranslated.
+
+Note any unresolved translation uncertainties when delivering the files.
 ```
 
 In Codex, mention the skill as `$akb48-video-subtitles`; in DeepSeek Harness and Claude Code, send `/akb48-video-subtitles` followed by the same request. Any host may also load the skill automatically when the task matches its description.

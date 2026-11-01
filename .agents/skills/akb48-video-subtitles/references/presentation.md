@@ -146,3 +146,17 @@ An inscription/song-title event may also have a `style` object containing only t
 ## Editing and encode checkpoint
 
 Follow [editorial-review.md](editorial-review.md) before full encoding. During editing, validate changed translation/presentation files and sample affected frames. Do not rerun environment discovery, reinstall ASR, regenerate synthetic previews or decode the whole episode after each text chunk. Run final media checks on the current delivered revision, and repeat any check whose inputs changed. Never reuse an old media pass for a rebuilt video.
+
+## Scoped source coverage
+
+When a project's scoped source chunk JSON exists, `run_checks.py` passes it to `check_presentation.py --source SOURCE.json`. Every selected source cue must reach at least one displayed event. Unused turn notes do not count as display coverage.
+
+A dialogue row's `source_ids` identify voice turns as before. If a turn keeps the original cue ID, no extra mapping is needed. For a split/renamed turn, put the original chunk cue IDs in that turn's `source_ids` array:
+
+```json
+{"turns":{"001-a":{"speaker_id":"a","evidence":"Audio at 1.2s; established voice","source_ids":["001"]},"001-b":{"speaker_id":"b","evidence":"Reply at 2.0s; established voice","source_ids":["001"]}}}
+```
+
+For an inscription, song-title or requested-lyric event derived from a scoped source cue, set the event's `source_ids` directly. Signs read from frames outside a speech chunk do not need invented chunk IDs. Excluded background/lyrics remain outside scoped input, with their omission evidence retained separately.
+
+Legacy projects with split turn IDs must add this mapping before a source-coverage pass. Unknown IDs, malformed mappings and selected cues absent from displayed events fail validation. The check proves ID accounting only; it cannot prove the mapped text conveys the source meaning.

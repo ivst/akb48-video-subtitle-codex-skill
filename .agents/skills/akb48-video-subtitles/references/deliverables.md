@@ -8,6 +8,8 @@ This is an agent-run quality checklist, **not** a guarantee that a translation o
 - Source Japanese transcript and stable translation chunk JSON are saved to `source/` and `work/chunks/`.
 - Every translation chunk preserves all IDs in order and has nonempty target text. Review source audio for ambiguous phrases, jokes, names and overlapping speakers.
 - A member name reported as missing may have been legitimately replaced by a pronoun. Human review decides.
+- With source chunks present, `check_presentation.py --source` verifies scoped source-to-display ID coverage. Split turns retain original IDs in their `source_ids` mapping; selected cues silently dropped during display assembly fail. See [mapping details](presentation.md#scoped-source-coverage).
+- `requested_outputs` accepts `srt`, `ass`, and `video`; unknown values are invalid rather than silently ignored. Archive integrity remains a separate delivery check. `audio_preservation` accepts only `unchanged` or intentional `not_required`.
 - The approved episode-specific glossary overrides bundled draft terminology.
 - Identify all **song-name** mentions, verify established Latin/romaji spelling against official discography or AKB48 Wiki, annotate confirmed occurrences with `song_ids`, and check they were **not translated by meaning**. Preserve a source URL. Song lyrics remain translatable separately.
 

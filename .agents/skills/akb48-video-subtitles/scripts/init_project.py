@@ -5,20 +5,22 @@ import argparse
 import json
 import re
 from pathlib import Path
+from lookup_member import LOCALES
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project", required=True, type=Path)
     parser.add_argument("--episode-id", required=True)
-    parser.add_argument("--locale", default="ru")
+    parser.add_argument("--locale", choices=LOCALES, default="ru")
     parser.add_argument("--source-video", help="optional local path (not copied)")
     args = parser.parse_args(argv)
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,95}", args.episode_id):
         parser.error("episode ID must be 1-96 safe characters")
     root = args.project.resolve()
-    if root.exists() and any(root.iterdir()):
+    if root.exists() and (not root.is_dir() or any(root.iterdir())):
         parser.error("refusing to overwrite nonempty project directory")
+    source_video = str(Path(args.source_video).expanduser().resolve()) if args.source_video else None
     for name in ("source", "work/chunks", "output", "reports"):
         (root / name).mkdir(parents=True, exist_ok=True)
     data = {
@@ -28,7 +30,7 @@ def main(argv=None) -> int:
         "glossary_revision": "unreviewed", "requested_outputs": ["srt"],
         "audio_preservation": "unchanged",
         "lyrics_policy": "omit", "lyrics_request": None,
-        "source": {"srt": "source/dialogue.ja.srt", "media": args.source_video},
+        "source": {"srt": "source/dialogue.ja.srt", "media": source_video},
         "work": {"input": "work/chunks/source.json",
                  "translated": "work/chunks/translated.json",
                  "presentation": "work/presentation.json"},

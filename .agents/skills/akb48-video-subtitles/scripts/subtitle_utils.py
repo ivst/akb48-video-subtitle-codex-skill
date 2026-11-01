@@ -9,6 +9,25 @@ from pathlib import Path
 SRT_TIME = re.compile(r"(?P<a>\d{2,}:\d{2}:\d{2},\d{3})\s+-->\s+(?P<b>\d{2,}:\d{2}:\d{2},\d{3})")
 
 
+def name_overrides(episode: dict) -> dict:
+    """Reject malformed overrides before they weaken either name checker."""
+    if not isinstance(episode, dict):
+        raise ValueError("episode must be an object")
+    overrides = episode.get("names", {})
+    if not isinstance(overrides, dict):
+        raise ValueError("episode names must be an object")
+    for source, entry in overrides.items():
+        if not source.strip() or not isinstance(entry, dict):
+            raise ValueError(f"name {source!r}: override must be an object with a nonempty source name")
+        if "target" in entry and (not isinstance(entry["target"], str) or not entry["target"].strip()):
+            raise ValueError(f"name {source!r}: target must be a nonempty string")
+        for field in ("aliases", "forbidden"):
+            values = entry.get(field, [])
+            if not isinstance(values, list) or any(not isinstance(v, str) or not v.strip() for v in values):
+                raise ValueError(f"name {source!r}: {field} must be an array of nonempty strings")
+    return overrides
+
+
 def timestamp_ms(value: str) -> int:
     h, m, remainder = value.split(":")
     s, ms = remainder.split(",")

@@ -21,7 +21,7 @@ The 83 Russian values come from the contributor-supplied `member_names.ja-ru.jso
 
 ## Separate song title catalog
 
-Song titles are **not** person names or ordinary fan terminology. The shared language-independent [song name glossary](songs/README.md) (`songs.csv`) stores Japanese originals, the established Latin/romaji forms, sources and review statuses. The five sourced seed entries are *not* a complete discography. Use `scripts/lookup_song.py` and `scripts/check_song_titles.py` when translating title references; preserve official cover titles only for the actual corresponding localized recording.
+Song titles are **not** person names or ordinary fan terminology. The shared language-independent [song name glossary](songs/README.md) (`songs.csv`) stores Japanese originals, the established Latin/romaji forms, sources and review statuses. The 78 sourced entries are *not* a complete discography. Use `scripts/lookup_song.py` and `scripts/check_song_titles.py` when translating title references; preserve official cover titles only for the actual corresponding localized recording.
 
 ## Separate terminology lexicon
 

@@ -10,6 +10,7 @@ import unittest
 SKILL=Path(__file__).resolve().parents[1]/'.agents/skills/akb48-video-subtitles'
 sys.path.insert(0,str(SKILL/'scripts'))
 from presentation import render,validate
+from check_presentation import check_coverage
 
 
 class PresentationTests(unittest.TestCase):
@@ -85,8 +86,50 @@ class PresentationTests(unittest.TestCase):
         self.assertNotIn('Участница А: Ты уже выбрала ответ?', tracks['dialogue'])
 
     def test_placeholder_labels_are_rejected(self):
-        self.data['speakers']['a']['label']='Голос ?'
-        self.assertTrue(any('placeholder label' in e for e in validate(self.data,self.episode)[0]))
+        for label in ('Голос ?', 'Голос 1', 'Голос №2', 'Voice ?1', 'Voice 2',
+                      'Unknown 3', '未知聲音 1', '未知声音 2'):
+            with self.subTest(label=label):
+                self.data['speakers']['a']['label'] = label
+                self.assertTrue(any('placeholder label' in e for e in validate(self.data,self.episode)[0]))
+
+    def test_source_coverage_rejects_dropped_turns_and_allows_explicit_splits(self):
+        source = [{'id': key, 'text': 'source'} for key in self.data['turns']]
+        self.assertEqual(check_coverage(self.data, source), [])
+        # Keeping the turn in notes must not hide its absence in display events.
+        self.data['events'] = [e for e in self.data['events'] if e['id'] != 'd2']
+        self.assertTrue(any('t2' in e for e in check_coverage(self.data, source)))
+        source = [{'id': '001', 'text': 'one original caption'}]
+        for turn in self.data['turns'].values():
+            turn['source_ids'] = ['001']
+        self.assertEqual(check_coverage(self.data, source), [])
+        self.data['turns']['t1']['source_ids'] = ['invented']
+        self.assertTrue(any('not in scoped source' in e for e in check_coverage(self.data, source)))
+        self.data['turns']['t1']['source_ids'] = '001'
+        self.assertTrue(any('array' in e for e in check_coverage(self.data, source)))
+
+    def test_sign_source_coverage_and_generated_output_are_checked_together(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source = [{'id': key, 'text': 'source'} for key in self.data['turns']]
+            source.append({'id': 'sign-original', 'text': 'sign', 'kind': 'inscription'})
+            sign = next(e for e in self.data['events'] if e['kind'] == 'inscription')
+            sign['source_ids'] = ['sign-original']
+            self.assertEqual(check_coverage(self.data, source), [])
+            for name, data in [('presentation.json', self.data), ('episode.json', self.episode),
+                               ('source.json', {'cues': source})]:
+                (root / name).write_text(json.dumps(data), encoding='utf-8')
+            flags = ['--input', str(root/'presentation.json'), '--episode', str(root/'episode.json')]
+            result = subprocess.run([sys.executable, str(SKILL/'scripts/build_presentation.py'),
+                                     *flags, '--output-dir', str(root)], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            command = [sys.executable, str(SKILL/'scripts/check_presentation.py'), *flags,
+                       '--source', str(root/'source.json'), '--ass', str(root/'subtitles.ru.ass'), '--json']
+            self.assertEqual(subprocess.run(command, capture_output=True).returncode, 0)
+            source.append({'id': 'lost', 'text': 'missing dialogue'})
+            (root/'source.json').write_text(json.dumps({'cues':source}), encoding='utf-8')
+            result = subprocess.run(command, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1)
+            self.assertIn('missing from presentation: lost', result.stdout)
 
     def test_paired_exchange_cannot_hide_an_unnamed_voice(self):
         event = next(e for e in self.data['events'] if len(e.get('rows', [])) == 2)

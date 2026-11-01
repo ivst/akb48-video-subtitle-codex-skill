@@ -6,7 +6,8 @@ import unicodedata
 # Placeholder labels that pretend to name an unestablished voice. An unnamed row
 # carries no label at all, so these are rejected instead of being rendered.
 PLACEHOLDER_LABEL = re.compile(
-    r"^(?:voice|голос|voz|suara|화자|เสียง|未知声[音音]?|unknown|неизвестн\w*)\s*\??$",
+    r"^(?:voice|голос|voz|suara|화자|เสียง|未知声音?|未知聲音?|unknown|неизвестн\w*)"
+    r"\s*(?:[?#№]\s*)?\d*\??$",
     re.IGNORECASE)
 
 

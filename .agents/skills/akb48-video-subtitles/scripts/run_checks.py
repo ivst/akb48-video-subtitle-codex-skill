@@ -9,6 +9,7 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from lookup_member import LOCALES
 
 SCRIPTS = Path(__file__).resolve().parent
 MEMBERS = SCRIPTS.parent / "glossaries" / "members"
@@ -26,10 +27,14 @@ def main(argv=None) -> int:
         parser.error("--media-timeout must be finite and positive")
     root = args.project.resolve()
     try:
-        data = json.loads((root / "episode.json").read_text(encoding="utf-8"))
-        if data.get("schema_version") != 1:
+        data = json.loads((root / "episode.json").read_text(encoding="utf-8-sig"))
+        if not isinstance(data, dict) or data.get("schema_version") != 1:
             raise ValueError("unsupported episode.json schema_version")
         locale = data["locale"]
+        if locale not in LOCALES:
+            raise ValueError("unsupported episode locale")
+        if data.get("audio_preservation", "unchanged") not in ("unchanged", "not_required"):
+            raise ValueError("audio_preservation must be unchanged or not_required")
         source_srt = root / data["source"]["srt"]
         target_srt = root / data["output"]["srt"]
         input_chunks = root / data["work"]["input"]
@@ -37,8 +42,9 @@ def main(argv=None) -> int:
         ass = root / data["output"]["ass"]
         duration = data.get("duration_seconds")
         requested = data.get("requested_outputs", ["srt"])
-        if not isinstance(requested, list):
-            raise ValueError("requested_outputs must be an array")
+        if not isinstance(requested, list) or not requested or any(
+                output not in ("srt", "ass", "video") for output in requested):
+            raise ValueError("requested_outputs must be a nonempty array containing srt, ass or video")
     except (OSError, UnicodeError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
         parser.error(str(exc))
 
@@ -110,6 +116,7 @@ def main(argv=None) -> int:
     presentation = root / data['work'].get('presentation','work/presentation.json')
     if presentation.is_file():
         arguments = ['--input', str(presentation), '--episode', str(root/'episode.json')]
+        if input_chunks.is_file(): arguments += ['--source',str(input_chunks)]
         if ass.is_file(): arguments += ['--ass',str(ass)]
         if target_srt.is_file(): arguments += ['--srt',str(target_srt)]
         execute('check_presentation',arguments)

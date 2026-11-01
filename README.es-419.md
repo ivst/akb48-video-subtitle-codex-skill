@@ -24,9 +24,13 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 ## Ejemplo de prompt
 
 ```text
-Usa $akb48-video-subtitles para traducir [ruta local del video o URL autorizada] al español latinoamericano, incluidos los textos en pantalla.
-Entrega SRT y ASS separados, un video con subtítulos incrustados y el informe de comprobaciones. Usa el diseño compacto actual junto al borde inferior. Etiqueta una línea solo con un nombre verificado; si la voz no se conoce, publica la línea sin ninguna etiqueta de hablante (nada de «Voz ?» ni roles inventados); no unas voces desconocidas.
-Omite la música de fondo y las letras. Revisa los nombres, el sentido del diálogo, los textos en pantalla y los fotogramas finales; registra las dudas. No publiques nada.
+Usa $akb48-video-subtitles para crear subtítulos en español latinoamericano para [ruta del video o URL]. Traduce los diálogos y los textos en pantalla.
+
+Entrega archivos SRT separados para los diálogos y los textos en pantalla, un ASS con ambos y su formato, un video con los subtítulos incrustados y un informe de validación.
+
+Adapta el diseño al estilo visual del video. Coloca los diálogos cerca del borde inferior sin tapar rostros ni elementos gráficos importantes. Conserva el audio original y deja las letras de las canciones sin traducir.
+
+Al entregar los archivos, indica qué partes de la traducción siguen siendo inciertas.
 ```
 
 ## Vista previa

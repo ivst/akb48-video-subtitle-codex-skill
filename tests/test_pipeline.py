@@ -68,6 +68,79 @@ class TranslationProtocolTests(unittest.TestCase):
             self.assertTrue((project / "episode.json").is_file())
             self.assertNotEqual(invoke("init_project.py", *flags).returncode, 0)
 
+    def test_init_records_relative_video_from_invocation_directory(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source = root / "original.mp4"
+            source.write_bytes(b"source path fixture")
+            result = subprocess.run([sys.executable, str(SCRIPTS / "init_project.py"),
+                "--project", "episode", "--episode-id", "relative-source",
+                "--source-video", "original.mp4"], cwd=root, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            manifest = json.loads((root / "episode/episode.json").read_text(encoding="utf-8"))
+            self.assertEqual(Path(manifest["source"]["media"]), source.resolve())
+
+    def test_init_rejects_invalid_locale_and_file_as_project(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            path = root / "episode"
+            result = invoke("init_project.py", "--project", path, "--episode-id", "bad-locale",
+                            "--locale", "../../outside")
+            self.assertNotEqual(result.returncode, 0)
+            self.assertFalse(path.exists())
+            path.write_text("preserve me", encoding="utf-8")
+            result = invoke("init_project.py", "--project", path, "--episode-id", "file-path")
+            self.assertNotEqual(result.returncode, 0)
+            self.assertNotIn("Traceback", result.stderr)
+            self.assertEqual(path.read_text(encoding="utf-8"), "preserve me")
+
+    def test_manifest_cannot_disable_checks_through_invalid_settings(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder) / "episode"
+            self.assertEqual(invoke("init_project.py", "--project", root,
+                                    "--episode-id", "invalid-policy").returncode, 0)
+            path = root / "episode.json"
+            original = json.loads(path.read_text(encoding="utf-8"))
+            for field, value in [("audio_preservation", "unchange"),
+                                 ("requested_outputs", []), ("requested_outputs", ["vidoe"]),
+                                 ("requested_outputs", ["srt", "unsupported"]),
+                                 ("locale", "../en")]:
+                with self.subTest(field=field, value=value):
+                    data = dict(original)
+                    data[field] = value
+                    path.write_text(json.dumps(data), encoding="utf-8")
+                    result = invoke("run_checks.py", "--project", root, "--json")
+                    self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+                    self.assertNotIn("Traceback", result.stderr)
+                    self.assertFalse((root / "report.json").exists())
+
+    def test_bom_manifest_is_readable_by_runner(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder) / "episode"
+            self.assertEqual(invoke("init_project.py", "--project", root,
+                                    "--episode-id", "bom-manifest").returncode, 0)
+            path = root / "episode.json"
+            path.write_text(path.read_text(encoding="utf-8"), encoding="utf-8-sig")
+            result = invoke("run_checks.py", "--project", root, "--json")
+            self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+            self.assertEqual(json.loads(result.stdout)["status"], "incomplete")
+
+    def test_name_checkers_reject_malformed_alias_arrays(self):
+        with tempfile.TemporaryDirectory() as folder:
+            episode = Path(folder) / "episode.json"
+            for entry in [{"aliases": "Мизуки"}, {"forbidden": "Мидзуки"},
+                          {"aliases": [""]}, {"target": None}, []]:
+                episode.write_text(json.dumps({"names": {"山内瑞葵": entry}}), encoding="utf-8-sig")
+                commands = [
+                    ("check_names.py", "--source", SAMPLES / "ja.srt", "--target", SAMPLES / "ru.srt"),
+                    ("check_translation.py", "--input", SAMPLES / "source.json", "--translated", SAMPLES / "translated.json"),
+                ]
+                for script, *flags in commands:
+                    with self.subTest(script=script, entry=entry):
+                        result = invoke(script, *flags, "--episode", episode, "--json")
+                        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+                        self.assertNotIn("Traceback", result.stderr)
+
     def test_report_is_incomplete_without_inputs(self):
         with tempfile.TemporaryDirectory() as temp:
             project = Path(temp) / "episode"
@@ -103,6 +176,42 @@ class TranslationProtocolTests(unittest.TestCase):
             self.assertTrue(all(entry["status"] == "pass" for entry in result["checks"]))
             self.assertTrue(all(entry["result"].get("sha256") for entry in result["checks"]))
             self.assertEqual(len(result["checks"]), 4)
+
+    def test_runner_fails_when_reviewed_translation_is_lost_in_display(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder) / "episode"
+            self.assertEqual(invoke("init_project.py", "--project", root,
+                                    "--episode-id", "coverage").returncode, 0)
+            manifest = root / 'episode.json'
+            data = json.loads(manifest.read_text(encoding='utf-8'))
+            data.update(duration_seconds=14, requested_outputs=['srt', 'ass'])
+            manifest.write_text(json.dumps(data), encoding='utf-8')
+            for src, dst in [('ja.srt', 'source/dialogue.ja.srt'),
+                             ('source.json', 'work/chunks/source.json'),
+                             ('translated.json', 'work/chunks/translated.json')]:
+                shutil.copyfile(SAMPLES / src, root / dst)
+            translated = json.loads((SAMPLES/'translated.json').read_text(encoding='utf-8'))['cues']
+            presentation = {'schema_version': 1, 'speakers': {},
+                'turns': {c['id']: {'speaker_id': None} for c in translated},
+                'events': [{'id': 'd'+c['id'], 'kind': 'dialogue',
+                    'start_ms': i*2000, 'end_ms': (i+1)*2000,
+                    'rows': [{'speaker_id': None, 'source_ids': [c['id']], 'text': c['text']} ]}
+                    for i, c in enumerate(translated)]}
+            work = root/'work/presentation.json'
+            def build_and_check():
+                work.write_text(json.dumps(presentation), encoding='utf-8')
+                built = invoke('build_presentation.py', '--input', work, '--episode', manifest,
+                               '--output-dir', root/'output', '--overwrite')
+                self.assertEqual(built.returncode, 0, built.stderr)
+                return invoke('run_checks.py', '--project', root, '--require-translation', '--json')
+            result = build_and_check()
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            presentation['events'].pop()
+            result = build_and_check()
+            self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+            report = json.loads(result.stdout)
+            self.assertIn('check_presentation', report['failed_checks'])
+            self.assertNotIn('check_translation', report['failed_checks'])
 
 
 if __name__ == "__main__":
