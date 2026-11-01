@@ -36,3 +36,9 @@ No Python packages are needed for these checks. The duration flag is in seconds 
 ## Optional faster-whisper setup
 
 See [Japanese transcription with faster-whisper](transcription.md) for separate-environment installation on Windows/Linux/macOS, a CPU/int8 example, raw JSON and source SRT output, model downloads, and recognition limitations. This is optional and is not installed automatically. WSL is not required.
+
+## Reuse existing setup
+
+Do not reinstall FFmpeg, ASR dependencies or model weights when a compatible setup is already available. Run the environment check for a new installation or changed executable/dependency/font; reuse that result for unchanged setup. Generate synthetic style previews when the renderer, selected font or style changes, then inspect actual-episode frames for every episode. Caption quality decides whether local ASR is needed: use targeted snippets for isolated doubts and full transcription for missing or unreliable coverage.
+
+Keep final full decode/audio/archive checks on the actual delivered revision. During drafting, run affected lightweight validators rather than the full media runner after every chunk; this is scheduling, not permission to report unexecuted checks as passed.

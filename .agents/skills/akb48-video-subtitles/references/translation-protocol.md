@@ -38,7 +38,7 @@ The manifest stores paths, media metadata (when known), requested outputs, and g
 {"names":{"武藤小麟":{"target":"Муто Орин","aliases":["Орин"],"forbidden":["Муто Олин"]}}}
 ```
 
-When resuming, read existing chunks by ID and preserve completed text. Never blindly regenerate already approved chunks.
+When resuming, read existing chunks by ID and preserve completed text. Never blindly regenerate already approved chunks. Keep uncertainty/evidence notes here or in one existing review ledger rather than duplicating them in additional reports. Perform the [editorial pass](editorial-review.md) on meaning, naturalness, names and coverage before full encoding. Revalidate changed chunks during editing; reserve the full media runner for final deliverables.
 
 ## Commands
 
@@ -57,4 +57,4 @@ For longer Japanese variety-show episodes, prefer **GPT-6.1 Sol, Medium reasonin
 
 ## Speaker, music and presentation gate
 
-Follow [presentation.md](presentation.md): classify source content before scoped translation chunks; keep omitted background/lyric evidence in an omission ledger rather than translating guesses. Default lyrics_policy is omit. Explicit user-requested lyrics require lyrics_request. Before styled delivery, record speaker turns, build labeled SRT/ASS with build_presentation.py and let run_checks.py verify check_presentation. Unknown voices cannot be merged by text length or proximity. The default lower baseline leaves 30 logical pixels at 1080p (20 at 720p); scene-specific raised panels require a reason. Automated pass is not confirmation of voice identity, visual readability or language quality.
+Follow [presentation.md](presentation.md): classify source content before scoped translation chunks; keep omitted background/lyric evidence in an omission ledger rather than translating guesses. Default lyrics_policy is omit. Explicit user-requested lyrics require lyrics_request. Before styled delivery, record speaker turns, build the SRT/ASS with build_presentation.py and let run_checks.py verify check_presentation. Unnamed voices cannot be merged by text length or proximity and are rendered as the translated line alone, with no name, rail or placeholder label. The default lower baseline leaves 30 logical pixels at 1080p (20 at 720p); scene-specific raised panels require a reason. Automated pass is not confirmation of voice identity, visual readability or language quality.

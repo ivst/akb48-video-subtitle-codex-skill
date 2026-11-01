@@ -115,14 +115,15 @@ checks cannot establish semantic accuracy.
 ## 6. Annotate speakers separately
 
 Establish voice changes from audio and supported context. A close-up alone
-does not prove who is speaking. If identity is unknown, use a neutral role or
-explicit unknown-voice label. Do not hide several speakers inside a sentence
-with a chain of dashes.
+does not prove who is speaking. If the voice is not established, publish the
+line with no speaker label at all: no "Voice ?" / "Голос ?" placeholder, no
+numbered stand-in and no invented role such as "Host", "Member" or "Staff".
+Do not hide several speakers inside a sentence with a chain of dashes.
 
-Normally use sequential named display events. A very short exchange can use
-two separately labeled rows. Color is an additional cue; the visible name or
-role remains essential. Extra reading time must not move a line over the next
-person's reply.
+Normally use sequential display events. A very short exchange can use two
+separately named rows, and only when both voices are established. Color is an
+additional cue; a visible name appears only where evidence supports it. Extra
+reading time must not move a line over the next person's reply.
 
 In earlier local episodes, some boundaries were set manually and others were
 provisionally estimated by text length. This was neither automatic diarization
@@ -274,8 +275,15 @@ titles and spoken reactions over music are separate classes. Keep raw ASR
 and an omitted-ID ledger; ID completeness applies to the selected translation
 scope.
 
-ASS/video now requires `work/presentation.json`. Unknown voices cannot be
-merged merely because their times are close. Each paired row has a name/role;
-unknown authors are visibly marked. The default lower margin is 30 logical
+ASS/video now requires `work/presentation.json`. Unnamed voices cannot be
+merged merely because their times are close. A named row shows its name; an
+unnamed row is published as the translated line alone, centred in the panel
+with no rail and no placeholder. The default lower margin is 30 logical
 pixels at 1080p, or 20 actual pixels at 720p. Raising a scene needs a reason.
 Signs are positioned separately from speech with a distinct visual style.
+
+## Efficient editorial review and styling
+
+Before full encoding, complete the [editorial pass](../.agents/skills/akb48-video-subtitles/references/editorial-review.md) on meaning, naturalness, humor, names and omissions. Keep one uncertainty ledger, reuse supported attribution evidence within a scene, and inspect actual short/long/paired/sign frames and key card transitions. Resolve material issues or preserve/disclose uncertainty instead of guessing.
+
+Reuse unchanged setup and synthetic previews; use targeted ASR for isolated doubts when reliable captions exist. Run affected lightweight checks during editing and full media/decode/audio/archive checks on final outputs. The episode-12 template now supports [validated style overrides](../.agents/skills/akb48-video-subtitles/references/presentation.md#episode-style-overrides) for colors, panel geometry and sign fonts; generated ASS/SRT must still match their presentation data.

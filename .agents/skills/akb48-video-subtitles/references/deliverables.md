@@ -11,6 +11,12 @@ This is an agent-run quality checklist, **not** a guarantee that a translation o
 - The approved episode-specific glossary overrides bundled draft terminology.
 - Identify all **song-name** mentions, verify established Latin/romaji spelling against official discography or AKB48 Wiki, annotate confirmed occurrences with `song_ids`, and check they were **not translated by meaning**. Preserve a source URL. Song lyrics remain translatable separately.
 
+## Editorial checkpoint before encoding
+
+Use [editorial-review.md](editorial-review.md): review source meaning/omissions, natural target dialogue, jokes/register, identities/names and terms; resolve or explicitly retain uncertain passages in one ledger. Reuse supported speaker evidence in context. Verify actual-episode single/paired/long/sign frames and key card boundaries before a full render. Do not equate any automated pass with editorial approval.
+
+Run environment/synthetic-style checks only for new or changed dependencies, renderer, font or style. Run affected lightweight validators while editing and the full final runner once outputs are ready. A modified final video invalidates its previous media checks; preserve full decode, frame comparison, audio and archive checks.
+
 ## Validation commands (from repository root)
 
 ```sh
@@ -52,4 +58,4 @@ Preserve Japanese source text and evidence, review the output against audio, and
 
 ## Speaker, music and presentation gate
 
-Follow [presentation.md](presentation.md): classify source content before scoped translation chunks; keep omitted background/lyric evidence in an omission ledger rather than translating guesses. Default lyrics_policy is omit. Explicit user-requested lyrics require lyrics_request. Before styled delivery, record speaker turns, build labeled SRT/ASS with build_presentation.py and let run_checks.py verify check_presentation. Unknown voices cannot be merged by text length or proximity. The default lower baseline leaves 30 logical pixels at 1080p (20 at 720p); scene-specific raised panels require a reason. Automated pass is not confirmation of voice identity, visual readability or language quality.
+Follow [presentation.md](presentation.md): classify source content before scoped translation chunks; keep omitted background/lyric evidence in an omission ledger rather than translating guesses. Default lyrics_policy is omit. Explicit user-requested lyrics require lyrics_request. Before styled delivery, record speaker turns, build the SRT/ASS with build_presentation.py and let run_checks.py verify check_presentation. Unnamed voices cannot be merged by text length or proximity and are rendered as the translated line alone, with no name, rail or placeholder label. The default lower baseline leaves 30 logical pixels at 1080p (20 at 720p); scene-specific raised panels require a reason. Automated pass is not confirmation of voice identity, visual readability or language quality.

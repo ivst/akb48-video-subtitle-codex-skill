@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.4 — 2026-11-01
+- Preserved the local unnamed-voice fix: no invented names, roles, rails or placeholder labels for unestablished voices; paired rows require two established voices.
+- Added an editorial review pass and a single uncertainty ledger, with a text/layout checkpoint before full encoding. Reuse established attribution evidence within its supported context.
+- Reuse unchanged setup/style checks; run targeted diagnostics while editing and full media checks on the final revision.
+- Made panel geometry and dialogue/sign colors configurable through the validated presentation renderer, retaining the episode-12 defaults and output correspondence checks.
+
 ## 0.6.3 — 2026-11-01
 - Added OpenCode to the compatibility matrix: native `.agents/skills` discovery plus the `.opencode/skills` and `.claude/skills` roots, and the `skill` tool as the entry point (OpenCode 1 has no `/name` command). Added the `opencode` topic.
 

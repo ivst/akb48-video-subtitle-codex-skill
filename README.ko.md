@@ -25,7 +25,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 
 ```text
 $akb48-video-subtitles를 사용해 [로컬 영상 경로 또는 사용 권한이 있는 URL]을 화면 문구까지 한국어로 번역해 주세요.
-별도 SRT와 ASS, 자막이 삽입된 영상, 검사 보고서를 만들어 주세요. 화면 하단의 최신 간결한 레이아웃을 사용하고, 서로 다른 사람의 대사는 확인된 이름이나 중립적인 역할로 구분해 주세요. 불명확한 화자를 합치지 마세요.
+별도 SRT와 ASS, 자막이 삽입된 영상, 검사 보고서를 만들어 주세요. 화면 하단의 최신 간결한 레이아웃을 사용하고, 화자는 확인된 이름으로만 표시하고, 확인되지 않은 목소리는 이름 없이 그대로 게시해 주세요(‘화자 ?’ 같은 자리표시자나 임의의 역할 금지). 불명확한 화자를 합치지 마세요.
 배경 음악과 노래 가사는 제외해 주세요. 이름, 대사의 의미, 화면 문구와 최종 영상 프레임을 확인하고 미해결 부분을 기록해 주세요. 아무것도 공개하지 마세요.
 ```
 
@@ -72,7 +72,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 
 1. 일본어 대사를 확인하고 화면 문구, 제목, 규칙, 결과를 별도로 기록합니다.
 2. 선택한 언어 프로필과 검토된 회차별 용어집을 사용해 번역합니다.
-3. 근거가 충분할 때만 화자를 표시하고, 불확실한 반응은 중립적으로 둡니다.
+3. 근거가 충분할 때만 화자를 표시하고, 목소리가 확인되지 않은 줄은 표시 없이 그대로 둡니다.
 4. 요청에 따라 SRT, 스타일이 적용된 ASS 및/또는 MP4를 만듭니다.
 5. 영상 전체에서 대표 장면을 살펴보고 최종 렌더를 확인합니다. 필요한 경우 디코딩, 타이밍, 패키지와 음성 보존도 점검합니다.
 
@@ -100,4 +100,4 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 
 ## 화자별 자막과 간결한 배치 (0.5.0)
 
-ASS/영상에는 검토된 `work/presentation.json`이 필요합니다. `build_presentation.py`는 이름/역할을 표시하고 불명확한 화자를 자동 병합하지 않습니다. 기본 하단 여백은 1080p에서 30px, 720p에서 20px입니다. 노래 가사는 명시적 요청이 있을 때만 포함합니다. [스키마와 명령](.agents/skills/akb48-video-subtitles/references/presentation.md), [새 합성 예시](examples/compact-preview.jpg)를 참고하세요.
+ASS/영상에는 검토된 `work/presentation.json`이 필요합니다. `build_presentation.py`는 확인된 이름만 표시하고 확인되지 않은 화자는 이름 없이 표시하며 자동 병합하지 않습니다. 기본 하단 여백은 1080p에서 30px, 720p에서 20px입니다. 노래 가사는 명시적 요청이 있을 때만 포함합니다. [스키마와 명령](.agents/skills/akb48-video-subtitles/references/presentation.md), [새 합성 예시](examples/compact-preview.jpg)를 참고하세요.

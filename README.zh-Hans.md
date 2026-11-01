@@ -25,7 +25,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 
 ```text
 使用 $akb48-video-subtitles，将 [本地视频路径或已获授权的 URL] 翻译为简体中文，包括画面文字。
-提供独立的 SRT 和 ASS、内嵌字幕的视频及检查报告。使用靠近画面下边缘的最新紧凑布局，以已核实的姓名或中性角色区分说话人，不要合并身份不明的声音。
+提供独立的 SRT 和 ASS、内嵌字幕的视频及检查报告。使用靠近画面下边缘的最新紧凑布局，只用已核实的姓名标注说话人；无法确认说话人时，该行不加任何姓名（不要用“未知声音 ?”之类的占位或自造角色），也不要合并身份不明的声音。
 省略背景音乐和歌词。核对姓名、对话含义、画面文字及成片帧，记录疑点。不要发布任何内容。
 ```
 
@@ -72,7 +72,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 
 1. 核对日语对白，并分别整理标牌、标题、规则和结果文字。
 2. 使用所选语言配置及经过审校的单集词汇表进行翻译。
-3. 只有证据充分时才标注说话人；无法确定的反应使用中性标签。
+3. 只有证据充分时才标注说话人；无法确认说话人的行不加任何标签。
 4. 按需求生成通用 SRT、带样式的 ASS 和/或 MP4。
 5. 抽查整集不同位置的画面，并检查最终渲染文件；适用时检查解码、时间轴、压缩包和音频保留情况。
 
@@ -100,4 +100,4 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 
 ## 按说话人显示的紧凑字幕（0.5.0）
 
-ASS/视频现在需要经过审核的 `work/presentation.json`。`build_presentation.py` 显示姓名或角色，不自动合并身份不明的声音。默认下边距为逻辑 1080p 画布的 30px，即 720p 的 20px。除非用户明确要求，否则省略歌词。参见[结构与命令](.agents/skills/akb48-video-subtitles/references/presentation.md)和[新的合成示例](examples/compact-preview.jpg)。
+ASS/视频现在需要经过审核的 `work/presentation.json`。`build_presentation.py` 只在姓名已核实处显示姓名，未确认的行不加标签，也不自动合并身份不明的声音。默认下边距为逻辑 1080p 画布的 30px，即 720p 的 20px。除非用户明确要求，否则省略歌词。参见[结构与命令](.agents/skills/akb48-video-subtitles/references/presentation.md)和[新的合成示例](examples/compact-preview.jpg)。

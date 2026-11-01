@@ -25,7 +25,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 
 ```text
 Gunakan $akb48-video-subtitles untuk menerjemahkan [path video lokal atau URL yang diizinkan] ke bahasa Indonesia, termasuk teks di layar.
-Siapkan SRT dan ASS terpisah, video dengan subtitle tertanam, serta laporan pemeriksaan. Gunakan tata letak ringkas terbaru di dekat tepi bawah. Pisahkan pembicara dengan nama terverifikasi atau peran netral; jangan gabungkan suara yang belum dikenal.
+Siapkan SRT dan ASS terpisah, video dengan subtitle tertanam, serta laporan pemeriksaan. Gunakan tata letak ringkas terbaru di dekat tepi bawah. Beri label hanya dengan nama yang terverifikasi; jika suaranya belum diketahui, tampilkan barisnya tanpa label pembicara (tanpa «Suara ?» atau peran karangan); jangan gabungkan suara yang belum dikenal.
 Abaikan musik latar dan lirik. Periksa nama, makna dialog, teks di layar, serta frame akhir; catat bagian yang belum jelas. Jangan publikasikan apa pun.
 ```
 
@@ -72,7 +72,7 @@ Skrip yang disertakan hanya memakai standard library Python; tidak perlu `pip in
 
 1. Periksa transkrip bahasa Jepang dan catat papan, judul, aturan, serta hasil secara terpisah.
 2. Terjemahkan dengan profil bahasa yang dipilih dan glosarium episode yang telah ditinjau.
-3. Beri label pembicara hanya jika ada bukti; gunakan label netral untuk reaksi yang meragukan.
+3. Beri label pembicara hanya jika ada bukti; biarkan baris tanpa label bila suaranya belum diketahui.
 4. Buat SRT, ASS bergaya, dan/atau MP4 sesuai permintaan.
 5. Tinjau beberapa adegan di sepanjang video dan hasil render akhir. Bila relevan, periksa decode, waktu, arsip, dan keutuhan audio.
 
@@ -100,4 +100,4 @@ Laporan video mencakup decode penuh sumber dan hasil, kesalahan decoder, serta p
 
 ## Subtitle per pembicara dan tata letak ringkas (0.5.0)
 
-ASS/video memerlukan `work/presentation.json` yang telah ditinjau. `build_presentation.py` menampilkan nama/peran dan tidak menggabungkan suara tak dikenal secara otomatis. Margin bawah adalah 30px pada kanvas 1080p (20px pada 720p). Lirik dihilangkan kecuali diminta secara eksplisit. Lihat [skema dan perintah](.agents/skills/akb48-video-subtitles/references/presentation.md) serta [contoh sintetis baru](examples/compact-preview.jpg).
+ASS/video memerlukan `work/presentation.json` yang telah ditinjau. `build_presentation.py` menampilkan nama hanya bila terverifikasi, membiarkan baris tanpa label, dan tidak menggabungkan suara tak dikenal secara otomatis. Margin bawah adalah 30px pada kanvas 1080p (20px pada 720p). Lirik dihilangkan kecuali diminta secara eksplisit. Lihat [skema dan perintah](.agents/skills/akb48-video-subtitles/references/presentation.md) serta [contoh sintetis baru](examples/compact-preview.jpg).

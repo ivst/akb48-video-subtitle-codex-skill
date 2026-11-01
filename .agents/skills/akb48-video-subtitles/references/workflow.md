@@ -12,7 +12,13 @@ Keep the Japanese source text and its time range alongside each translated event
 
 Translate speech, lyrics, and inscriptions as separate classes. Do not omit signs merely because dialogue subtitles exist. Preserve jokes and incomplete turns when the source supports them; do not add an explanation to dialogue unless the user wants translator notes.
 
-Use stable entity IDs in glossaries and keep Japanese, romanized, and target-language spellings as separate fields. Do not infer a member identity from a close-up alone. If attribution remains uncertain, use a neutral role label or omit a name.
+Use stable entity IDs in glossaries and keep Japanese, romanized, and target-language spellings as separate fields. Do not infer a member identity from a close-up alone. If attribution remains uncertain, publish the line with **no speaker label** and record the uncertainty: no `Voice ?`/`Голос ?`/`Unknown` placeholder, no numbered stand-in, and no invented role (`Ведущая`, `Участница`, `Сотрудник`). A role is not a name, and a placeholder reads as one.
+
+## Editorial pass and efficient review
+
+Follow [editorial-review.md](editorial-review.md) after drafting, before full encoding. Review meaning/coverage, target-language naturalness, humor/register, name identity and terminology. Keep one uncertainty ledger in chunk notes or an existing working review file, with source IDs/times, evidence and resolution. Review flagged passages in context rather than creating duplicate transcripts or reports. Reliable captions do not require an independent full ASR pass: target missing/uncertain passages, and expand transcription only when caption quality warrants it.
+
+Reuse a verified speaker-evidence reference within its supported scene; check changes and off-camera/overlapping replies separately. Do not infer identity from mere adjacency. Finish known text/layout fixes and inspect actual key cards and short/long/paired/sign frames before full encoding. Preserve/disclose remaining uncertainty instead of inventing certainty to pass a gate.
 
 ## Timing and presentation
 
@@ -63,3 +69,9 @@ For difficult Japanese speech, GPT-6.1 Sol at Medium reasoning effort or higher 
 ## Speaker, music and presentation gate
 
 Follow [presentation.md](presentation.md): classify source content before scoped translation chunks; keep omitted background/lyric evidence in an omission ledger rather than translating guesses. Default lyrics_policy is omit. Explicit user-requested lyrics require lyrics_request. Before styled delivery, record speaker turns, build labeled SRT/ASS with build_presentation.py and let run_checks.py verify check_presentation. Unknown voices cannot be merged by text length or proximity. The default lower baseline leaves 30 logical pixels at 1080p (20 at 720p); scene-specific raised panels require a reason. Automated pass is not confirmation of voice identity, visual readability or language quality.
+
+## Reuse without stale passes
+
+Check a new/changed environment once; reuse setup, model caches and synthetic style previews while the relevant installation/renderer/font/settings are unchanged. During editing run only affected lightweight validators. Run the full final runner on the delivery revision; avoid invoking full decode/audio comparison after every chunk. A changed subtitle needs renewed subtitle checks and affected previews; a changed delivered video needs renewed media/decode/audio checks. This scheduling rule does not mark skipped checks as passed or weaken final delivery requirements.
+
+The episode-12 layout is a default template with documented style overrides, not a requirement to use one color scheme for all episodes. Keep the generator and correspondence check; adapt colors, panel geometry and sign boxes via presentation data.

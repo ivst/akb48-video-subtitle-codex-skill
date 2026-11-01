@@ -5,6 +5,8 @@ recognizes speech; it does not establish speaker identity or translate into the
 chosen subtitle language in this workflow. Keep the Japanese transcript and
 compare uncertain names, jokes, numbers, lyrics and overlapping voices to audio.
 
+Reliable captions do not require a second full transcript. For isolated uncertainties transcribe the relevant snippet and retain its offset into the source; expand to full ASR when captions are missing or coverage is poor. Reuse an existing compatible environment and downloaded weights.
+
 The base skill and its validators do not install or require faster-whisper.
 See the [upstream installation and usage guide](https://github.com/SYSTRAN/faster-whisper).
 The example below uses CPU/int8 and does not require WSL, CUDA or a GPU. Use a

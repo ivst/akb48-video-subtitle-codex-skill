@@ -45,7 +45,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 
 ```text
 Use $akb48-video-subtitles to translate [local video path or authorized URL] into English, including on-screen text.
-Deliver separate SRT and ASS, a video with burned-in subtitles, and the checks report. Use the current compact layout near the bottom edge. Separate speakers with verified names or neutral roles; do not merge unknown voices.
+Deliver separate SRT and ASS, a video with burned-in subtitles, and the checks report. Use the current compact layout near the bottom edge. Label a line only with a name the evidence establishes; if the voice is unknown, publish the line with no speaker label at all (no Голос ?/Voice ?, no invented role); do not merge unknown voices.
 Omit background music and song lyrics. Review names, dialogue meaning, signs and final video frames; record uncertainties. Do not publish anything.
 ```
 
@@ -123,7 +123,7 @@ Tests run in GitHub Actions on Ubuntu and Windows with Python 3.11 and 3.13. The
 
 1. Verify the Japanese source transcript and capture signs, titles, rules, and results separately.
 2. Translate into the requested language using its profile and a reviewed episode glossary.
-3. Attribute speakers only when evidence supports it; leave ambiguous reactions neutral.
+3. Attribute speakers only when evidence supports it; leave a line with an unestablished voice completely unlabeled.
 4. Create portable SRT, styled ASS, and/or rendered MP4 as requested.
 5. Review frames throughout the episode and inspect the final render. Check decode, timing, packaging, and audio preservation when applicable.
 
@@ -217,4 +217,4 @@ Use **faster-whisper** to draft Japanese speech recognition or cross-check exist
 
 ## Speaker-aware compact output (0.5.0)
 
-Styled output now requires reviewed `work/presentation.json`. Use the bundled `build_presentation.py` and `check_presentation.py`: visible names/roles, no automatic merging of unknown voices, separate sign panels, and a default lower margin of 30 logical pixels (20px at 720p). Background/performance lyrics are omitted unless explicitly requested in the manifest. Older ASS/video projects without this work file report incomplete. See the [schema, commands and limits](.agents/skills/akb48-video-subtitles/references/presentation.md). The [synthetic preview](examples/compact-preview.jpg) shows the current default; the episode screenshots are the original local design references.
+Styled output now requires reviewed `work/presentation.json`. Use the bundled `build_presentation.py` and `check_presentation.py`: names only where verified, no placeholder labels, no automatic merging of unnamed voices, separate sign panels, and a default lower margin of 30 logical pixels (20px at 720p). Background/performance lyrics are omitted unless explicitly requested in the manifest. Older ASS/video projects without this work file report incomplete. See the [schema, commands and limits](.agents/skills/akb48-video-subtitles/references/presentation.md). The [synthetic preview](examples/compact-preview.jpg) shows the current default; the episode screenshots are the original local design references.

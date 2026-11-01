@@ -75,9 +75,72 @@ class PresentationTests(unittest.TestCase):
         row.update(speaker_id=None,source_ids=['u1','u2'])
         self.assertTrue(any('unknown speakers' in e for e in validate(self.data,self.episode)[0]))
         row['source_ids']=['u1']
-        ass,_,warnings=render(self.data,self.episode)
+        ass,tracks,warnings=render(self.data,self.episode)
         self.assertTrue(warnings)
-        self.assertIn('Голос ?',ass)
+        # An unestablished voice is published without any label or placeholder.
+        self.assertNotIn('Голос ?',ass)
+        self.assertNotIn('Voice ?',ass)
+        self.assertIn(r'\pos(960,',ass)
+        self.assertIn('\nТы уже выбрала ответ?\n', tracks['dialogue'])
+        self.assertNotIn('Участница А: Ты уже выбрала ответ?', tracks['dialogue'])
+
+    def test_placeholder_labels_are_rejected(self):
+        self.data['speakers']['a']['label']='Голос ?'
+        self.assertTrue(any('placeholder label' in e for e in validate(self.data,self.episode)[0]))
+
+    def test_paired_exchange_cannot_hide_an_unnamed_voice(self):
+        event = next(e for e in self.data['events'] if len(e.get('rows', [])) == 2)
+        row = event['rows'][0]
+        row['speaker_id'] = None
+        for key in row['source_ids']:
+            self.data['turns'][key]['speaker_id'] = None
+        errors, _ = validate(self.data, self.episode)
+        self.assertTrue(any('two established voices' in e for e in errors))
+
+    def test_style_overrides_keep_dialogue_and_speaker_mapping(self):
+        _, original_tracks, _ = render(self.data, self.episode)
+        self.data['style'] = {
+            'panel_x': 80, 'panel_width': 1760, 'panel_fill': '#EAF4FC',
+            'panel_border': '#38B5D5', 'panel_opacity': 1,
+            'dialogue_color': '#112233', 'sign_fill': '#235E78',
+            'sign_border': '#F4D24A', 'sign_color': '#FFFFDD',
+        }
+        ass, tracks, _ = render(self.data, self.episode)
+        self.assertEqual(original_tracks, tracks)
+        self.assertIn(r'\pos(80,968)', ass)
+        self.assertIn(r'\pos(1055,', ass)
+        self.assertIn(r'\1c&HFCF4EA&\1a&H00&', ass)
+        self.assertIn(r'\3c&HD5B538&', ass)
+        self.assertIn('Style: Speech,Segoe UI Semibold,40,&H00332211', ass)
+        self.assertIn(',Speech,a,', ass)
+        self.assertIn(',Speech,b,', ass)
+
+    def test_invalid_style_settings_fail_instead_of_silent_fallback(self):
+        for style in [None, {'panel_x': -1}, {'panel_width': 1920},
+                      {'panel_width': 1199}, {'panel_opacity': float('nan')},
+                      {'panel_opacity': True}, {'panel_opacity': 0.2},
+                      {'dialogue_color': 'red'}, {'sign_font_size': 99},
+                      {'unrecognized_color': '#FFFFFF'}]:
+            with self.subTest(style=style):
+                self.data['style'] = style
+                self.assertTrue(validate(self.data, self.episode)[0])
+                with self.assertRaises(ValueError):
+                    render(self.data, self.episode)
+
+    def test_sign_override_and_font_size_affect_fit_checks(self):
+        sign = next(e for e in self.data['events'] if e['kind'] == 'inscription')
+        sign['style'] = {'sign_fill': '#112233', 'sign_color': '#223344', 'sign_font_size': 30}
+        sign['box'] = [100, 200, 1500, 180]
+        ass, _, _ = render(self.data, self.episode)
+        self.assertIn(r'\1c&H332211&', ass)
+        self.assertIn(r'\fs30\1c&H443322&', ass)
+        sign['box'] = [100, 200, 1500, 43]
+        with self.assertRaisesRegex(ValueError, 'box too small'):
+            render(self.data, self.episode)
+        sign['style'] = {'panel_width': 1500}
+        self.assertTrue(validate(self.data, self.episode)[0])
+        self.data['events'][0]['style'] = {'sign_color': '#223344'}
+        self.assertTrue(any('only supported for signs' in e for e in validate(self.data, self.episode)[0]))
 
     def test_dash_or_slash_dialogue_must_be_reviewed(self):
         for text in ('— Я знаю. — А я нет.','Да! / Нет!'):
@@ -103,6 +166,7 @@ class PresentationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'split long dialogue'):render(self.data,self.episode)
 
     def test_output_drift_and_stale_lyrics_fail(self):
+        self.data['style'] = {'panel_border': '#38B5D5', 'sign_fill': '#235E78'}
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder)
             data=root/'presentation.json';data.write_text(json.dumps(self.data),encoding='utf-8')

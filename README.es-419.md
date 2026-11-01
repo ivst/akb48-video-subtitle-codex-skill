@@ -25,7 +25,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 
 ```text
 Usa $akb48-video-subtitles para traducir [ruta local del video o URL autorizada] al español latinoamericano, incluidos los textos en pantalla.
-Entrega SRT y ASS separados, un video con subtítulos incrustados y el informe de comprobaciones. Usa el diseño compacto actual junto al borde inferior. Separa las voces con nombres verificados o roles neutrales; no unas voces desconocidas.
+Entrega SRT y ASS separados, un video con subtítulos incrustados y el informe de comprobaciones. Usa el diseño compacto actual junto al borde inferior. Etiqueta una línea solo con un nombre verificado; si la voz no se conoce, publica la línea sin ninguna etiqueta de hablante (nada de «Voz ?» ni roles inventados); no unas voces desconocidas.
 Omite la música de fondo y las letras. Revisa los nombres, el sentido del diálogo, los textos en pantalla y los fotogramas finales; registra las dudas. No publiques nada.
 ```
 
@@ -72,7 +72,7 @@ Los scripts incluidos usan la biblioteca estándar de Python; no hace falta inst
 
 1. Verifica el texto japonés y registra por separado los letreros, títulos, reglas y resultados.
 2. Traduce con el perfil elegido y un glosario del episodio revisado.
-3. Atribuye cada intervención solo cuando haya evidencia; deja neutrales las reacciones dudosas.
+3. Atribuye cada intervención solo cuando haya evidencia; si la voz no se conoce, deja la línea sin etiqueta.
 4. Crea SRT, ASS con estilo y/o MP4 según lo solicitado.
 5. Revisa fotogramas a lo largo del episodio y el render final. Cuando corresponda, comprueba decodificación, tiempos, paquete y conservación del audio.
 
@@ -100,4 +100,4 @@ El informe de video incluye la decodificación completa del original y del resul
 
 ## Subtítulos por hablante y diseño compacto (0.5.0)
 
-ASS/video requiere `work/presentation.json` revisado. `build_presentation.py` muestra nombres/roles y no une automáticamente voces desconocidas. El margen inferior es de 30px en el lienzo 1080p (20px a 720p). Las letras se omiten salvo petición explícita. Consulta el [esquema y los comandos](.agents/skills/akb48-video-subtitles/references/presentation.md) y la [nueva vista sintética](examples/compact-preview.jpg).
+ASS/video requiere `work/presentation.json` revisado. `build_presentation.py` muestra nombres solo cuando están verificados, deja sin etiqueta las voces no confirmadas y no une automáticamente voces desconocidas. El margen inferior es de 30px en el lienzo 1080p (20px a 720p). Las letras se omiten salvo petición explícita. Consulta el [esquema y los comandos](.agents/skills/akb48-video-subtitles/references/presentation.md) y la [nueva vista sintética](examples/compact-preview.jpg).
