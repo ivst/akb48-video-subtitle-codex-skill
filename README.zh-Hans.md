@@ -16,8 +16,8 @@
 请先准备 Git、Python 3.11+、支持 libass 的 FFmpeg/FFprobe 和兼容宿主（Codex、DeepSeek Harness、Claude Code 或其他 Agent Skills 客户端）。以下命令克隆仓库并检查工具，不会安装前置程序。在宿主中打开克隆后的目录并开始新聊天。
 
 ```sh
-git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
-cd akb48-video-subtitle-codex-skill
+git clone https://github.com/ivst/akb48-video-subtitle-skill.git
+cd akb48-video-subtitle-skill
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
 ```
 

@@ -34,8 +34,8 @@ Notes:
 Prerequisites: Git, Python 3.11+, FFmpeg/FFprobe with libass, and a compatible host (Codex, DeepSeek Harness, Claude Code, or another Agent Skills client). These commands clone the repository and check the tools; they do not install prerequisites. Open the cloned folder in your host and start a new chat.
 
 ```sh
-git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
-cd akb48-video-subtitle-codex-skill
+git clone https://github.com/ivst/akb48-video-subtitle-skill.git
+cd akb48-video-subtitle-skill
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
 ```
 

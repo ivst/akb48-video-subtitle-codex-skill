@@ -16,8 +16,8 @@
 ต้องมี Git, Python 3.11 ขึ้นไป, FFmpeg/FFprobe ที่รองรับ libass และโฮสต์ที่เข้ากันได้ (Codex, DeepSeek Harness, Claude Code หรือไคลเอนต์ Agent Skills อื่น) คำสั่งด้านล่างโคลนรีโพซิทอรีและตรวจสอบเครื่องมือ แต่ไม่ได้ติดตั้งโปรแกรมที่จำเป็น เปิดโฟลเดอร์ที่โคลนในโฮสต์ของคุณแล้วเริ่มแชตใหม่
 
 ```sh
-git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
-cd akb48-video-subtitle-codex-skill
+git clone https://github.com/ivst/akb48-video-subtitle-skill.git
+cd akb48-video-subtitle-skill
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
 ```
 

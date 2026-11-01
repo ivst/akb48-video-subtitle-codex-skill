@@ -16,8 +16,8 @@ Repositori ini berisi paket Agent Skills, draf profil bahasa, pemeriksa SRT dasa
 Siapkan Git, Python 3.11+, FFmpeg/FFprobe dengan libass, serta host yang kompatibel (Codex, DeepSeek Harness, Claude Code, atau klien Agent Skills lain). Perintah berikut mengklon repositori dan memeriksa alat; perintah ini tidak memasang prasyarat. Buka folder hasil klon di host Anda dan mulai chat baru.
 
 ```sh
-git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
-cd akb48-video-subtitle-codex-skill
+git clone https://github.com/ivst/akb48-video-subtitle-skill.git
+cd akb48-video-subtitle-skill
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
 ```
 

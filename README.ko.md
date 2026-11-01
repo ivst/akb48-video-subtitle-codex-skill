@@ -16,8 +16,8 @@ AKB48 및 48 Group 영상의 번역과 자막 작업을 위한 재사용 가능�
 Git, Python 3.11 이상, libass를 지원하는 FFmpeg/FFprobe 및 호환 호스트(Codex, DeepSeek Harness, Claude Code 또는 다른 Agent Skills 클라이언트)가 필요합니다. 아래 명령은 저장소를 복제하고 도구를 검사하며 필수 프로그램을 설치하지는 않습니다. 복제한 폴더를 해당 호스트에서 열고 새 채팅을 시작하세요.
 
 ```sh
-git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
-cd akb48-video-subtitle-codex-skill
+git clone https://github.com/ivst/akb48-video-subtitle-skill.git
+cd akb48-video-subtitle-skill
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
 ```
 

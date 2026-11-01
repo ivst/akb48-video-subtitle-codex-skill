@@ -16,8 +16,8 @@ El repositorio incluye un paquete de Agent Skills, perfiles de idioma iniciales,
 Necesitas Git, Python 3.11+, FFmpeg/FFprobe con libass y un host compatible (Codex, DeepSeek Harness, Claude Code u otro cliente de Agent Skills). Los comandos clonan el repositorio y verifican las herramientas; no instalan los requisitos. Abre la carpeta clonada en tu host e inicia un chat nuevo.
 
 ```sh
-git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
-cd akb48-video-subtitle-codex-skill
+git clone https://github.com/ivst/akb48-video-subtitle-skill.git
+cd akb48-video-subtitle-skill
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
 ```
 

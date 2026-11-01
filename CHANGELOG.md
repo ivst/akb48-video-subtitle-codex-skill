@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.2 — 2026-11-01
+- Renamed the repository to `akb48-video-subtitle-skill` to match its host-neutral scope; updated clone URLs in all eight READMEs. GitHub keeps redirects from the old name, but update local remotes and external links.
+
 ## 0.6.1 — 2026-11-01
 - Documented host compatibility: native `.agents/skills` discovery in Codex and DeepSeek Harness, format-compatible installation for Claude Code (`.claude/skills`), and the open Agent Skills baseline for other clients. Added per-host install and invocation paths to the English and Russian READMEs; other locales link to the compatibility section.
 - Added repository topics and refreshed the repository description so the project is discoverable as a host-neutral Agent Skills workflow.

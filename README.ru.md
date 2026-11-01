@@ -34,8 +34,8 @@ Skill следует открытому формату [Agent Skills](https://ag
 Нужны Git, Python 3.11+, FFmpeg/FFprobe с libass и совместимый хост (Codex, DeepSeek Harness, Claude Code или другой клиент Agent Skills). Команды клонируют репозиторий и проверяют инструменты; сами зависимости ими не устанавливаются. Откройте клонированную папку в вашем хосте и начните новый чат.
 
 ```sh
-git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
-cd akb48-video-subtitle-codex-skill
+git clone https://github.com/ivst/akb48-video-subtitle-skill.git
+cd akb48-video-subtitle-skill
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
 ```
 
