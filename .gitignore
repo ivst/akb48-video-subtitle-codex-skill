@@ -10,3 +10,6 @@ work/
 *.mp3
 *.jsonl
 .env
+
+# Local episode workspaces used by the workflow guide
+/episodes/

@@ -1,6 +1,6 @@
 # Setup and resource requirements
 
-The skill itself is plain Markdown. Its SRT checker uses only the Python standard library. The workflow does not require an OpenAI API key, paid translation API, GPU, Docker, or cloud account.
+The skill itself is plain Markdown. Its SRT checker uses only the Python standard library. The packaged validators require no OpenAI API key, paid translation API, GPU, Docker, or cloud account. Access to Codex or another agent/model is configured separately.
 
 ## Required for local subtitle and video work
 
@@ -31,3 +31,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path/to/subtitl
 ```
 
 No Python packages are needed for these checks. The duration flag is in seconds and should match the source video rather than the synthetic example. Exit 1 means validation failed; exit 2 means a command-line or file-reading problem for the SRT checker. Readability warnings do not fail validation. If you installed the skill into the user skills directory instead of opening this repository, run each script by its path inside that installed skill folder. If optional ASR is installed, follow that project's current platform-specific instructions rather than assuming one CUDA setup works everywhere.
+
+## Optional faster-whisper setup
+
+See [Japanese transcription with faster-whisper](transcription.md) for separate-environment installation on Windows/Linux/macOS, a CPU/int8 example, raw JSON and source SRT output, model downloads, and recognition limitations. This is optional and is not installed automatically. WSL is not required.

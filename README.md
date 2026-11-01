@@ -153,3 +153,7 @@ For reliable validation, annotate confirmed mentions with `song_ids` in source t
 ## Full video checks
 
 Rendered-video reports now include full software decoding of source and output, decoder errors, and actual decoded frame-count equality (`check_decode.py`). Audio hashing has a timeout covering the entire decode and avoids pipe deadlocks. Use `run_checks.py --media-timeout 1800` to set the maximum seconds per file. Frame-count equality assumes no intentional frame-rate conversion.
+
+## Optional Japanese transcription and detailed workflow
+
+Use **faster-whisper** to draft Japanese speech recognition or cross-check existing captions; translation and speaker attribution remain separate steps. It is an optional dependency installed in its own environment; CPU mode requires neither WSL nor a GPU. See the [installation and transcription example](.agents/skills/akb48-video-subtitles/references/transcription.md). The [detailed Russian workflow](docs/workflow.ru.md) covers signs, speaker turns, styling, rendering and delivery, with portable paths and explicit limits of the bundled tools.

@@ -67,3 +67,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 ## 完整影片檢查
 
 影片報告包含來源與成品的完整軟體解碼、解碼錯誤檢查及實際解碼影格數比較（`check_decode.py`）。音訊雜湊對整個解碼過程設定逾時，並避免管線死結。使用 `run_checks.py --media-timeout 1800` 設定每個檔案最長處理秒數。影格數比較假設沒有刻意改變影格率。
+
+## 選用：日語語音辨識與詳細流程
+
+**faster-whisper** 可用於產生日文逐字稿草稿或交叉檢查現有字幕，翻譯與說話者判定仍是獨立步驟。它是安裝於獨立環境的選用依賴，CPU 模式不需要 WSL 或 GPU。請參閱[安裝與轉錄範例（英文）](.agents/skills/akb48-video-subtitles/references/transcription.md)及[詳細工作流程（俄文）](docs/workflow.ru.md)。

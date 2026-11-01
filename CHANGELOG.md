@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Added optional CPU faster-whisper installation/transcription instructions and a portable Russian workflow adapted from the local production notes; linked both from all eight README languages.
+
 ## 0.4.1 — 2026-11-01
 - Fixed libass detection for FFmpeg 8 two-flag filter listings as well as older builds.
 - Added mandatory full source/output decoding and decoded frame-count comparison to rendered-video reports.
