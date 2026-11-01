@@ -1,7 +1,51 @@
-Copyright and third-party material
+Copyright and third-party visual excerpts
 
-The two files under examples/preview-episode-*.jpg are low-resolution illustrative frames from the AKB48 program videos identified in README.md. The underlying footage, show logo, performers, and any source graphics are not owned by this repository's maintainer and are not licensed under MIT. All rights in those materials remain with their respective rights holders. These previews are included solely to demonstrate subtitle layout. No source video or full episode subtitle file is distributed here.
+This repository contains two still frames used as *source-attributed excerpts*
+for technical commentary on the layout of Russian subtitles. They appear
+beside the actual discussion of speaker labels, caption panels, legibility,
+and placement relative to the original picture. They are not distributed as
+standalone entertainment content or as substitutes for the episodes.
 
-All other original documentation and scripts in this repository are available under the MIT License.
+Individual source attribution:
 
-The original synthetic ASS layout in examples/demo.ass is copyright 2026 ivst and is provided under the MIT License. This does not extend any license to the third-party program screenshots or program branding. Attribution in this notice does not itself grant permission to redistribute copyrighted third-party material.
+* examples/preview-episode-12.jpg
+  Program: AKB48の全力エンタメ学園 (AKB48), episode 12
+  Original publication date: 2026-04-18
+  Original AKB48 YouTube video: https://www.youtube.com/watch?v=aPznmLtjedw
+  Reason quoted: technical illustration of the speaker-name rail and compact
+  translated-dialogue panel, including their separation and readability.
+
+* examples/preview-episode-13.jpg
+  Program: AKB48の全力エンタメ学園 (AKB48), episode 13
+  Original publication date: 2026-04-25
+  Original AKB48 YouTube video: https://www.youtube.com/watch?v=mHF3TEk6lwQ
+  Reason quoted: technical illustration of subtitle panel placement during
+  the handshake segment and its relationship to source-screen graphics.
+
+The underlying video frames, performer depictions, branding, and any other
+third-party material are not owned by this repository's maintainer and are
+NOT licensed under the repository's MIT license. All relevant third-party
+rights are reserved by their respective rights holders. The MIT license
+applies to the original code, documentation, and synthetic ASS layout, not
+to these two program stills. No source video or full-episode subtitles are
+included in the repository.
+
+Japanese Copyright Act Article 32 provides a limited, fact-dependent quotation
+exception for published works used in accordance with fair practices and to
+an extent justified by the purpose. Source indication is addressed in Article
+48. Whether a particular screenshot or its modifications qualify requires
+assessment of the specific circumstances, including necessity, separation of
+the quoted material from the author's commentary, relative prominence and
+scope of use, and any other implicated rights. This NOTICE does not declare
+that the quotation exception necessarily applies, nor does it grant permission
+to redistribute either screenshot. Merely citing a YouTube source or excluding
+a file from MIT does not resolve third-party copyright or moral-rights issues.
+
+Official Japanese Agency for Cultural Affairs guidance:
+https://www.bunka.go.jp/seisaku/bunka_gyosei/kibankyoka/faq/index.html
+Japanese law (Copyright Act):
+https://laws.e-gov.go.jp/law/345AC0000000048
+
+If you intend to reuse these images independently, obtain an appropriate
+permission or evaluate the applicable exception in your own circumstances.
+For an image-free example of subtitle positioning, use examples/demo.ass.

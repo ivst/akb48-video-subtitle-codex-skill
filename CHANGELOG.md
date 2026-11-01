@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Added per-frame AKB48 source citations and technical commentary across eight README languages, with Japanese quotation-law limitations in NOTICE.
 - Agent-friendly Russian translation quality checks, name spelling flags and source-aware Japanese-script heuristics.
 - Stable per-cue translation chunk protocol, episode workspace and evidence-backed `report.json`.
 - Static ASS diagnostics, media/decoded-audio comparison and definition of done.
