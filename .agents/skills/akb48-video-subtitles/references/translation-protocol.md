@@ -48,3 +48,6 @@ python .agents/skills/akb48-video-subtitles/scripts/run_checks.py --project epis
 `run_checks.py` executes available validators and writes `report.json`: actual arguments, exit statuses, warnings, input/output hashes (where exposed), and checks not run. It reports `incomplete` rather than claiming everything passed when required inputs are missing. The report is **evidence of tools invoked**, not proof of translation accuracy or visual quality. An agent must distinguish technical validation from sample-based human review and media rights.
 
 For a synthetic six-cue exchange, see `examples/quality/ja.srt`, `ru.srt`, `source.json`, `translated.json`, and `episode.json`. No copyrighted episode media is included.
+
+## Recommended model for difficult language work
+For longer Japanese variety-show episodes, prefer **GPT-6.1 Sol, Medium reasoning effort or higher**, if available to the user/workspace. For puns, cultural context, ambiguous speakers and difficult passages, higher effort or another more capable model may be appropriate. This preference does not guarantee improvement; always verify dialogue against the original audio and keep native review for non-approved language profiles. The skill must remain usable without a specific model.

@@ -26,6 +26,7 @@ def main(argv=None) -> int:
         "locale": args.locale, "source_locale": "ja",
         "duration_seconds": None, "video_width": None, "video_height": None,
         "glossary_revision": "unreviewed", "requested_outputs": ["srt"],
+        "audio_preservation": "unchanged",
         "source": {"srt": "source/dialogue.ja.srt", "media": args.source_video},
         "work": {"input": "work/chunks/source.json",
                  "translated": "work/chunks/translated.json"},

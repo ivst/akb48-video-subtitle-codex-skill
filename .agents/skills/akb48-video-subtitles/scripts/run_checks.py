@@ -100,14 +100,35 @@ def main(argv=None) -> int:
     elif "ass" in requested:
         not_run("check_ass", "requested ASS not found")
     video = data.get("source", {}).get("media")
+    rendered = data.get("output", {}).get("video")
+    source_media = None
+    rendered_media = None
     if video:
-        media = Path(video)
-        if not media.is_absolute():
-            media = root / media
-        if media.is_file():
-            execute("probe_media", [str(media)])
+        source_media = Path(video)
+        if not source_media.is_absolute():
+            source_media = root / source_media
+        if source_media.is_file():
+            execute("probe_media", [str(source_media)])
         else:
             not_run("probe_media", "declared source media does not exist")
+    if rendered:
+        rendered_media = Path(rendered)
+        if not rendered_media.is_absolute():
+            rendered_media = root / rendered_media
+        if rendered_media.is_file():
+            execute("probe_media", [str(rendered_media)])
+            if source_media and source_media.is_file():
+                execute("compare_media", ["--source", str(source_media), "--rendered", str(rendered_media)])
+                if data.get("audio_preservation", "unchanged") == "unchanged":
+                    execute("compare_audio", ["--source", str(source_media), "--rendered", str(rendered_media)])
+            else:
+                not_run("compare_media", "source media unavailable; cannot compare output")
+                if data.get("audio_preservation", "unchanged") == "unchanged":
+                    not_run("compare_audio", "source media unavailable; cannot verify source audio")
+        elif "video" in requested:
+            not_run("rendered_video", "requested rendered video not found")
+    elif "video" in requested:
+        not_run("rendered_video", "requested rendered video path not set")
     state = "fail" if failed else "incomplete" if missing else "pass"
     out = {
         "schema_version": 1, "episode_id": data["episode_id"],

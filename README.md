@@ -126,3 +126,9 @@ python .agents/skills/akb48-video-subtitles/scripts/run_checks.py --project my-e
 ```
 
 The project initializer rejects overwriting an existing workspace. `report.json` is generated from **executed** validators with command arguments, exit codes, file SHA256 and explicit `not_run` entries; the report does not substitute for manual translation or visual review.
+
+## Preferred model and final media checks
+
+For complex Japanese-to-target-language translation, **GPT-6.1 Sol at Medium reasoning effort or higher is recommended when available** (a preference, not a requirement or guaranteed quality improvement). For difficult jokes, voices or cultural context, use a higher setting or a stronger available model, and always verify against Japanese audio.
+
+The skill adds `check_ass.py`, `probe_media.py`, `compare_media.py`, and `compare_audio.py`. The last tool hashes **decoded PCM**, not compressed audio packets, so distinguish audio preservation checks from exact compressed-stream identity. Media tools require FFmpeg/FFprobe in PATH. See [Definition of done](.agents/skills/akb48-video-subtitles/references/deliverables.md) and [CHANGELOG](CHANGELOG.md). Current repository version is in [VERSION](VERSION).
