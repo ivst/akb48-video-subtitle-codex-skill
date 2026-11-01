@@ -27,9 +27,11 @@ def main(argv=None) -> int:
         "duration_seconds": None, "video_width": None, "video_height": None,
         "glossary_revision": "unreviewed", "requested_outputs": ["srt"],
         "audio_preservation": "unchanged",
+        "lyrics_policy": "omit", "lyrics_request": None,
         "source": {"srt": "source/dialogue.ja.srt", "media": args.source_video},
         "work": {"input": "work/chunks/source.json",
-                 "translated": "work/chunks/translated.json"},
+                 "translated": "work/chunks/translated.json",
+                 "presentation": "work/presentation.json"},
         "output": {"srt": f"output/dialogue.{args.locale}.srt",
                    "ass": f"output/subtitles.{args.locale}.ass", "video": None},
         "names": {}, "songs": {}

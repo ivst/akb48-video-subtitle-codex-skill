@@ -157,3 +157,7 @@ Rendered-video reports now include full software decoding of source and output, 
 ## Optional Japanese transcription and detailed workflow
 
 Use **faster-whisper** to draft Japanese speech recognition or cross-check existing captions; translation and speaker attribution remain separate steps. It is an optional dependency installed in its own environment; CPU mode requires neither WSL nor a GPU. See the [installation and transcription example](.agents/skills/akb48-video-subtitles/references/transcription.md). The [detailed Russian workflow](docs/workflow.ru.md) covers signs, speaker turns, styling, rendering and delivery, with portable paths and explicit limits of the bundled tools.
+
+## Speaker-aware compact output (0.5.0)
+
+Styled output now requires reviewed `work/presentation.json`. Use the bundled `build_presentation.py` and `check_presentation.py`: visible names/roles, no automatic merging of unknown voices, separate sign panels, and a default lower margin of 30 logical pixels (20px at 720p). Background/performance lyrics are omitted unless explicitly requested in the manifest. Older ASS/video projects without this work file report incomplete. See the [schema, commands and limits](.agents/skills/akb48-video-subtitles/references/presentation.md). The [synthetic preview](examples/compact-preview.jpg) shows the current default; existing program screenshots illustrate earlier local work.

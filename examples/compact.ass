@@ -1,0 +1,35 @@
+﻿[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Speech,Arial,42,&H00252525,&H00252525,&H00FFFFFF,&H00FFFFFF,0,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: Speaker,Arial,26,&H00252525,&H00252525,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: Shape,Arial,20,&H00FFFFFF,&H00FFFFFF,&H00FFFFFF,&H00FFFFFF,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: Sign,Arial,34,&H00FFFFFF,&H00FFFFFF,&H004D384F,&H004D384F,-1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: Lyrics,Arial,34,&H00252525,&H00252525,&H00FFFFFF,&H00FFFFFF,0,-1,0,0,100,100,0,0,3,4,0,2,100,100,200,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 3,0:00:00.00,0:00:03.00,Shape,,0,0,0,,{\an7\pos(1250,40)\p1\1c&H6B466F&\bord1\3c&HD5CBD5&}m 0 0 l 620 0 l 620 64 l 0 64{\p0}
+Dialogue: 4,0:00:00.00,0:00:03.00,Sign,,0,0,0,,{\pos(1560.0,72.0)}Викторина
+Dialogue: 0,0:00:00.50,0:00:02.00,Shape,,0,0,0,,{\an7\pos(110,968)\p1\1c&HFFFFFF&\bord1\3c&HD5CBD5&}m 0 0 l 1700 0 l 1700 82 l 0 82{\p0}
+Dialogue: 1,0:00:00.50,0:00:02.00,Shape,,0,0,0,,{\an7\pos(126,986)\p1\1c&HB36B29&\bord1\3c&HD5CBD5&}m 0 0 l 5 0 l 5 46 l 0 46{\p0}
+Dialogue: 2,0:00:00.50,0:00:02.00,Speaker,,0,0,0,,{\pos(225,1009.0)\fs26\1c&HB36B29&}Участница А
+Dialogue: 2,0:00:00.50,0:00:02.00,Speech,a,0,0,0,,{\pos(1055,1009.0)}Ты уже выбрала ответ?
+Dialogue: 0,0:00:02.00,0:00:04.00,Shape,,0,0,0,,{\an7\pos(110,968)\p1\1c&HFFFFFF&\bord1\3c&HD5CBD5&}m 0 0 l 1700 0 l 1700 82 l 0 82{\p0}
+Dialogue: 1,0:00:02.00,0:00:04.00,Shape,,0,0,0,,{\an7\pos(126,986)\p1\1c&H984391&\bord1\3c&HD5CBD5&}m 0 0 l 5 0 l 5 46 l 0 46{\p0}
+Dialogue: 2,0:00:02.00,0:00:04.00,Speaker,,0,0,0,,{\pos(225,1009.0)\fs26\1c&H984391&}Участница Б
+Dialogue: 2,0:00:02.00,0:00:04.00,Speech,b,0,0,0,,{\pos(1055,1009.0)}Да, но пока не скажу.
+Dialogue: 0,0:00:04.00,0:00:06.00,Shape,,0,0,0,,{\an7\pos(110,886)\p1\1c&HFFFFFF&\bord1\3c&HD5CBD5&}m 0 0 l 1700 0 l 1700 82 l 0 82{\p0}
+Dialogue: 1,0:00:04.00,0:00:06.00,Shape,,0,0,0,,{\an7\pos(126,904)\p1\1c&HB36B29&\bord1\3c&HD5CBD5&}m 0 0 l 5 0 l 5 46 l 0 46{\p0}
+Dialogue: 2,0:00:04.00,0:00:06.00,Speaker,,0,0,0,,{\pos(225,927.0)\fs26\1c&HB36B29&}Участница А
+Dialogue: 2,0:00:04.00,0:00:06.00,Speech,a,0,0,0,,{\pos(1055,927.0)}А подсказку можно?
+Dialogue: 0,0:00:04.00,0:00:06.00,Shape,,0,0,0,,{\an7\pos(110,968)\p1\1c&HFFFFFF&\bord1\3c&HD5CBD5&}m 0 0 l 1700 0 l 1700 82 l 0 82{\p0}
+Dialogue: 1,0:00:04.00,0:00:06.00,Shape,,0,0,0,,{\an7\pos(126,986)\p1\1c&H984391&\bord1\3c&HD5CBD5&}m 0 0 l 5 0 l 5 46 l 0 46{\p0}
+Dialogue: 2,0:00:04.00,0:00:06.00,Speaker,,0,0,0,,{\pos(225,1009.0)\fs26\1c&H984391&}Участница Б
+Dialogue: 2,0:00:04.00,0:00:06.00,Speech,b,0,0,0,,{\pos(1055,1009.0)}Только одну!

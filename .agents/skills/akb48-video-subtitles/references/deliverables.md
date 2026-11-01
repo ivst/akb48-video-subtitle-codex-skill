@@ -49,3 +49,7 @@ The `path/to/` commands require real media and are illustrative: they must not b
 **Recommended when available:** GPT-6.1 Sol with **Medium reasoning effort or higher**, especially for long variety-show dialogue, jokes, register changes and unclear speaker references. Use a more capable model/reasoning setting when useful, subject to the current account/workspace choices. This is a practical starting preference, not a verified guarantee that any particular model will give a better translation.
 
 Preserve Japanese source text and evidence, review the output against audio, and do not invent unverifiable lines. A stronger model is not a substitute for an approved glossary, structural checks, or fluent human review.
+
+## Speaker, music and presentation gate
+
+Follow [presentation.md](presentation.md): classify source content before scoped translation chunks; keep omitted background/lyric evidence in an omission ledger rather than translating guesses. Default lyrics_policy is omit. Explicit user-requested lyrics require lyrics_request. Before styled delivery, record speaker turns, build labeled SRT/ASS with build_presentation.py and let run_checks.py verify check_presentation. Unknown voices cannot be merged by text length or proximity. The default lower baseline leaves 30 logical pixels at 1080p (20 at 720p); scene-specific raised panels require a reason. Automated pass is not confirmation of voice identity, visual readability or language quality.

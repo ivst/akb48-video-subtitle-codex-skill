@@ -71,3 +71,7 @@ Laporan video mencakup decode penuh sumber dan hasil, kesalahan decoder, serta p
 ## Opsional: transkripsi Jepang dan panduan lengkap
 
 **faster-whisper** dapat membuat draf transkrip Jepang atau memeriksa subtitle yang ada. Penerjemahan dan identifikasi pembicara tetap dilakukan terpisah. Instalasi memakai lingkungan tersendiri; mode CPU tidak memerlukan WSL atau GPU. Lihat [instalasi dan contoh transkripsi dalam bahasa Inggris](.agents/skills/akb48-video-subtitles/references/transcription.md) serta [panduan lengkap dalam bahasa Rusia](docs/workflow.ru.md).
+
+## Subtitle per pembicara dan tata letak ringkas (0.5.0)
+
+ASS/video memerlukan `work/presentation.json` yang telah ditinjau. `build_presentation.py` menampilkan nama/peran dan tidak menggabungkan suara tak dikenal secara otomatis. Margin bawah adalah 30px pada kanvas 1080p (20px pada 720p). Lirik dihilangkan kecuali diminta secara eksplisit. Lihat [skema dan perintah](.agents/skills/akb48-video-subtitles/references/presentation.md) serta [contoh sintetis baru](examples/compact-preview.jpg).

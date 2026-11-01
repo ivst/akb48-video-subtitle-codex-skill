@@ -105,8 +105,16 @@ def main(argv=None) -> int:
             arguments += ["--width", str(data["video_width"]),
                           "--height", str(data["video_height"])]
         execute("check_ass", arguments)
-    elif "ass" in requested:
+    elif "ass" in requested or "video" in requested:
         not_run("check_ass", "requested ASS not found")
+    presentation = root / data['work'].get('presentation','work/presentation.json')
+    if presentation.is_file():
+        arguments = ['--input', str(presentation), '--episode', str(root/'episode.json')]
+        if ass.is_file(): arguments += ['--ass',str(ass)]
+        if target_srt.is_file(): arguments += ['--srt',str(target_srt)]
+        execute('check_presentation',arguments)
+    elif any(output in requested for output in ('ass','video')):
+        not_run('check_presentation','reviewed speaker-aware presentation missing; cannot approve styled outputs')
     video = data.get("source", {}).get("media")
     rendered = data.get("output", {}).get("video")
     source_media = None
@@ -146,6 +154,7 @@ def main(argv=None) -> int:
     state = "fail" if failed else "incomplete" if missing else "pass"
     out = {
         "schema_version": 1, "episode_id": data["episode_id"],
+        "scope": "automated structure, presentation correspondence and media checks; not editorial acceptance",
         "created_at_utc": datetime.now(timezone.utc).isoformat(), "status": state,
         "executed_checks": len([r for r in events if r["status"] != "not_run"]),
         "failed_checks": failed, "missing_checks": missing, "checks": events,

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "font": "Arial",
+  "bottom_margin": 30,
+  "speakers": {
+    "a": {
+      "label": "Участница А",
+      "color": "#296BB3"
+    },
+    "b": {
+      "label": "Участница Б",
+      "color": "#914398"
+    }
+  },
+  "turns": {
+    "t1": {
+      "speaker_id": "a",
+      "evidence": "Synthetic example: explicitly authored separate voice turn"
+    },
+    "t2": {
+      "speaker_id": "b",
+      "evidence": "Synthetic example: explicitly authored separate voice turn"
+    },
+    "t3": {
+      "speaker_id": "a",
+      "evidence": "Synthetic example: explicitly authored separate voice turn"
+    },
+    "t4": {
+      "speaker_id": "b",
+      "evidence": "Synthetic example: explicitly authored separate voice turn"
+    }
+  },
+  "events": [
+    {
+      "id": "d1",
+      "kind": "dialogue",
+      "start_ms": 500,
+      "end_ms": 2000,
+      "rows": [
+        {
+          "speaker_id": "a",
+          "source_ids": [
+            "t1"
+          ],
+          "text": "Ты уже выбрала ответ?"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "kind": "dialogue",
+      "start_ms": 2000,
+      "end_ms": 4000,
+      "rows": [
+        {
+          "speaker_id": "b",
+          "source_ids": [
+            "t2"
+          ],
+          "text": "Да, но пока не скажу."
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "kind": "dialogue",
+      "start_ms": 4000,
+      "end_ms": 6000,
+      "rows": [
+        {
+          "speaker_id": "a",
+          "source_ids": [
+            "t3"
+          ],
+          "text": "А подсказку можно?"
+        },
+        {
+          "speaker_id": "b",
+          "source_ids": [
+            "t4"
+          ],
+          "text": "Только одну!"
+        }
+      ]
+    },
+    {
+      "id": "s1",
+      "kind": "inscription",
+      "start_ms": 0,
+      "end_ms": 3000,
+      "text": "Викторина",
+      "box": [
+        1250,
+        40,
+        620,
+        64
+      ]
+    }
+  ]
+}
