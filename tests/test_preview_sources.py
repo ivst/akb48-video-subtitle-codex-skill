@@ -41,7 +41,7 @@ class ScreenshotAttributionTests(unittest.TestCase):
                 self.assertIn(video_id, data)
         self.assertIn("NOT licensed", data)
         self.assertIn("Article 32", data)
-        self.assertIn("Article 48", data)
+        self.assertIn("Article 48", " ".join(data.split()))
         self.assertIn("does not declare", data)
 
     def test_examples_folder_explains_sources_and_synthetic_alternative(self):
