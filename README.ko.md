@@ -9,6 +9,24 @@ AKB48 및 48 Group 영상의 번역과 자막 작업을 위한 재사용 가능�
 
 저장소에는 Codex Skill, 언어 프로필 초안, 기본 SRT 검사기, 설치 안내와 최근 러시아어 번역 영상의 예시 화면 두 장이 포함되어 있습니다. 러시아어 프로필은 전체 영상 작업에 사용한 절차를 바탕으로 합니다. 한국어 프로필은 아직 초안이므로 실제 사용 전에 한국어 모어 화자의 검토가 필요합니다. 다른 프로필도 기여자가 다듬을 시작점입니다.
 
+## 빠른 설치
+
+Git, Python 3.11 이상, libass를 지원하는 FFmpeg/FFprobe 및 Codex 이용 환경이 필요합니다. 아래 명령은 저장소를 복제하고 도구를 검사하며 필수 프로그램을 설치하지는 않습니다. 복제한 폴더를 Codex에서 열고 새 채팅을 시작하세요.
+
+```sh
+git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
+cd akb48-video-subtitle-codex-skill
+python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
+```
+
+## 프롬프트 예시
+
+```text
+$akb48-video-subtitles를 사용해 [로컬 영상 경로 또는 사용 권한이 있는 URL]을 화면 문구까지 한국어로 번역해 주세요.
+별도 SRT와 ASS, 자막이 삽입된 영상, 검사 보고서를 만들어 주세요. 화면 하단의 최신 간결한 레이아웃을 사용하고, 서로 다른 사람의 대사는 확인된 이름이나 중립적인 역할로 구분해 주세요. 불명확한 화자를 합치지 마세요.
+배경 음악과 노래 가사는 제외해 주세요. 이름, 대사의 의미, 화면 문구와 최종 영상 프레임을 확인하고 미해결 부분을 기록해 주세요. 아무것도 공개하지 마세요.
+```
+
 ## 미리보기
 
 **12화 — 화자 이름과 간결한 자막 패널** ([원본 영상](https://www.youtube.com/watch?v=aPznmLtjedw))
@@ -25,15 +43,13 @@ AKB48 및 48 Group 영상의 번역과 자막 작업을 위한 재사용 가능�
 
 위 두 이미지는 **자막 디자인에 관한 기술적 설명을 위한 인용 화면**이며 자유롭게 재사용할 수 있는 자료가 아닙니다. 원본 영상, 출연자 이미지, 로고 및 기타 제3자 요소의 권리는 각 권리자에게 있습니다. **MIT 라이선스는 이 이미지들에 적용되지 않습니다.** 출처 표시는 재배포 허가를 의미하지 않습니다. 자세한 출처와 일본 인용 관련 주의사항은 [NOTICE](NOTICE)를 참고하세요. 원본 영상이나 전체 회차 자막은 포함되지 않습니다.
 
-## Codex에서 사용하기
+## 다른 프로젝트에 설치하기
 
-저장소를 복제한 뒤 Codex에서 폴더를 엽니다. Skill은 `.agents/skills/akb48-video-subtitles/`에 있으며 프로젝트 Skill로 찾을 수 있습니다. 다른 프로젝트에서도 사용하려면 해당 폴더를 Codex 사용자 Skill 경로에 복사하세요. Windows의 기본 경로는 보통 `%USERPROFILE%\.codex\skills\akb48-video-subtitles`이고, `CODEX_HOME`을 설정한 경우 `$CODEX_HOME/skills/akb48-video-subtitles`입니다. 설치 후 새 Codex 세션을 시작하세요.
+다른 프로젝트에서도 사용하려면 `.agents/skills/akb48-video-subtitles/` 폴더를 Codex 사용자 Skill 경로에 복사하세요. Windows의 기본 경로는 보통 `%USERPROFILE%\.codex\skills\akb48-video-subtitles`이고, `CODEX_HOME`을 설정한 경우 `$CODEX_HOME/skills/akb48-video-subtitles`입니다. 설치 후 새 Codex 세션을 시작하세요.
 
-`$akb48-video-subtitles`를 호출하거나, 번역 대상 언어와 필요한 파일을 지정해 AKB48 영상 번역 또는 검토를 요청하세요. 로컬 영상 또는 사용 권한이 있는 출처, 출연자/이름 목록(있는 경우), 원하는 출력 형식을 제공하면 됩니다. 안내된 기본 과정에는 API 키가 필요하지 않습니다.
+## 추가 검사
 
-## 빠른 설정
-
-Python 3.11 이상, FFmpeg, FFprobe가 필요합니다. ASS 렌더링에는 libass가 포함된 FFmpeg 빌드가 필요합니다. 운영체제 패키지 관리자로 FFmpeg를 설치하고 `ffmpeg`, `ffprobe`를 `PATH`에서 실행할 수 있게 하세요.
+아래 SRT 검사는 이미 만든 파일에 사용합니다. 예시 경로를 바꾸세요.
 
 ```powershell
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py
