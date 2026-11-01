@@ -18,3 +18,5 @@ Name spellings are episode-dependent. Use a project-supplied glossary and record
 ## Machine-readable timing profile
 
 Use `../../profiles/ru.json` (relative to this language-profile file): minimum 700 ms, preferred 900 ms, maximum 10 s (review warning), maximum 23 visible characters per second (spaces included), and two lines. These are **review thresholds**, not automatic reasons to rewrite a valid translation. Apply `check_srt.py --profile ru`; explicitly set `--target-lang ru` without the profile. The Japanese-script detector is a heuristic and needs exceptions for titles/names. Validate member mentions with `scripts/check_names.py` and prefer episode-specific approved names over the bundled catalog.
+
+- Use the speaker-aware compact renderer described in [presentation.md](../presentation.md). Default bottom margin: 30px at logical 1080p (20px at 720p). Show separate names/roles for different turns; do not merge unknown voices. Omit background/performance lyrics unless explicitly requested.

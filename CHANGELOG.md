@@ -1,6 +1,12 @@
 # Changelog
 
-## Unreleased
+## 0.5.0 — 2026-11-01
+- Added speaker-aware display contract, compact ASS/SRT renderer and mandatory styled-output correspondence check.
+- Reject mixed/unknown-voice merges and unsolicited lyrics; store explicit lyric requests in episode manifests.
+- Lowered default dialogue baseline to 30 logical pixels (20px at 720p), with reasons required for raised placement.
+- New ASS/video checks require presentation data; existing projects must migrate before receiving a pass.
+
+## Earlier documentation updates
 - Added optional CPU faster-whisper installation/transcription instructions and a portable Russian workflow adapted from the local production notes; linked both from all eight README languages.
 
 ## 0.4.1 — 2026-11-01

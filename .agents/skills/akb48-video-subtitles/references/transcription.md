@@ -130,7 +130,7 @@ claim that every platform/model combination has been tested here.
   boundaries of a speaker turn. Do not assign a voice solely from the current shot.
 - An episode-specific `initial_prompt` can suggest verified names/terms; it does
   not prove that those words were spoken. Record any prompt if one is used.
-- VAD may omit quiet speech or singing. Recheck suspect intervals or transcribe
+- VAD may omit quiet speech or singing. Singing needs transcription only when lyric translation was explicitly requested; it is omitted by default. Recheck suspect speech intervals or transcribe
   them separately without VAD. Preserve the original time offset when using clips.
 - Longer models may help some passages but cannot guarantee correct names or
   lyrics. Keep uncertainty visible and use fluent review where needed.

@@ -19,3 +19,7 @@ exception is case-specific, as described in [NOTICE](../NOTICE).
 
 For a freely redistributable **synthetic layout reference** rather than a
 real AKB48 still, use [demo.ass](demo.ass).
+
+## Current compact renderer
+
+`compact.ass` and `compact-preview.jpg` are synthetic, original MIT-licensed examples of the current default. Generate them from the installed skill assets `presentation.example.json` and `presentation.settings.json` using `build_presentation.py`; see the [presentation guide](../.agents/skills/akb48-video-subtitles/references/presentation.md). `demo.ass` remains a legacy static illustration for parser tests, not the recommended new layout.

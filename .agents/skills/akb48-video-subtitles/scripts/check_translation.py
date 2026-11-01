@@ -41,7 +41,10 @@ def main(argv: list[str] | None = None) -> int:
     try:
         originals = cues_at(args.input)
         translated = cues_at(args.translated)
-        overrides = json.loads(args.episode.read_text(encoding="utf-8")).get("names", {}) if args.episode else {}
+        episode = json.loads(args.episode.read_text(encoding="utf-8")) if args.episode else {}
+        if not isinstance(episode,dict):
+            raise ValueError("episode must be an object")
+        overrides = episode.get("names", {})
         if not isinstance(overrides, dict):
             raise ValueError("episode names must be an object")
         members = []
@@ -52,6 +55,15 @@ def main(argv: list[str] | None = None) -> int:
         parser.error(str(exc))
     errors: list[str] = []
     warnings: list[str] = []
+    lyrics_policy=episode.get('lyrics_policy','omit')
+    if lyrics_policy not in ('omit','requested'):
+        errors.append('lyrics_policy must be omit or requested')
+    consent=episode.get('lyrics_request')
+    if lyrics_policy=='requested' and (not isinstance(consent,str) or not consent.strip()):
+        errors.append('requested lyrics require the user instruction in lyrics_request')
+    for item in originals:
+        if item.get('kind') in ('lyrics','background_music') and lyrics_policy!='requested':
+            errors.append(f"cue {item['id']}: music/lyrics excluded by default; remove from scoped translation input and record omission")
     source_ids = [str(item["id"]) for item in originals]
     target_ids = [str(item["id"]) for item in translated]
     if not source_ids:

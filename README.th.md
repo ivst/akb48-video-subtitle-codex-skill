@@ -71,3 +71,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 ## ทางเลือก: การถอดเสียงภาษาญี่ปุ่นและคู่มือโดยละเอียด
 
 **faster-whisper** ใช้สร้างร่างบทถอดเสียงภาษาญี่ปุ่นหรือตรวจเทียบซับที่มีอยู่ การแปลและการระบุผู้พูดเป็นขั้นตอนแยกกัน ติดตั้งในสภาพแวดล้อมแยก โหมด CPU ไม่จำเป็นต้องใช้ WSL หรือ GPU ดู [การติดตั้งและตัวอย่างถอดเสียงภาษาอังกฤษ](.agents/skills/akb48-video-subtitles/references/transcription.md) และ [คู่มือโดยละเอียดภาษารัสเซีย](docs/workflow.ru.md)
+
+## ซับแยกผู้พูดและรูปแบบกะทัดรัด (0.5.0)
+
+ASS/วิดีโอต้องมี `work/presentation.json` ที่ตรวจแล้ว `build_presentation.py` แสดงชื่อ/บทบาทและไม่รวมเสียงที่ไม่ทราบผู้พูดโดยอัตโนมัติ ระยะขอบล่างคือ 30px บนผืนงาน 1080p (20px ที่ 720p) ไม่รวมเนื้อเพลงหากไม่ได้ขออย่างชัดเจน ดู [โครงสร้างและคำสั่ง](.agents/skills/akb48-video-subtitles/references/presentation.md) และ [ภาพตัวอย่างสังเคราะห์ใหม่](examples/compact-preview.jpg)

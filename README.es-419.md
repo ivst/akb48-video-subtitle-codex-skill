@@ -71,3 +71,7 @@ El informe de video incluye la decodificación completa del original y del resul
 ## Opcional: transcripción japonesa y guía detallada
 
 **faster-whisper** permite obtener un borrador japonés o contrastar subtítulos. La traducción y la atribución de voces son pasos separados. Se instala en un entorno independiente; el modo CPU no requiere WSL ni GPU. Consulta la [instalación y el ejemplo de transcripción en inglés](.agents/skills/akb48-video-subtitles/references/transcription.md) y la [guía detallada en ruso](docs/workflow.ru.md).
+
+## Subtítulos por hablante y diseño compacto (0.5.0)
+
+ASS/video requiere `work/presentation.json` revisado. `build_presentation.py` muestra nombres/roles y no une automáticamente voces desconocidas. El margen inferior es de 30px en el lienzo 1080p (20px a 720p). Las letras se omiten salvo petición explícita. Consulta el [esquema y los comandos](.agents/skills/akb48-video-subtitles/references/presentation.md) y la [nueva vista sintética](examples/compact-preview.jpg).

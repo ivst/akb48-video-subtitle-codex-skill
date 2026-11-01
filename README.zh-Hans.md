@@ -71,3 +71,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 ## 可选：日语语音识别与详细流程
 
 **faster-whisper** 可用于生成日语转录草稿或交叉检查已有字幕，翻译和说话人判定仍是独立步骤。它是安装在独立环境中的可选依赖，CPU 模式不需要 WSL 或 GPU。参见[安装和转录示例（英语）](.agents/skills/akb48-video-subtitles/references/transcription.md)及[详细工作流程（俄语）](docs/workflow.ru.md)。
+
+## 按说话人显示的紧凑字幕（0.5.0）
+
+ASS/视频现在需要经过审核的 `work/presentation.json`。`build_presentation.py` 显示姓名或角色，不自动合并身份不明的声音。默认下边距为逻辑 1080p 画布的 30px，即 720p 的 20px。除非用户明确要求，否则省略歌词。参见[结构与命令](.agents/skills/akb48-video-subtitles/references/presentation.md)和[新的合成示例](examples/compact-preview.jpg)。

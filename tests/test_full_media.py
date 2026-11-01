@@ -42,6 +42,19 @@ class FullMediaTests(unittest.TestCase):
             manifest.write_text(json.dumps(data), encoding="utf-8")
             for path in ("source/dialogue.ja.srt", "output/dialogue.en.srt"):
                 (project / path).write_text("1\n00:00:00,000 --> 00:00:01,000\nHello\n", encoding="utf-8")
+            # A technically valid video is incomplete without speaker-aware display data.
+            result = self.invoke("run_checks.py", "--project", project, "--json")
+            self.assertEqual(result.returncode, 1)
+            report = json.loads((project / "report.json").read_text(encoding="utf-8"))
+            self.assertIn("check_presentation",report["missing_checks"])
+            presentation={"schema_version":1,"speakers":{},
+                "turns":{"t1":{"speaker_id":None}},
+                "events":[{"id":"d1","kind":"dialogue","start_ms":0,"end_ms":1000,
+                           "rows":[{"speaker_id":None,"source_ids":["t1"],"text":"Hello"}]}]}
+            (project/'work/presentation.json').write_text(json.dumps(presentation),encoding='utf-8')
+            built=self.invoke('build_presentation.py','--input',project/'work/presentation.json',
+                '--episode',manifest,'--output-dir',project/'output','--overwrite')
+            self.assertEqual(built.returncode,0,built.stderr)
             result = self.invoke("run_checks.py", "--project", project, "--json")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             report = json.loads((project / "report.json").read_text(encoding="utf-8"))

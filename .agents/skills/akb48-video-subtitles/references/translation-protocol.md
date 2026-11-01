@@ -54,3 +54,7 @@ For a synthetic six-cue exchange, see `examples/quality/ja.srt`, `ru.srt`, `sour
 
 ## Recommended model for difficult language work
 For longer Japanese variety-show episodes, prefer **GPT-6.1 Sol, Medium reasoning effort or higher**, if available to the user/workspace. For puns, cultural context, ambiguous speakers and difficult passages, higher effort or another more capable model may be appropriate. This preference does not guarantee improvement; always verify dialogue against the original audio and keep native review for non-approved language profiles. The skill must remain usable without a specific model.
+
+## Speaker, music and presentation gate
+
+Follow [presentation.md](presentation.md): classify source content before scoped translation chunks; keep omitted background/lyric evidence in an omission ledger rather than translating guesses. Default lyrics_policy is omit. Explicit user-requested lyrics require lyrics_request. Before styled delivery, record speaker turns, build labeled SRT/ASS with build_presentation.py and let run_checks.py verify check_presentation. Unknown voices cannot be merged by text length or proximity. The default lower baseline leaves 30 logical pixels at 1080p (20 at 720p); scene-specific raised panels require a reason. Automated pass is not confirmation of voice identity, visual readability or language quality.
