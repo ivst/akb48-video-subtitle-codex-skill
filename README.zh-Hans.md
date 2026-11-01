@@ -9,7 +9,7 @@
 
 仓库包含 Agent Skills 包、语言配置初稿、基础 SRT 检查器、部署说明，以及两张近期俄语翻译视频的效果示例。俄语配置基于完整节目制作流程；韩语配置仍是草稿，需要韩语母语者审核；其他语言配置是供贡献者完善的起点。
 
-**兼容性：** 支持 Codex、DeepSeek Harness、Claude Code 及其他 Agent Skills 客户端。安装位置与调用方式见 [Compatibility](README.md#compatibility)（英文）。
+**兼容性：** 支持 Codex、DeepSeek Harness、Claude Code、OpenCode 及其他 Agent Skills 客户端。安装位置与调用方式见 [Compatibility](README.md#compatibility)（英文）。
 
 ## 快速安装
 

@@ -20,6 +20,7 @@ The skill follows the open [Agent Skills](https://agentskills.io) format: a fold
 | **Codex** (CLI, IDE, ChatGPT desktop) | `.agents/skills/` in the repository (Codex scans from the working directory up to the repository root), `~/.agents/skills/`, or the host's skills directory | `$akb48-video-subtitles` in a prompt, or `/skills` |
 | **DeepSeek Harness** | `<project>/.agents/skills/`, `<project>/.dsh/skills/`, `~/.dsh/skills/`, or `~/.agents/skills/` | `/akb48-video-subtitles` in the composer, or pick it from the `/` menu |
 | **Claude Code** | `.claude/skills/` in the project or `~/.claude/skills/` (copy or symlink the folder; Claude Code does not scan `.agents/skills`) | `/akb48-video-subtitles` |
+| **OpenCode** (CLI/TUI) | `.agents/skills/`, `.opencode/skills/`, `.claude/skills/` in the project, or `~/.agents/skills/`, `~/.config/opencode/skills/`, `~/.claude/skills/` globally | loaded on demand by the agent through OpenCode's native `skill` tool; OpenCode 1 has no `/name` command, so mention the skill in the prompt |
 | **Other Agent Skills clients** | the host's own skills root | host-specific; the skill relies only on the standard `name`/`description` frontmatter |
 
 Notes:
@@ -27,6 +28,7 @@ Notes:
 - Only the standard frontmatter keys are required. Host-specific extras (`agents/openai.yaml` for Codex/ChatGPT, `user-invocable`/`disable-model-invocation` in DeepSeek Harness) are optional and ignored by hosts that do not define them.
 - DeepSeek Harness support was verified with its filesystem skill provider: the folder is discovered under `.agents/skills`, loaded with the same `SKILL.md`, and invoked as `/akb48-video-subtitles`. No porting or code changes are needed.
 - Claude Code uses a different directory, but the `SKILL.md` format and bundled scripts are the same; a copy or symlink is enough.
+- OpenCode reads the same `.agents/skills` tree and its own `.opencode/skills` root. Its `name` must match the folder (ours does) and the description must stay within 1,024 characters. Keep one copy per skill name: a project copy and a global copy of the same skill are discouraged.
 - The scripts run on Windows, macOS, and Linux with Python 3.11+. Rendering a burned-in video still needs FFmpeg/FFprobe with libass, and the `episode-12` preset expects the Segoe UI Semibold font (override it with `font` in `presentation.json` or `--font` in `render_style_previews.py`).
 
 ## Quick install

@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.3 — 2026-11-01
+- Added OpenCode to the compatibility matrix: native `.agents/skills` discovery plus the `.opencode/skills` and `.claude/skills` roots, and the `skill` tool as the entry point (OpenCode 1 has no `/name` command). Added the `opencode` topic.
+
 ## 0.6.2 — 2026-11-01
 - Renamed the repository to `akb48-video-subtitle-skill` to match its host-neutral scope; updated clone URLs in all eight READMEs. GitHub keeps redirects from the old name, but update local remotes and external links.
 

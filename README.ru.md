@@ -20,6 +20,7 @@ Skill следует открытому формату [Agent Skills](https://ag
 | **Codex** (CLI, IDE, ChatGPT desktop) | `.agents/skills/` в репозитории (Codex просматривает от рабочего каталога вверх до корня репозитория), `~/.agents/skills/` или каталог skills хоста | `$akb48-video-subtitles` в промпте или `/skills` |
 | **DeepSeek Harness** | `<проект>/.agents/skills/`, `<проект>/.dsh/skills/`, `~/.dsh/skills/` или `~/.agents/skills/` | `/akb48-video-subtitles` в поле ввода или выбрать из меню `/` |
 | **Claude Code** | `.claude/skills/` в проекте или `~/.claude/skills/` (скопировать или сделать symlink; Claude Code не сканирует `.agents/skills`) | `/akb48-video-subtitles` |
+| **OpenCode** (CLI/TUI) | `.agents/skills/`, `.opencode/skills/`, `.claude/skills/` в проекте или `~/.agents/skills/`, `~/.config/opencode/skills/`, `~/.claude/skills/` глобально | загружается по запросу агента через штатный `skill`-инструмент OpenCode; в OpenCode 1 нет команды `/name`, поэтому skill упоминается в промпте |
 | **Другие клиенты Agent Skills** | каталог skills соответствующего хоста | по правилам хоста; skill использует только стандартные поля `name`/`description` |
 
 Примечания:
@@ -27,6 +28,7 @@ Skill следует открытому формату [Agent Skills](https://ag
 - Обязательны только стандартные поля frontmatter. Специфичные для хоста дополнения (`agents/openai.yaml` для Codex/ChatGPT, `user-invocable`/`disable-model-invocation` в DeepSeek Harness) необязательны и игнорируются хостами, где их нет.
 - Совместимость с DeepSeek Harness проверена на его файловом провайдере skills: папка находится в `.agents/skills`, загружается тот же `SKILL.md`, вызов — `/akb48-video-subtitles`. Переделка и правки кода не нужны.
 - Claude Code использует другой каталог, но формат `SKILL.md` и скрипты те же; достаточно копии или symlink.
+- OpenCode читает то же дерево `.agents/skills` и свой каталог `.opencode/skills`. Имя `name` должно совпадать с папкой (у нас совпадает), описание — не длиннее 1024 символов. Держите одну копию на имя skill: проектная и глобальная копии одного skill не рекомендуются.
 - Скрипты работают в Windows, macOS и Linux на Python 3.11+. Для вшивания видео нужны FFmpeg/FFprobe с libass, а пресет `episode-12` рассчитан на шрифт Segoe UI Semibold (переопределяется полем `font` в `presentation.json` или `--font` в `render_style_previews.py`).
 
 ## Краткая установка

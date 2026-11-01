@@ -9,7 +9,7 @@ Flujo reutilizable para traducir y subtitular videos de AKB48 y 48 Group. Guía 
 
 El repositorio incluye un paquete de Agent Skills, perfiles de idioma iniciales, un verificador básico de SRT, instrucciones de instalación y dos ejemplos visuales de episodios recientes traducidos al ruso. El perfil ruso se basa en un flujo aplicado a episodios completos. El perfil coreano es un borrador que necesita revisión de una persona nativa; los demás perfiles son puntos de partida para colaboradores.
 
-**Compatibilidad:** Codex, DeepSeek Harness, Claude Code y otros clientes de Agent Skills. Rutas de instalación y formas de invocación: véase [Compatibility](README.md#compatibility) (en inglés).
+**Compatibilidad:** Codex, DeepSeek Harness, Claude Code, OpenCode y otros clientes de Agent Skills. Rutas de instalación y formas de invocación: véase [Compatibility](README.md#compatibility) (en inglés).
 
 ## Instalación rápida
 

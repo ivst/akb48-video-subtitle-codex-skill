@@ -9,7 +9,7 @@ AKB48 및 48 Group 영상의 번역과 자막 작업을 위한 재사용 가능�
 
 저장소에는 Agent Skills 패키지, 언어 프로필 초안, 기본 SRT 검사기, 설치 안내와 최근 러시아어 번역 영상의 예시 화면 두 장이 포함되어 있습니다. 러시아어 프로필은 전체 영상 작업에 사용한 절차를 바탕으로 합니다. 한국어 프로필은 아직 초안이므로 실제 사용 전에 한국어 모어 화자의 검토가 필요합니다. 다른 프로필도 기여자가 다듬을 시작점입니다.
 
-**호환성:** Codex, DeepSeek Harness, Claude Code 및 기타 Agent Skills 클라이언트에서 사용할 수 있습니다. 설치 위치와 호출 방법은 [Compatibility](README.md#compatibility) 절(영어)을 참고하세요.
+**호환성:** Codex, DeepSeek Harness, Claude Code, OpenCode 및 기타 Agent Skills 클라이언트에서 사용할 수 있습니다. 설치 위치와 호출 방법은 [Compatibility](README.md#compatibility) 절(영어)을 참고하세요.
 
 ## 빠른 설치
 

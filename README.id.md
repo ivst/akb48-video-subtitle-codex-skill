@@ -9,7 +9,7 @@ Alur kerja yang dapat digunakan ulang untuk menerjemahkan dan membuat subtitle v
 
 Repositori ini berisi paket Agent Skills, draf profil bahasa, pemeriksa SRT dasar, panduan pemasangan, dan dua contoh visual dari episode terbaru yang diterjemahkan ke bahasa Rusia. Profil Rusia didasarkan pada alur yang telah digunakan untuk episode penuh. Profil Korea masih berupa draf dan perlu ditinjau penutur asli; profil lainnya adalah titik awal bagi kontributor.
 
-**Kompatibilitas:** Codex, DeepSeek Harness, Claude Code, dan klien Agent Skills lain. Lokasi pemasangan dan cara memanggil: lihat [Compatibility](README.md#compatibility) (bahasa Inggris).
+**Kompatibilitas:** Codex, DeepSeek Harness, Claude Code, OpenCode, dan klien Agent Skills lain. Lokasi pemasangan dan cara memanggil: lihat [Compatibility](README.md#compatibility) (bahasa Inggris).
 
 ## Instalasi singkat
 

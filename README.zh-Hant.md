@@ -9,7 +9,7 @@
 
 本儲存庫包含 Agent Skills 套件、語言設定初稿、基本 SRT 檢查工具、安裝說明，以及兩張近期俄文翻譯影片的效果示例。俄文設定來自完整節目的製作流程；韓文設定仍是草稿，需要韓語母語者審閱；其他語言設定則是供貢獻者完善的起點。
 
-**相容性：** 支援 Codex、DeepSeek Harness、Claude Code 及其他 Agent Skills 用戶端。安裝位置與呼叫方式見 [Compatibility](README.md#compatibility)（英文）。
+**相容性：** 支援 Codex、DeepSeek Harness、Claude Code、OpenCode 及其他 Agent Skills 用戶端。安裝位置與呼叫方式見 [Compatibility](README.md#compatibility)（英文）。
 
 ## 快速安裝
 
