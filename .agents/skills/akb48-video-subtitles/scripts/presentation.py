@@ -124,7 +124,10 @@ def render(data, episode):
     if errors: raise ValueError("; ".join(errors))
     # Fixed logical 1080p canvas scales to the video frame in libass.
     # 30 logical pixels = 20 actual pixels in a 720p render.
-    font = data.get("font", "Arial")
+    preset = data.get("style_preset", "episode-12")
+    if preset != "episode-12":
+        raise ValueError("unsupported style_preset; use episode-12")
+    font = data.get("font", "Segoe UI Semibold")
     if not isinstance(font, str) or any(c in font for c in ",\r\n"):
         raise ValueError("invalid font family")
     bottom = data.get("bottom_margin", 30)
@@ -134,6 +137,7 @@ def render(data, episode):
         raise ValueError("raised dialogue requires a scene/placement reason")
     ass = [f"""[Script Info]
 ScriptType: v4.00+
+; Style preset: episode-12 / revision 1
 PlayResX: 1920
 PlayResY: 1080
 WrapStyle: 2
@@ -141,10 +145,10 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Speech,{font},42,&H00252525,&H00252525,&H00FFFFFF,&H00FFFFFF,0,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: Speech,{font},40,&H00252525,&H00252525,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
 Style: Speaker,{font},26,&H00252525,&H00252525,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
 Style: Shape,{font},20,&H00FFFFFF,&H00FFFFFF,&H00FFFFFF,&H00FFFFFF,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
-Style: Sign,{font},34,&H00FFFFFF,&H00FFFFFF,&H004D384F,&H004D384F,-1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: Sign,{font},26,&H00FFFFFF,&H00FFFFFF,&H004D384F,&H004D384F,0,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
 Style: Lyrics,{font},34,&H00252525,&H00252525,&H00FFFFFF,&H00FFFFFF,0,-1,0,0,100,100,0,0,3,4,0,2,100,100,200,1
 
 [Events]
@@ -153,8 +157,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     tracks = {"dialogue": [], "inscriptions": [], "lyrics": []}
     def event(e, style, text, layer=2, name=""):
         ass.append(f'Dialogue: {layer},{stamp(e["start_ms"],True)},{stamp(e["end_ms"],True)},{style},{name},0,0,0,,{text}\n')
-    def rect(e, x, y, w, h, color, layer=0):
-        event(e, "Shape", f"{{\\an7\\pos({x},{y})\\p1\\1c&H{color}&\\bord1\\3c&HD5CBD5&}}m 0 0 l {w} 0 l {w} {h} l 0 {h}{{\\p0}}", layer)
+    def rect(e, x, y, w, h, color, layer=0, alpha="00", border="D5CBD5"):
+        event(e, "Shape", f"{{\\an7\\pos({x},{y})\\p1\\1c&H{color}&\\1a&H{alpha}&\\bord3\\3c&H{border}&\\3a&H00&\\shad0}}m 0 0 l {w} 0 l {w} {h} l 0 {h}{{\\p0}}", layer)
     for e in sorted(data["events"], key=lambda x: (x["start_ms"], x["id"])):
         kind = e["kind"]
         if kind == "dialogue":
@@ -182,11 +186,12 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             if sum(len(x[2]) for x in rendered) > 3:
                 raise ValueError(f'event {e["id"]}: split paired exchange longer than three lines')
             for (label, color, lines, voice), height in zip(rendered, heights):
-                rect(e, 110, y, 1700, height, "FFFFFF")
-                rect(e, 126, y+18, 5, height-36, color, 1)
+                rect(e, 110, y, 1700, height, "FFFFFF", alpha="0A")
+                rect(e, 126, y+18, 5, height-36, color, 1, border=color)
                 fs = 22 if len(label)>12 else 26
                 event(e, "Speaker", f"{{\\pos(225,{y+height/2})\\fs{fs}\\1c&H{color}&}}"+safe(label))
-                event(e, "Speech", f"{{\\pos(1055,{y+height/2})}}"+r"\N".join(lines), name=voice)
+                fs = (38 if len(lines) == 1 else 32) if len(rendered) == 2 else 40
+                event(e, "Speech", f"{{\\pos(1055,{y+height/2})\\fs{fs}}}"+r"\N".join(lines), name=voice)
                 y += height
             tracks["dialogue"].append((e, "\n".join(portable)))
         elif kind in ("inscription", "song_title"):
@@ -201,7 +206,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                 raise ValueError(f'event {e["id"]}: inscription box outside canvas')
             if w < max(units(line) for line in lines)*20 or h < len(lines)*43:
                 raise ValueError(f'event {e["id"]}: inscription box too small for text')
-            rect(e,x,y,w,h,"6B466F",3)
+            rect(e,x,y,w,h,"8F3487",3,border="D7BC46")
             event(e,"Sign",f"{{\\pos({x+w/2},{y+h/2})}}"+r"\N".join(lines),4)
             tracks["inscriptions"].append((e,e["text"]))
         else:

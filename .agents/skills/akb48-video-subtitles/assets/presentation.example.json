@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "font": "Arial",
+  "font": "Segoe UI Semibold",
   "bottom_margin": 30,
   "speakers": {
     "a": {
@@ -28,6 +28,10 @@
     "t4": {
       "speaker_id": "b",
       "evidence": "Synthetic example: explicitly authored separate voice turn"
+    },
+    "t5": {
+      "speaker_id": "a",
+      "evidence": "Synthetic explicitly authored single voice turn"
     }
   },
   "events": [
@@ -95,6 +99,35 @@
         620,
         64
       ]
+    },
+    {
+      "id": "d4",
+      "kind": "dialogue",
+      "start_ms": 6000,
+      "end_ms": 10000,
+      "rows": [
+        {
+          "speaker_id": "a",
+          "source_ids": [
+            "t5"
+          ],
+          "text": "Плашка остаётся у нижнего края экрана.\nИмя отделено от реплики, даже когда она длинная."
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "kind": "inscription",
+      "start_ms": 6000,
+      "end_ms": 10000,
+      "text": "Надпись на экране",
+      "box": [
+        1250,
+        40,
+        620,
+        64
+      ]
     }
-  ]
+  ],
+  "style_preset": "episode-12"
 }

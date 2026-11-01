@@ -29,6 +29,14 @@ Abaikan musik latar dan lirik. Periksa nama, makna dialog, teks di layar, serta 
 
 ## Pratinjau
 
+### Tata letak skill saat ini — preset episode 12
+
+Contoh dibuat oleh perender bawaan: panel terang semitransparan, nama pembicara dan penanda warna terpisah, serta dialog gelap semitebal. Ini tata letak bawaan; kotak latar teks biasa tidak setara.
+
+![Satu pembicara](examples/compact-single-preview.jpg)
+
+[Balasan dua pembicara](examples/compact-preview.jpg) · [Dialog panjang dan tulisan layar](examples/compact-long-preview.jpg) · [ASS](examples/compact.ass)
+
 **Episode 12 — label pembicara dan panel subtitle ringkas** ([video sumber](https://www.youtube.com/watch?v=aPznmLtjedw))
 
 ![Contoh subtitle episode 12](examples/preview-episode-12.jpg)
