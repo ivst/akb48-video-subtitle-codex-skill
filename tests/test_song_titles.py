@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,16 +25,36 @@ def run(name: str, *args: str) -> tuple[int, dict]:
 
 
 class SongCatalogTests(unittest.TestCase):
-    def test_small_sourced_seed_has_unique_stable_ids(self):
+    def test_expanded_catalog_has_unique_ids_and_sourced_coverage(self):
         with CATALOG.open(encoding="utf-8-sig", newline="") as file:
             entries = list(csv.DictReader(file))
-        self.assertEqual(len(entries), 5)
-        self.assertEqual(len({r["song_id"] for r in entries}), 5)
-        self.assertEqual(len({r["source_ja"] for r in entries}), 5)
+        self.assertGreaterEqual(len(entries), 78)
+        self.assertEqual(len({r["song_id"] for r in entries}), len(entries))
+        self.assertEqual(len({unicodedata.normalize("NFKC", r["source_ja"]).casefold() for r in entries}), len(entries))
         self.assertTrue(all(r["source_url"].startswith("https://") for r in entries))
         self.assertTrue(all(r["review_status"] == "community_reference" for r in entries))
         self.assertEqual({r["source_ja"]: r["preferred_latin"] for r in entries}["ヘビーローテーション"],
                          "Heavy Rotation")
+
+    def test_release_versions_and_selected_stage_titles(self):
+        for query, expected in [
+            ("桜の花びらたち2008", "Sakura no Hanabiratachi 2008"),
+            ("初日", "Shonichi"),
+            ("ハート・エレキ", "Heart Ereki"),
+            ("名残り桜", "Nagori Zakura"),
+            ("好きish", "Suki-ish"),
+            ("365日の紙飛行機", "365nichi no Kamihikouki"),
+            ("Oh my pumpkin!", "Oh my pumpkin!"),
+        ]:
+            with self.subTest(query=query):
+                code, item = run("lookup_song.py", query)
+                self.assertEqual(code, 0)
+                self.assertEqual(item["title"], expected)
+        with CATALOG.open(encoding="utf-8", newline="") as file:
+            ids = {r["song_id"] for r in csv.DictReader(file)}
+        self.assertTrue({"akb48-ai-no-imi", "akb48-koi-suru-fortune-cookie",
+                         "akb48-heavy-rotation", "akb48-sakura-no-hanabiratachi",
+                         "akb48-aitakatta"}.issubset(ids))
 
     def test_lookup_differentiates_romaji_and_meaning(self):
         code, data = run("lookup_song.py", "愛の意味を考えてみた")

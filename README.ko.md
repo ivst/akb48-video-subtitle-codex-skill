@@ -86,7 +86,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 
 ## 선택 사항: 일본어 음성 인식과 작업 안내
 
-**faster-whisper**는 일본어 대본 초안을 만들거나 기존 자막을 대조하는 선택 도구입니다. 번역과 화자 판별은 별도 단계입니다. 별도 환경에 설치하며 CPU 사용에는 WSL이나 GPU가 필요하지 않습니다. [설치 및 인식 예시(영어)](.agents/skills/akb48-video-subtitles/references/transcription.md)와 [상세 작업 안내(러시아어)](docs/workflow.ru.md)를 참고하세요.
+**faster-whisper**는 일본어 대본 초안을 만들거나 기존 자막을 대조하는 선택 도구입니다. 번역과 화자 판별은 별도 단계입니다. 별도 환경에 설치하며 CPU 사용에는 WSL이나 GPU가 필요하지 않습니다. [설치 및 인식 예시(영어)](.agents/skills/akb48-video-subtitles/references/transcription.md)와 [상세 작업 안내(영어)](docs/workflow.en.md)를 참고하세요.
 
 ## 화자별 자막과 간결한 배치 (0.5.0)
 

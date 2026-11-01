@@ -86,7 +86,7 @@ Laporan video mencakup decode penuh sumber dan hasil, kesalahan decoder, serta p
 
 ## Opsional: transkripsi Jepang dan panduan lengkap
 
-**faster-whisper** dapat membuat draf transkrip Jepang atau memeriksa subtitle yang ada. Penerjemahan dan identifikasi pembicara tetap dilakukan terpisah. Instalasi memakai lingkungan tersendiri; mode CPU tidak memerlukan WSL atau GPU. Lihat [instalasi dan contoh transkripsi dalam bahasa Inggris](.agents/skills/akb48-video-subtitles/references/transcription.md) serta [panduan lengkap dalam bahasa Rusia](docs/workflow.ru.md).
+**faster-whisper** dapat membuat draf transkrip Jepang atau memeriksa subtitle yang ada. Penerjemahan dan identifikasi pembicara tetap dilakukan terpisah. Instalasi memakai lingkungan tersendiri; mode CPU tidak memerlukan WSL atau GPU. Lihat [instalasi dan contoh transkripsi dalam bahasa Inggris](.agents/skills/akb48-video-subtitles/references/transcription.md) serta [panduan lengkap dalam bahasa Inggris](docs/workflow.en.md).
 
 ## Subtitle per pembicara dan tata letak ringkas (0.5.0)
 

@@ -86,7 +86,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 
 ## 可选：日语语音识别与详细流程
 
-**faster-whisper** 可用于生成日语转录草稿或交叉检查已有字幕，翻译和说话人判定仍是独立步骤。它是安装在独立环境中的可选依赖，CPU 模式不需要 WSL 或 GPU。参见[安装和转录示例（英语）](.agents/skills/akb48-video-subtitles/references/transcription.md)及[详细工作流程（俄语）](docs/workflow.ru.md)。
+**faster-whisper** 可用于生成日语转录草稿或交叉检查已有字幕，翻译和说话人判定仍是独立步骤。它是安装在独立环境中的可选依赖，CPU 模式不需要 WSL 或 GPU。参见[安装和转录示例（英语）](.agents/skills/akb48-video-subtitles/references/transcription.md)及[详细工作流程（英语）](docs/workflow.en.md)。
 
 ## 按说话人显示的紧凑字幕（0.5.0）
 

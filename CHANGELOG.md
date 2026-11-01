@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.1 — 2026-11-01
+- Added a full English practical workflow, EN/RU navigation and English guide links in seven non-Russian READMEs; clarified that these guides are not installed runtime requirements.
+- Expanded the sourced song-title catalogue from 5 to 78 entries, preserving existing IDs and documenting coverage, source status and romanization limitations.
+- Song lyrics remain opt-in; the catalogue contains titles only.
+
 ## 0.5.0 — 2026-11-01
 - Added speaker-aware display contract, compact ASS/SRT renderer and mandatory styled-output correspondence check.
 - Reject mixed/unknown-voice merges and unsolicited lyrics; store explicit lyric requests in episode manifests.

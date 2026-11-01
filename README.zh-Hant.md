@@ -86,7 +86,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 
 ## 選用：日語語音辨識與詳細流程
 
-**faster-whisper** 可用於產生日文逐字稿草稿或交叉檢查現有字幕，翻譯與說話者判定仍是獨立步驟。它是安裝於獨立環境的選用依賴，CPU 模式不需要 WSL 或 GPU。請參閱[安裝與轉錄範例（英文）](.agents/skills/akb48-video-subtitles/references/transcription.md)及[詳細工作流程（俄文）](docs/workflow.ru.md)。
+**faster-whisper** 可用於產生日文逐字稿草稿或交叉檢查現有字幕，翻譯與說話者判定仍是獨立步驟。它是安裝於獨立環境的選用依賴，CPU 模式不需要 WSL 或 GPU。請參閱[安裝與轉錄範例（英文）](.agents/skills/akb48-video-subtitles/references/transcription.md)及[詳細工作流程（英文）](docs/workflow.en.md)。
 
 ## 依說話者顯示的精簡字幕（0.5.0）
 
