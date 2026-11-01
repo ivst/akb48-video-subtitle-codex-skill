@@ -22,9 +22,15 @@ def main(argv=None):
         for path,expected in ((a.ass,ass),(a.srt,tracks['dialogue'])):
             if path is not None and path.read_text(encoding="utf-8-sig").replace('\r\n','\n')!=expected:
                 errors.append(f"{path.name}: differs from reviewed presentation; rebuild matching ASS/SRT")
-        if episode.get('lyrics_policy','omit')=='omit' and a.ass:
-            lyric=a.ass.parent/f"lyrics.{episode.get('locale','ru')}.srt"
-            if lyric.exists():errors.append("stale lyric SRT present while lyrics policy is omit")
+        output_dir=a.ass.parent if a.ass else a.srt.parent if a.srt else None
+        if output_dir is not None:
+            for track in ('lyrics','inscriptions'):
+                sidecar=output_dir/f"{track}.{episode.get('locale','ru')}.srt"
+                expected=tracks[track]
+                if not expected and sidecar.exists():
+                    errors.append(f"stale {track} SRT present outside presentation scope")
+                elif expected and (not sidecar.is_file() or sidecar.read_text(encoding='utf-8-sig').replace('\r\n','\n')!=expected):
+                    errors.append(f"{sidecar.name}: missing or differs from reviewed presentation")
     except (OSError,ValueError,TypeError,KeyError) as e:errors.append(str(e))
     result=report('check_presentation',a.input if a.input.is_file() else None,errors,warnings,
                   limitations='Structured claims and output consistency only; voice identity, hearing and visual fit still require human review.')

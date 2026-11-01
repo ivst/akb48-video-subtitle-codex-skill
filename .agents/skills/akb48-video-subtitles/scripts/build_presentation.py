@@ -23,9 +23,10 @@ def main(argv=None):
         files={f"subtitles.{locale}.ass":ass}
         files.update({f"{k}.{locale}.srt":v for k,v in tracks.items() if v})
         # Refuse stale lyric files when lyrics are now omitted.
-        lyric=a.output_dir/f"lyrics.{locale}.srt"
-        if not tracks['lyrics'] and lyric.exists():
-            raise ValueError("remove/archive stale lyric SRT before building an omit-lyrics package")
+        for track in ('lyrics','inscriptions'):
+            sidecar=a.output_dir/f"{track}.{locale}.srt"
+            if not tracks[track] and sidecar.exists():
+                raise ValueError(f"remove/archive stale {track} SRT before building this package")
         if not a.overwrite and any((a.output_dir/n).exists() for n in files):
             raise ValueError("output already exists; use a new folder or --overwrite after backup")
         a.output_dir.mkdir(parents=True,exist_ok=True)

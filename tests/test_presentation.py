@@ -84,6 +84,10 @@ class PresentationTests(unittest.TestCase):
             ass.write_text(original.replace('Участница А','Hidden'),encoding='utf-8')
             self.assertEqual(check().returncode,1)
             ass.write_text(original,encoding='utf-8')
+            sign=root/'inscriptions.ru.srt';correct_sign=sign.read_text(encoding='utf-8-sig')
+            sign.write_text('Outdated sign translation',encoding='utf-8')
+            self.assertEqual(check().returncode,1)
+            sign.write_text(correct_sign,encoding='utf-8')
             (root/'lyrics.ru.srt').write_text('Stale song fragment',encoding='utf-8')
             self.assertEqual(check().returncode,1)
 
