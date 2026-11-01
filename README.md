@@ -149,3 +149,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_song_titles.py --input
 ```
 
 For reliable validation, annotate confirmed mentions with `song_ids` in source translation chunks. Unmarked phrases matching song titles are only warnings, since lyrics or natural speech can contain the same phrase. `run_checks.py` includes this title check whenever translation chunks exist.
+
+## Full video checks
+
+Rendered-video reports now include full software decoding of source and output, decoder errors, and actual decoded frame-count equality (`check_decode.py`). Audio hashing has a timeout covering the entire decode and avoids pipe deadlocks. Use `run_checks.py --media-timeout 1800` to set the maximum seconds per file. Frame-count equality assumes no intentional frame-rate conversion.

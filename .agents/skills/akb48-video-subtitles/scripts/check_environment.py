@@ -34,7 +34,9 @@ def has_ass_filter(ffmpeg: str) -> tuple[bool, str]:
     if result.returncode != 0:
         return False, f"filter check exited {result.returncode}"
     # Both 'ass' and 'subtitles' video filters are provided by libass builds.
-    supported = re.search(r"(?m)^\s*[A-Z.]{3}\s+(?:ass|subtitles)\s+", result.stdout) is not None
+    # FFmpeg 8 uses two flags; older builds use three. Match the actual
+    # filter name and video signature rather than a fixed flag-column width.
+    supported = re.search(r"(?m)^\s*[A-Z.]+\s+(?:ass|subtitles)\s+V->V(?:\s|$)", result.stdout) is not None
     return supported, "available" if supported else "missing (FFmpeg build may lack libass)"
 
 

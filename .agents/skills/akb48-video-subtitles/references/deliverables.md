@@ -23,6 +23,7 @@ python "$SKILL/scripts/check_names.py" --source examples/quality/ja.srt --target
 python "$SKILL/scripts/check_ass.py" examples/demo.ass --width 1920 --height 1080 --duration 6 --json
 python "$SKILL/scripts/probe_media.py" path/to/source.mp4 --json
 python "$SKILL/scripts/compare_media.py" --source path/to/source.mp4 --rendered path/to/output.mp4 --json
+python "$SKILL/scripts/check_decode.py" --source path/to/source.mp4 --rendered path/to/output.mp4 --timeout 1800 --json
 python "$SKILL/scripts/compare_audio.py" --source path/to/source.mp4 --rendered path/to/output.mp4 --json
 python "$SKILL/scripts/run_checks.py" --project path/to/episode --require-translation --json
 ```
@@ -37,6 +38,8 @@ The `path/to/` commands require real media and are illustrative: they must not b
 - When source audio **must remain unchanged**, set `"audio_preservation":"unchanged"` in episode.json. `compare_audio.py` compares decoded PCM SHA256; this is **not** a hash of compressed audio packets, and a re-encode or resample may change it.
 - For intentionally modified audio, set `"audio_preservation":"not_required"`; explicitly note that unchanged audio was not verified. For a silent source, this mode may be appropriate.
 - Inspect representative frames, scenes containing faces and signs, transitions and all key title cards. Automated ASS checks cannot certify layout readability or avoid covering faces.
+- `run_checks.py` automatically runs `check_decode.py` for source and rendered media: software decode of the primary video and all audio streams, decoder exit status, explicit completion, and actual decoded frame-count equality. Missing required media produces `incomplete`; errors or unequal counts produce `fail`. Metadata probing alone does not pass this gate. The default timeout is 1800 seconds per file; raise it with `run_checks.py --media-timeout SECONDS` when needed. This contract assumes no intentional frame-rate conversion.
+- Audio hashing is performed by FFmpeg with stderr directed to a temporary file; `compare_audio.py --timeout SECONDS` bounds the entire decode of each file.
 - Decode the finished video to completion before delivery. Validate that any ZIP package contains the current revision.
 - Use `report.json` from `run_checks.py` to show which checks **really ran**, what failed, and which were skipped. The report does **not** certify semantic translation quality or rights clearance.
 - Deliver original source files only if authorized. Avoid adding protected footage or full transcripts to public pull requests.

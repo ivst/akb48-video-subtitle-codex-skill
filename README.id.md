@@ -63,3 +63,7 @@ Proses dan publikasikan hanya materi yang boleh Anda gunakan. Jangan masukkan tr
 ## Lisensi
 
 Dokumentasi dan skrip orisinal menggunakan lisensi MIT. Gambar contoh dan materi program yang tampak di dalamnya tidak termasuk; lihat [NOTICE](NOTICE) dan [LICENSE](LICENSE).
+
+## Pemeriksaan video lengkap
+
+Laporan video mencakup decode penuh sumber dan hasil, kesalahan decoder, serta perbandingan jumlah frame yang benar-benar didekode (`check_decode.py`). Hash audio memiliki batas waktu untuk seluruh proses decode dan menghindari kebuntuan pipe. Gunakan `run_checks.py --media-timeout 1800` untuk mengatur batas detik per file. Perbandingan mengasumsikan tidak ada perubahan frame rate yang disengaja.

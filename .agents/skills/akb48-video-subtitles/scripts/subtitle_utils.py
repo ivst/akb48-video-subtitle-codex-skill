@@ -51,7 +51,11 @@ def report(tool: str, source: Path | None, errors: list[str],
     if source:
         result["path"] = str(source)
         try:
-            result["sha256"] = hashlib.sha256(source.read_bytes()).hexdigest()
+            digest = hashlib.sha256()
+            with source.open("rb") as file:
+                for chunk in iter(lambda: file.read(1024 * 1024), b""):
+                    digest.update(chunk)
+            result["sha256"] = digest.hexdigest()
         except OSError:
             pass
     return result

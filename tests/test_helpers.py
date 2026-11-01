@@ -107,7 +107,7 @@ class EnvironmentTests(unittest.TestCase):
             self.assertFalse(ENV.probe("ffmpeg")[0])
 
     def test_filters_require_success_and_libass(self):
-        for code, output, expected in ((0, " ... subtitles V->V render subtitles\n", True), (0, " ... scale V->V scale\n", False), (1, " ... subtitles V->V\n", False)):
+        for code, output, expected in ((0, " ... subtitles V->V render subtitles\n", True), (0, " .. ass V->V render ASS\n", True), (0, " .. subtitles V->V render subtitles\n", True), (0, " ... scale V->V scale\n", False), (0, " .. bass A->A audio filter\n", False), (1, " ... subtitles V->V\n", False)):
             with self.subTest(code=code, output=output), patch.object(ENV.subprocess, "run", return_value=SimpleNamespace(returncode=code, stdout=output, stderr="")):
                 self.assertEqual(ENV.has_ass_filter("ffmpeg")[0], expected)
 

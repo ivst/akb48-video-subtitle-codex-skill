@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -18,7 +19,11 @@ def main(argv=None) -> int:
     parser.add_argument("--project", required=True, type=Path)
     parser.add_argument("--require-translation", action="store_true")
     parser.add_argument("--json", action="store_true")
+    parser.add_argument("--media-timeout", type=float, default=1800,
+                        help="maximum decode seconds per media file")
     args = parser.parse_args(argv)
+    if not math.isfinite(args.media_timeout) or args.media_timeout <= 0:
+        parser.error("--media-timeout must be finite and positive")
     root = args.project.resolve()
     try:
         data = json.loads((root / "episode.json").read_text(encoding="utf-8"))
@@ -45,7 +50,7 @@ def main(argv=None) -> int:
         events.append({"tool": label, "status": "not_run", "reason": reason})
         missing.append(label)
 
-    def execute(label, args_list):
+    def execute(label, args_list, timeout=120):
         tool = SCRIPTS / (label + ".py")
         if not tool.is_file():
             not_run(label, "validator is not installed")
@@ -53,7 +58,7 @@ def main(argv=None) -> int:
         try:
             proc = subprocess.run([sys.executable, str(tool), *args_list, "--json"],
                                   capture_output=True, text=True, encoding="utf-8",
-                                  errors="replace", timeout=120, check=False)
+                                  errors="replace", timeout=timeout, check=False)
             try:
                 body = json.loads(proc.stdout)
             except json.JSONDecodeError:
@@ -122,16 +127,22 @@ def main(argv=None) -> int:
             execute("probe_media", [str(rendered_media)])
             if source_media and source_media.is_file():
                 execute("compare_media", ["--source", str(source_media), "--rendered", str(rendered_media)])
+                execute("check_decode", ["--source", str(source_media), "--rendered", str(rendered_media),
+                        "--timeout", str(args.media_timeout)], timeout=2 * args.media_timeout + 30)
                 if data.get("audio_preservation", "unchanged") == "unchanged":
-                    execute("compare_audio", ["--source", str(source_media), "--rendered", str(rendered_media)])
+                    execute("compare_audio", ["--source", str(source_media), "--rendered", str(rendered_media),
+                            "--timeout", str(args.media_timeout)], timeout=2 * args.media_timeout + 30)
             else:
                 not_run("compare_media", "source media unavailable; cannot compare output")
+                not_run("check_decode", "source media unavailable; cannot compare decoded frames")
                 if data.get("audio_preservation", "unchanged") == "unchanged":
                     not_run("compare_audio", "source media unavailable; cannot verify source audio")
         elif "video" in requested:
             not_run("rendered_video", "requested rendered video not found")
+            not_run("check_decode", "requested rendered video not found")
     elif "video" in requested:
         not_run("rendered_video", "requested rendered video path not set")
+        not_run("check_decode", "requested rendered video path not set")
     state = "fail" if failed else "incomplete" if missing else "pass"
     out = {
         "schema_version": 1, "episode_id": data["episode_id"],

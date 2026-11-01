@@ -63,3 +63,7 @@ Procesa y publica solo materiales cuyo uso tengas autorizado. No incluyas transc
 ## Licencia
 
 La documentación y los scripts originales usan la licencia MIT. Las imágenes de ejemplo y el material del programa que aparece en ellas quedan excluidos; consulta [NOTICE](NOTICE) y [LICENSE](LICENSE).
+
+## Comprobación completa del video
+
+El informe de video incluye la decodificación completa del original y del resultado, errores del decodificador y comparación del número real de fotogramas (`check_decode.py`). El hash de audio tiene un límite de tiempo para toda la decodificación y evita bloqueos de los canales del proceso. `run_checks.py --media-timeout 1800` fija los segundos máximos por archivo. Se presupone que no hay conversión intencional de la frecuencia de fotogramas.

@@ -35,3 +35,5 @@ For complex AKB48 dialogue, **GPT-6.1 Sol with Medium reasoning effort or higher
 
 ## Definition of done
 See [deliverables.md](references/deliverables.md) for concrete SRT, names, translation-chunk, ASS, media and optional audio-check commands. `scripts/run_checks.py` writes `report.json` based on actually executed checks; never claim missing validation was performed. Manually inspect rendered frames and ambiguous Japanese speech before delivery.
+
+When a rendered video is supplied, `scripts/run_checks.py` runs `scripts/check_decode.py` to fully decode source and output and compare decoded primary-video frame counts. It must fail on decoder errors or frame loss. Use `--media-timeout SECONDS` on the runner (default 1800 per file) for long jobs; audio comparison uses the same bounded per-file limit. This contract assumes the render preserves source frame count.

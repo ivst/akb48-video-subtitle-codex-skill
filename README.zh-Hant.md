@@ -63,3 +63,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 ## 授權條款
 
 原創文件與腳本採用 MIT 授權。示例圖片及其中呈現的節目素材不包含在此授權內，請參閱 [NOTICE](NOTICE) 與 [LICENSE](LICENSE)。
+
+## 完整影片檢查
+
+影片報告包含來源與成品的完整軟體解碼、解碼錯誤檢查及實際解碼影格數比較（`check_decode.py`）。音訊雜湊對整個解碼過程設定逾時，並避免管線死結。使用 `run_checks.py --media-timeout 1800` 設定每個檔案最長處理秒數。影格數比較假設沒有刻意改變影格率。

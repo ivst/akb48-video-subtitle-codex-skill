@@ -63,3 +63,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 ## 라이선스
 
 직접 작성한 문서와 스크립트는 MIT 라이선스를 따릅니다. 예시 이미지와 그 안의 프로그램 자료는 라이선스에서 제외됩니다. [NOTICE](NOTICE)와 [LICENSE](LICENSE)를 확인하세요.
+
+## 전체 영상 검사
+
+영상 결과 보고서에는 원본과 출력의 전체 디코딩, 디코더 오류 및 실제 디코딩된 프레임 수 비교가 포함됩니다 (`check_decode.py`). 오디오 해시 계산은 전체 디코딩 시간 제한으로 보호됩니다. `run_checks.py --media-timeout 1800`으로 파일당 제한 시간을 초 단위로 지정합니다. 프레임 수 비교는 의도적인 프레임 레이트 변환이 없는 경우를 전제로 합니다.
