@@ -39,3 +39,9 @@ Name validation: consult `glossaries/members/{locale}.csv` and `glossaries/alias
 ## Subtitle terminology
 
 Consult `glossaries/terms/{locale}.csv` for member-facing event terms, fan terminology, and theater stages; use `scripts/lookup_term.py` for a JSON lookup with semantic cautions. The locale forms are marked `editorial_draft` except blank Thai entries, which remain pending. Prefer an episode-specific user-approved lexicon over this starter dataset. Do not treat the Russian name glossary as approval of newly introduced Russian term translations. Historical formats (such as elections and former team arrangements) must be interpreted in the period described by the program.
+
+## Durable translation state and report
+
+Long episodes must use the chunk contract in [translation-protocol.md](translation-protocol.md), with stable IDs in source and translated JSON. A new episode workspace is created using `scripts/init_project.py`, never overwriting a previous run. Write a real file at each stage rather than relying on conversational memory.
+
+`scripts/run_checks.py --project PROJECT --require-translation` executes installed validators and generates `report.json` from actual commands, exit codes, hashes and missing checks. A report is **incomplete** if a required artifact is absent. Manual frame/audio review and speaker/translation correctness are separate evidence and must never be asserted as automated validation.
