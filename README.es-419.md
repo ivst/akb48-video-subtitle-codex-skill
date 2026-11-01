@@ -86,7 +86,7 @@ El informe de video incluye la decodificación completa del original y del resul
 
 ## Opcional: transcripción japonesa y guía detallada
 
-**faster-whisper** permite obtener un borrador japonés o contrastar subtítulos. La traducción y la atribución de voces son pasos separados. Se instala en un entorno independiente; el modo CPU no requiere WSL ni GPU. Consulta la [instalación y el ejemplo de transcripción en inglés](.agents/skills/akb48-video-subtitles/references/transcription.md) y la [guía detallada en ruso](docs/workflow.ru.md).
+**faster-whisper** permite obtener un borrador japonés o contrastar subtítulos. La traducción y la atribución de voces son pasos separados. Se instala en un entorno independiente; el modo CPU no requiere WSL ni GPU. Consulta la [instalación y el ejemplo de transcripción en inglés](.agents/skills/akb48-video-subtitles/references/transcription.md) y la [guía detallada en inglés](docs/workflow.en.md).
 
 ## Subtítulos por hablante y diseño compacto (0.5.0)
 

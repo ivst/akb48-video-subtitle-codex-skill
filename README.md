@@ -157,7 +157,7 @@ The skill adds `check_ass.py`, `probe_media.py`, `compare_media.py`, and `compar
 
 A **song title is a proper name**, not a lyric line to translate. For original AKB48 songs, keep the established Latin release title or **romaji** in all target languages: `愛の意味を考えてみた` → **Ai no Imi wo Kangaete Mita**, not *Thinking About the Meaning of Love*; `恋するフォーチュンクッキー` → **Koi Suru Fortune Cookie**; `ヘビーローテーション` → **Heavy Rotation**. For an officially localized sister-group cover, check the actual version and use its published title only when that recording is being discussed. Translate the lyrics themselves when requested.
 
-Prefer an officially published Latin title; otherwise consult AKB48 Wiki or a dedicated 48 Group wiki. The bundled five-song starter glossary retains per-song sources and review statuses; do not invent romaji for titles not yet catalogued. See [song title policy](.agents/skills/akb48-video-subtitles/glossaries/songs/README.md).
+Prefer an officially published Latin title; otherwise consult AKB48 Wiki or a dedicated 48 Group wiki. The bundled 78-title glossary retains per-song sources and review statuses; do not invent romaji for titles not yet catalogued. See [song title policy](.agents/skills/akb48-video-subtitles/glossaries/songs/README.md).
 
 ```sh
 python .agents/skills/akb48-video-subtitles/scripts/lookup_song.py "愛の意味を考えてみた"
@@ -172,7 +172,7 @@ Rendered-video reports now include full software decoding of source and output, 
 
 ## Optional Japanese transcription and detailed workflow
 
-Use **faster-whisper** to draft Japanese speech recognition or cross-check existing captions; translation and speaker attribution remain separate steps. It is an optional dependency installed in its own environment; CPU mode requires neither WSL nor a GPU. See the [installation and transcription example](.agents/skills/akb48-video-subtitles/references/transcription.md). The [detailed Russian workflow](docs/workflow.ru.md) covers signs, speaker turns, styling, rendering and delivery, with portable paths and explicit limits of the bundled tools.
+Use **faster-whisper** to draft Japanese speech recognition or cross-check existing captions; translation and speaker attribution remain separate steps. It is an optional dependency installed in its own environment; CPU mode requires neither WSL nor a GPU. See the [installation and transcription example](.agents/skills/akb48-video-subtitles/references/transcription.md). The [detailed English workflow](docs/workflow.en.md) covers signs, speaker turns, styling, rendering and delivery, with portable paths and explicit limits of the bundled tools.
 
 ## Speaker-aware compact output (0.5.0)
 

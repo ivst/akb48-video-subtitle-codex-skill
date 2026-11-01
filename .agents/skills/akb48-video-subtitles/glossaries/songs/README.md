@@ -6,7 +6,7 @@ Song titles are **proper names**, not ordinary dialogue or lyrics. For the *orig
 
 1. **Episode-specific user-approved song title** takes precedence. Record its source and exact spelling in `episode.json` under `songs`.
 2. Otherwise, prefer the **official release/discography or artist/label** title when a Latin form is published.
-3. Then use **AKB48 Wiki** (https://akb48.fandom.com/wiki/Category:Songs) or another dedicated 48 Group wiki. Keep the original wiki spelling; do not use its separate `English translation` field.
+3. Then use **AKB48 Wiki** (https://akb48.fandom.com/wiki/Category:Songs) or another dedicated 48 Group wiki. Keep the original wiki spelling; do not use its separate `English translation` field. A sourced Wikipedia release article or discography can supply a provisional community spelling when a dedicated-wiki entry is unavailable; record that source and retain `community_reference`.
 4. If reliable sources disagree, flag the title for review and record both links. Do not generate a new transliteration.
 5. For an **officially localized recording/cover** by JKT48, BNK48, MNL48, AKB48 Team SH/TP and so on, the official title of that specific version may differ. Verify the group and release first; do not automatically substitute a cover title for an original AKB48 song.
 6. If unknown, keep the Japanese original provisionally, mark `pending_source_verification`, and request a source or review. **Never invent romaji or translate meaning as a substitute.**
@@ -15,16 +15,23 @@ Apply these rules when song names appear in **spoken dialogue, on-screen labels,
 
 ## CSV schema
 
-Bundled `songs.csv` contains a small **five-song seed catalog**, not the complete AKB48 discography.
+Bundled `songs.csv` contains **78 titles**, reviewed on **2026-11-01**:
+
+- 71 title tracks across two indie releases and major singles 1–68, counting the two tracks of the 45th double A-side separately; the 2008 recording of Sakura no Hanabiratachi has its own entry.
+- Seven selected stage, album and coupling songs, including the original seed entry Ai no Imi wo Kangaete Mita, Shonichi, Pajama Drive, Yume no Kawa, First Rabbit, 365nichi no Kamihikouki and Kimi no Koto ga Suki Dakara.
+
+This is **not the complete song catalogue**: most B-sides, stage and album tracks, units, solo releases and sister-group localized recordings remain outside its scope. Japanese release titles were cross-checked against the [official singles discography](https://cdn.akb48.co.jp/about/discography/?category=1). Latin forms cite individual community articles where available, otherwise the [community singles table](https://en.wikipedia.org/wiki/AKB48_discography#Singles); indexed AKB48 Wiki pages are explicitly identified in row notes when direct access was unavailable. No lyrics are included.
+
+Sources use different romanization conventions (`ō` versus `ou`/`oo`, `o` versus `wo`) and capitalization. Preserve the cited form per row rather than generating a new spelling; matching currently accepts the Japanese title, stable ID or stored Latin spelling, **not arbitrary alternate romanizations**. Use episode overrides for an editor-approved convention. `Suzukake Nanchara` is the conventional abbreviated title, not its full official Japanese title.
 
 - `song_id`: stable ID; never recycle.
 - `artist`: artist for the referenced original recording.
 - `source_ja`: Japanese source title used for matching, not automatically translatable.
 - `preferred_latin`: spelling to copy verbatim into localized subtitle tracks for this AKB48 original.
 - `source_kind`: `akb48_original` here; official localized versions need separate entries.
-- `source_url`: record-specific source for the adopted Latin spelling.
+- `source_url`: source for the adopted Latin spelling; prefer a record-specific page, otherwise cite the exact discography section and identify it in notes.
 - `official_source_url`: optional additional primary reference confirming release/title; a source for the Japanese release **does not by itself validate** the Latin spelling.
-- `review_status`: `community_reference` for these curated wiki-derived candidates, **not official or independently fluent-reviewed**.
+- `review_status`: the catalogue conservatively retains `community_reference`; source checking is **not independent fluent review or a claim that every spelling is official**. Individual notes identify direct official evidence when available.
 - `notes`: ambiguity, translation pitfalls, or version specifics.
 
 A community wiki is evidence of conventional fan usage, not proof that spelling was endorsed by the label. Do not label a row `official` without a direct official Latin-title source.
@@ -45,4 +52,4 @@ Episode override example:
 {"songs": {"akb48-ai-no-imi": {"preferred_latin": "Ai no Imi wo Kangaete Mita", "source_url": "https://akb48.fandom.com/wiki/Ai_no_Imi_wo_Kangaete_Mita", "review_status": "user_approved"}}}
 ```
 
-Do not use this seed catalog as an excuse to skip looking up other AKB48 song titles as they appear. Add new sourced rows and tests when real episodes introduce them.
+Do not use this catalog as an excuse to skip looking up other AKB48 song titles as they appear. Add new sourced rows and tests when real episodes introduce them.
