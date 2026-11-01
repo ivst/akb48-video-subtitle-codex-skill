@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.1 — 2026-11-01
+- Documented host compatibility: native `.agents/skills` discovery in Codex and DeepSeek Harness, format-compatible installation for Claude Code (`.claude/skills`), and the open Agent Skills baseline for other clients. Added per-host install and invocation paths to the English and Russian READMEs; other locales link to the compatibility section.
+- Added repository topics and refreshed the repository description so the project is discoverable as a host-neutral Agent Skills workflow.
+
 ## 0.6.0 — 2026-11-01
 - Made the episode-12 reference panel an explicit renderer preset: semibold dialogue, separate colored names/rails, translucent light panels, pale borders and purple/cyan sign panels. Kept the 30px logical lower margin and speaker/lyrics checks.
 - Added reproducible single, paired and long/sign previews using the actual renderer, with FFmpeg font-selection logs and explicit font portability guidance.

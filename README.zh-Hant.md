@@ -1,17 +1,19 @@
-# AKB48 影片字幕 Codex Skill
+# AKB48 影片字幕 Skill
 
 [English](README.md) · [Русский](README.ru.md) · [한국어](README.ko.md) · [Español (LatAm)](README.es-419.md) · [Bahasa Indonesia](README.id.md) · [ไทย](README.th.md) · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
 
 **本中文文件為翻譯初稿，正式使用前建議由中文母語者審校。**
 
 
-用於翻譯及製作 AKB48 與 48 Group 影片字幕的可重複工作流程。它協助 Codex 區分對白、說話者標示、歌曲與畫面文字，核對姓名拼法，並檢查字幕及渲染後的影片。
+用於翻譯及製作 AKB48 與 48 Group 影片字幕的可重複工作流程。它協助代理區分對白、說話者標示、歌曲與畫面文字，核對姓名拼法，並檢查字幕及渲染後的影片。
 
-本儲存庫包含 Codex Skill、語言設定初稿、基本 SRT 檢查工具、安裝說明，以及兩張近期俄文翻譯影片的效果示例。俄文設定來自完整節目的製作流程；韓文設定仍是草稿，需要韓語母語者審閱；其他語言設定則是供貢獻者完善的起點。
+本儲存庫包含 Agent Skills 套件、語言設定初稿、基本 SRT 檢查工具、安裝說明，以及兩張近期俄文翻譯影片的效果示例。俄文設定來自完整節目的製作流程；韓文設定仍是草稿，需要韓語母語者審閱；其他語言設定則是供貢獻者完善的起點。
+
+**相容性：** 支援 Codex、DeepSeek Harness、Claude Code 及其他 Agent Skills 用戶端。安裝位置與呼叫方式見 [Compatibility](README.md#compatibility)（英文）。
 
 ## 快速安裝
 
-請先準備 Git、Python 3.11+、支援 libass 的 FFmpeg/FFprobe 和 Codex 存取權限。以下命令複製儲存庫並檢查工具，不會安裝必要程式。在 Codex 中開啟複製後的資料夾並開始新聊天。
+請先準備 Git、Python 3.11+、支援 libass 的 FFmpeg/FFprobe 和相容宿主（Codex、DeepSeek Harness、Claude Code 或其他 Agent Skills 用戶端）。以下命令複製儲存庫並檢查工具，不會安裝必要程式。在宿主中開啟複製後的資料夾並開始新聊天。
 
 ```sh
 git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git

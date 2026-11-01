@@ -1,17 +1,19 @@
-# Skill de subtítulos de video de AKB48 para Codex
+# Skill de subtítulos de video de AKB48
 
 [English](README.md) · [Русский](README.ru.md) · [한국어](README.ko.md) · [Español (LatAm)](README.es-419.md) · [Bahasa Indonesia](README.id.md) · [ไทย](README.th.md) · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
 
 **Esta versión en español es un borrador; se recomienda revisión de una persona nativa antes de considerarla definitiva.**
 
 
-Flujo reutilizable para traducir y subtitular videos de AKB48 y 48 Group. Guía a Codex para separar diálogos, atribución de voces, canciones y textos en pantalla; comprobar los nombres; y revisar los subtítulos y el video renderizado.
+Flujo reutilizable para traducir y subtitular videos de AKB48 y 48 Group. Guía al agente para separar diálogos, atribución de voces, canciones y textos en pantalla; comprobar los nombres; y revisar los subtítulos y el video renderizado.
 
-El repositorio incluye un skill de Codex, perfiles de idioma iniciales, un verificador básico de SRT, instrucciones de instalación y dos ejemplos visuales de episodios recientes traducidos al ruso. El perfil ruso se basa en un flujo aplicado a episodios completos. El perfil coreano es un borrador que necesita revisión de una persona nativa; los demás perfiles son puntos de partida para colaboradores.
+El repositorio incluye un paquete de Agent Skills, perfiles de idioma iniciales, un verificador básico de SRT, instrucciones de instalación y dos ejemplos visuales de episodios recientes traducidos al ruso. El perfil ruso se basa en un flujo aplicado a episodios completos. El perfil coreano es un borrador que necesita revisión de una persona nativa; los demás perfiles son puntos de partida para colaboradores.
+
+**Compatibilidad:** Codex, DeepSeek Harness, Claude Code y otros clientes de Agent Skills. Rutas de instalación y formas de invocación: véase [Compatibility](README.md#compatibility) (en inglés).
 
 ## Instalación rápida
 
-Necesitas Git, Python 3.11+, FFmpeg/FFprobe con libass y acceso a Codex. Los comandos clonan el repositorio y verifican las herramientas; no instalan los requisitos. Abre la carpeta clonada en Codex e inicia un chat nuevo.
+Necesitas Git, Python 3.11+, FFmpeg/FFprobe con libass y un host compatible (Codex, DeepSeek Harness, Claude Code u otro cliente de Agent Skills). Los comandos clonan el repositorio y verifican las herramientas; no instalan los requisitos. Abre la carpeta clonada en tu host e inicia un chat nuevo.
 
 ```sh
 git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git

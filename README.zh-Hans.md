@@ -1,17 +1,19 @@
-# AKB48 视频字幕 Codex Skill
+# AKB48 视频字幕 Skill
 
 [English](README.md) · [Русский](README.ru.md) · [한국어](README.ko.md) · [Español (LatAm)](README.es-419.md) · [Bahasa Indonesia](README.id.md) · [ไทย](README.th.md) · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
 
 **本中文文档为翻译初稿，正式使用前建议由中文母语者审校。**
 
 
-用于翻译和制作 AKB48 及 48 Group 视频字幕的可复用工作流程。它帮助 Codex 区分对白、说话人标注、歌曲和画面文字，核对姓名拼写，并检查字幕与渲染后的视频。
+用于翻译和制作 AKB48 及 48 Group 视频字幕的可复用工作流程。它帮助智能体区分对白、说话人标注、歌曲和画面文字，核对姓名拼写，并检查字幕与渲染后的视频。
 
-仓库包含 Codex Skill、语言配置初稿、基础 SRT 检查器、部署说明，以及两张近期俄语翻译视频的效果示例。俄语配置基于完整节目制作流程；韩语配置仍是草稿，需要韩语母语者审核；其他语言配置是供贡献者完善的起点。
+仓库包含 Agent Skills 包、语言配置初稿、基础 SRT 检查器、部署说明，以及两张近期俄语翻译视频的效果示例。俄语配置基于完整节目制作流程；韩语配置仍是草稿，需要韩语母语者审核；其他语言配置是供贡献者完善的起点。
+
+**兼容性：** 支持 Codex、DeepSeek Harness、Claude Code 及其他 Agent Skills 客户端。安装位置与调用方式见 [Compatibility](README.md#compatibility)（英文）。
 
 ## 快速安装
 
-请先准备 Git、Python 3.11+、支持 libass 的 FFmpeg/FFprobe 和 Codex 访问权限。以下命令克隆仓库并检查工具，不会安装前置程序。在 Codex 中打开克隆后的目录并开始新聊天。
+请先准备 Git、Python 3.11+、支持 libass 的 FFmpeg/FFprobe 和兼容宿主（Codex、DeepSeek Harness、Claude Code 或其他 Agent Skills 客户端）。以下命令克隆仓库并检查工具，不会安装前置程序。在宿主中打开克隆后的目录并开始新聊天。
 
 ```sh
 git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git

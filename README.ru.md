@@ -1,17 +1,37 @@
-# Codex Skill для субтитров AKB48
+# Skill для субтитров AKB48
 
 [English](README.md) · [Русский](README.ru.md) · [한국어](README.ko.md) · [Español (LatAm)](README.es-419.md) · [Bahasa Indonesia](README.id.md) · [ไทย](README.th.md) · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
 
 Переводы README на другие языки — черновики до вычитки носителями.
 
 
+Открытый процесс в формате [Agent Skills](https://agentskills.io) для **Codex**, **DeepSeek Harness**, **Claude Code** и других совместимых хостов.
+
 Повторяемый процесс перевода роликов AKB48 и 48 Group: отдельный учёт диалогов, авторства реплик, песен и надписей; сверка имён; подготовка SRT/ASS и проверка вшитого видео.
 
-В репозитории есть Codex skill, стартовые языковые профили, проверка SRT, инструкции по запуску и два примера оформления из последних русских выпусков. Русский профиль основан на обработке полных выпусков. Корейский профиль пока требует проверки носителем; остальные профили — основа для будущих редакторов.
+В репозитории есть пакет Agent Skills, стартовые языковые профили, проверка SRT, инструкции по запуску и два примера оформления из последних русских выпусков. Русский профиль основан на обработке полных выпусков. Корейский профиль пока требует проверки носителем; остальные профили — основа для будущих редакторов.
+
+## Совместимость
+
+Skill следует открытому формату [Agent Skills](https://agentskills.io): папка с `SKILL.md` (frontmatter `name` и `description`) и необязательными `scripts/`, `references/`, `assets/` и `glossaries/`. Зависимостей от конкретного хоста нет: все инструменты — Python стандартной библиотеки.
+
+| Хост | Где находится skill | Как вызвать |
+|---|---|---|
+| **Codex** (CLI, IDE, ChatGPT desktop) | `.agents/skills/` в репозитории (Codex просматривает от рабочего каталога вверх до корня репозитория), `~/.agents/skills/` или каталог skills хоста | `$akb48-video-subtitles` в промпте или `/skills` |
+| **DeepSeek Harness** | `<проект>/.agents/skills/`, `<проект>/.dsh/skills/`, `~/.dsh/skills/` или `~/.agents/skills/` | `/akb48-video-subtitles` в поле ввода или выбрать из меню `/` |
+| **Claude Code** | `.claude/skills/` в проекте или `~/.claude/skills/` (скопировать или сделать symlink; Claude Code не сканирует `.agents/skills`) | `/akb48-video-subtitles` |
+| **Другие клиенты Agent Skills** | каталог skills соответствующего хоста | по правилам хоста; skill использует только стандартные поля `name`/`description` |
+
+Примечания:
+
+- Обязательны только стандартные поля frontmatter. Специфичные для хоста дополнения (`agents/openai.yaml` для Codex/ChatGPT, `user-invocable`/`disable-model-invocation` в DeepSeek Harness) необязательны и игнорируются хостами, где их нет.
+- Совместимость с DeepSeek Harness проверена на его файловом провайдере skills: папка находится в `.agents/skills`, загружается тот же `SKILL.md`, вызов — `/akb48-video-subtitles`. Переделка и правки кода не нужны.
+- Claude Code использует другой каталог, но формат `SKILL.md` и скрипты те же; достаточно копии или symlink.
+- Скрипты работают в Windows, macOS и Linux на Python 3.11+. Для вшивания видео нужны FFmpeg/FFprobe с libass, а пресет `episode-12` рассчитан на шрифт Segoe UI Semibold (переопределяется полем `font` в `presentation.json` или `--font` в `render_style_previews.py`).
 
 ## Краткая установка
 
-Нужны Git, Python 3.11+, FFmpeg/FFprobe с libass и доступ к Codex. Команды клонируют репозиторий и проверяют инструменты; сами зависимости ими не устанавливаются. Откройте клонированную папку в Codex и начните новый чат.
+Нужны Git, Python 3.11+, FFmpeg/FFprobe с libass и совместимый хост (Codex, DeepSeek Harness, Claude Code или другой клиент Agent Skills). Команды клонируют репозиторий и проверяют инструменты; сами зависимости ими не устанавливаются. Откройте клонированную папку в вашем хосте и начните новый чат.
 
 ```sh
 git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
@@ -26,6 +46,8 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 Подготовь отдельные SRT и ASS, видео с вшитыми субтитрами и отчёт проверок. Используй актуальное компактное оформление у нижнего края. Разделяй говорящих и подписывай проверенные имена или нейтральные роли; неизвестные голоса не объединяй.
 Фоновую музыку и тексты песен пропускай. Проверь имена, смысл реплик, надписи и кадры готового видео; зафиксируй неоднозначности. Ничего не публикуй.
 ```
+
+В Codex skill упоминается как `$akb48-video-subtitles`; в DeepSeek Harness и Claude Code отправьте `/akb48-video-subtitles` и тот же запрос. Любой хост может загрузить skill автоматически, если задача совпадает с описанием.
 
 ## Примеры
 
@@ -53,7 +75,16 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 
 ## Установка для других проектов
 
-Для использования в других проектах скопируйте `.agents/skills/akb48-video-subtitles/` в каталог пользовательских skills Codex: обычно `%USERPROFILE%\.codex\skills\akb48-video-subtitles` в Windows или `$CODEX_HOME/skills/akb48-video-subtitles`, если задан `CODEX_HOME`. После установки начните новую сессию.
+Скопируйте всю папку `.agents/skills/akb48-video-subtitles/` в каталог skills вашего хоста (см. [Совместимость](#совместимость)) и начните новую сессию:
+
+| Хост | Команда |
+|---|---|
+| Codex (пользовательский уровень) | `mkdir -p ~/.agents/skills && cp -r .agents/skills/akb48-video-subtitles ~/.agents/skills/` |
+| DeepSeek Harness (уровень проекта) | `mkdir -p .agents/skills && cp -r .agents/skills/akb48-video-subtitles .agents/skills/` |
+| DeepSeek Harness (пользовательский уровень) | `mkdir -p ~/.dsh/skills && cp -r .agents/skills/akb48-video-subtitles ~/.dsh/skills/` |
+| Claude Code | `mkdir -p ~/.claude/skills && cp -r .agents/skills/akb48-video-subtitles ~/.claude/skills/` |
+
+В Windows используйте PowerShell `Copy-Item -Recurse` с теми же путями (`$env:USERPROFILE\.agents\skills`, `$env:USERPROFILE\.dsh\skills`, `$env:USERPROFILE\.claude\skills`).
 
 ## Дополнительные проверки
 

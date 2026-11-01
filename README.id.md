@@ -1,17 +1,19 @@
-# Skill Subtitle Video AKB48 untuk Codex
+# Skill Subtitle Video AKB48
 
 [English](README.md) · [Русский](README.ru.md) · [한국어](README.ko.md) · [Español (LatAm)](README.es-419.md) · [Bahasa Indonesia](README.id.md) · [ไทย](README.th.md) · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
 
 **Dokumentasi bahasa Indonesia ini masih berupa draf dan sebaiknya ditinjau penutur asli sebelum dianggap final.**
 
 
-Alur kerja yang dapat digunakan ulang untuk menerjemahkan dan membuat subtitle video AKB48 dan 48 Group. Skill ini membantu Codex memisahkan dialog, atribusi pembicara, lagu, dan teks di layar; memeriksa ejaan nama; serta meninjau subtitle dan hasil render video.
+Alur kerja yang dapat digunakan ulang untuk menerjemahkan dan membuat subtitle video AKB48 dan 48 Group. Skill ini membantu agen memisahkan dialog, atribusi pembicara, lagu, dan teks di layar; memeriksa ejaan nama; serta meninjau subtitle dan hasil render video.
 
-Repositori ini berisi skill Codex, draf profil bahasa, pemeriksa SRT dasar, panduan pemasangan, dan dua contoh visual dari episode terbaru yang diterjemahkan ke bahasa Rusia. Profil Rusia didasarkan pada alur yang telah digunakan untuk episode penuh. Profil Korea masih berupa draf dan perlu ditinjau penutur asli; profil lainnya adalah titik awal bagi kontributor.
+Repositori ini berisi paket Agent Skills, draf profil bahasa, pemeriksa SRT dasar, panduan pemasangan, dan dua contoh visual dari episode terbaru yang diterjemahkan ke bahasa Rusia. Profil Rusia didasarkan pada alur yang telah digunakan untuk episode penuh. Profil Korea masih berupa draf dan perlu ditinjau penutur asli; profil lainnya adalah titik awal bagi kontributor.
+
+**Kompatibilitas:** Codex, DeepSeek Harness, Claude Code, dan klien Agent Skills lain. Lokasi pemasangan dan cara memanggil: lihat [Compatibility](README.md#compatibility) (bahasa Inggris).
 
 ## Instalasi singkat
 
-Siapkan Git, Python 3.11+, FFmpeg/FFprobe dengan libass, serta akses ke Codex. Perintah berikut mengklon repositori dan memeriksa alat; perintah ini tidak memasang prasyarat. Buka folder hasil klon di Codex dan mulai chat baru.
+Siapkan Git, Python 3.11+, FFmpeg/FFprobe dengan libass, serta host yang kompatibel (Codex, DeepSeek Harness, Claude Code, atau klien Agent Skills lain). Perintah berikut mengklon repositori dan memeriksa alat; perintah ini tidak memasang prasyarat. Buka folder hasil klon di host Anda dan mulai chat baru.
 
 ```sh
 git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git

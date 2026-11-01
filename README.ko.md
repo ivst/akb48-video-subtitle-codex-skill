@@ -1,17 +1,19 @@
-# Codex용 AKB48 영상 자막 Skill
+# AKB48 영상 자막 Skill
 
 [English](README.md) · [Русский](README.ru.md) · [한국어](README.ko.md) · [Español (LatAm)](README.es-419.md) · [Bahasa Indonesia](README.id.md) · [ไทย](README.th.md) · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
 
 **한국어 안내문은 초안이며, 배포 전에 한국어 모어 화자의 검토가 필요합니다.**
 
 
-AKB48 및 48 Group 영상의 번역과 자막 작업을 위한 재사용 가능한 워크플로입니다. 대사, 화자 표시, 노래, 화면 속 문구를 구분하고, 확인된 이름 표기를 사용하며, 자막과 렌더링 결과를 점검하도록 Codex를 안내합니다.
+AKB48 및 48 Group 영상의 번역과 자막 작업을 위한 재사용 가능한 워크플로입니다. 대사, 화자 표시, 노래, 화면 속 문구를 구분하고, 확인된 이름 표기를 사용하며, 자막과 렌더링 결과를 점검하도록 에이전트를 안내합니다.
 
-저장소에는 Codex Skill, 언어 프로필 초안, 기본 SRT 검사기, 설치 안내와 최근 러시아어 번역 영상의 예시 화면 두 장이 포함되어 있습니다. 러시아어 프로필은 전체 영상 작업에 사용한 절차를 바탕으로 합니다. 한국어 프로필은 아직 초안이므로 실제 사용 전에 한국어 모어 화자의 검토가 필요합니다. 다른 프로필도 기여자가 다듬을 시작점입니다.
+저장소에는 Agent Skills 패키지, 언어 프로필 초안, 기본 SRT 검사기, 설치 안내와 최근 러시아어 번역 영상의 예시 화면 두 장이 포함되어 있습니다. 러시아어 프로필은 전체 영상 작업에 사용한 절차를 바탕으로 합니다. 한국어 프로필은 아직 초안이므로 실제 사용 전에 한국어 모어 화자의 검토가 필요합니다. 다른 프로필도 기여자가 다듬을 시작점입니다.
+
+**호환성:** Codex, DeepSeek Harness, Claude Code 및 기타 Agent Skills 클라이언트에서 사용할 수 있습니다. 설치 위치와 호출 방법은 [Compatibility](README.md#compatibility) 절(영어)을 참고하세요.
 
 ## 빠른 설치
 
-Git, Python 3.11 이상, libass를 지원하는 FFmpeg/FFprobe 및 Codex 이용 환경이 필요합니다. 아래 명령은 저장소를 복제하고 도구를 검사하며 필수 프로그램을 설치하지는 않습니다. 복제한 폴더를 Codex에서 열고 새 채팅을 시작하세요.
+Git, Python 3.11 이상, libass를 지원하는 FFmpeg/FFprobe 및 호환 호스트(Codex, DeepSeek Harness, Claude Code 또는 다른 Agent Skills 클라이언트)가 필요합니다. 아래 명령은 저장소를 복제하고 도구를 검사하며 필수 프로그램을 설치하지는 않습니다. 복제한 폴더를 해당 호스트에서 열고 새 채팅을 시작하세요.
 
 ```sh
 git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
