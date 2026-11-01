@@ -2,6 +2,7 @@
 
 **Status:** working profile; adapt it to the specific cast and user style request.
 
+- Keep Japanese **song titles** in their established **Latin release/romaji spelling** from the sourced `glossaries/songs.csv` or official discography / AKB48 Wiki; do not translate their meaning into Russian. Only an explicitly user-approved form or an official translated release of the specific cover is an exception. The lyric text itself should be translated when requested.
 - Preserve official member spellings from the supplied AKB glossary. Keep stage names/nicknames separate from legal or full names.
 - Use conversational Russian. Preserve the source's politeness and relationship cues without mechanically copying every Japanese honorific.
 - Do not invent gender, subject, or speaker identity from the image alone. Prefer a neutral role label when the voice is not established.

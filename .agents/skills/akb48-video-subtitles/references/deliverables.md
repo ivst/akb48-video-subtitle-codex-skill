@@ -9,6 +9,7 @@ This is an agent-run quality checklist, **not** a guarantee that a translation o
 - Every translation chunk preserves all IDs in order and has nonempty target text. Review source audio for ambiguous phrases, jokes, names and overlapping speakers.
 - A member name reported as missing may have been legitimately replaced by a pronoun. Human review decides.
 - The approved episode-specific glossary overrides bundled draft terminology.
+- Identify all **song-name** mentions, verify established Latin/romaji spelling against official discography or AKB48 Wiki, annotate confirmed occurrences with `song_ids`, and check they were **not translated by meaning**. Preserve a source URL. Song lyrics remain translatable separately.
 
 ## Validation commands (from repository root)
 
@@ -17,6 +18,7 @@ SKILL=.agents/skills/akb48-video-subtitles
 python "$SKILL/scripts/check_environment.py" --require-ass
 python "$SKILL/scripts/check_translation.py" --input examples/quality/source.json --translated examples/quality/translated.json --target-lang ru --members "$SKILL/glossaries/members/ru.csv" --json
 python "$SKILL/scripts/check_srt.py" examples/quality/ru.srt --profile ru --duration 14 --json
+python "$SKILL/scripts/check_song_titles.py" --input examples/quality/song_source.json --translated examples/quality/song_translated.json --strict --json
 python "$SKILL/scripts/check_names.py" --source examples/quality/ja.srt --target examples/quality/ru.srt --episode examples/quality/episode.json --json
 python "$SKILL/scripts/check_ass.py" examples/demo.ass --width 1920 --height 1080 --duration 6 --json
 python "$SKILL/scripts/probe_media.py" path/to/source.mp4 --json

@@ -19,6 +19,10 @@ The canonical key is `source_ja`, and all eight language files contain the same 
 
 The 83 Russian values come from the contributor-supplied `member_names.ja-ru.json` and are mirrored in `glossaries/member_names.ja-ru.json`. Do not silently modernize or re-transliterate those values. If the user supplies an episode-specific glossary, it takes precedence over this bundled dataset.
 
+## Separate song title catalog
+
+Song titles are **not** person names or ordinary fan terminology. The shared language-independent [song name glossary](songs/README.md) (`songs.csv`) stores Japanese originals, the established Latin/romaji forms, sources and review statuses. The five sourced seed entries are *not* a complete discography. Use `scripts/lookup_song.py` and `scripts/check_song_titles.py` when translating title references; preserve official cover titles only for the actual corresponding localized recording.
+
 ## Separate terminology lexicon
 
 In addition to person names, see [the 35-term glossary](terms/README.md) with separate locale files under `terms/{locale}.csv` and its own lookup script `scripts/lookup_term.py`. These are **editorial drafts** (not contributor-approved Russian spellings); Thai entries are pending. The member-name glossary and terminology glossary must not share trust statuses or overwrite one another.

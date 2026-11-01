@@ -87,8 +87,11 @@ def main(argv=None) -> int:
                 "--translated", str(translated_chunks), "--target-lang", locale,
                 "--members", str(MEMBERS / (locale + ".csv")),
                 "--episode", str(root / "episode.json")])
+        execute("check_song_titles", ["--input", str(input_chunks), "--translated", str(translated_chunks),
+                "--episode", str(root / "episode.json"), "--strict"])
     elif args.require_translation:
         not_run("check_translation", "required translated/source chunk JSON missing")
+        not_run("check_song_titles", "required translated/source chunk JSON missing")
     if ass.is_file():
         arguments = [str(ass)]
         if duration is not None:

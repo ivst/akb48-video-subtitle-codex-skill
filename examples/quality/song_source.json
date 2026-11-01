@@ -1,0 +1,31 @@
+{
+  "cues": [
+    {
+      "id": "001",
+      "text": "次の曲は「愛の意味を考えてみた」です。",
+      "song_ids": [
+        "akb48-ai-no-imi"
+      ],
+      "kind": "dialogue",
+      "start_ms": 1000,
+      "end_ms": 3400
+    },
+    {
+      "id": "002",
+      "text": "ヘビーローテーション",
+      "kind": "song_title",
+      "song_ids": [
+        "akb48-heavy-rotation"
+      ],
+      "start_ms": 3500,
+      "end_ms": 5000
+    },
+    {
+      "id": "003",
+      "text": "歌ってくれてありがとう！",
+      "kind": "dialogue",
+      "start_ms": 5100,
+      "end_ms": 7000
+    }
+  ]
+}

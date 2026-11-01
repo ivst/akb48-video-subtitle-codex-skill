@@ -8,6 +8,8 @@ Each input and output JSON file is an object containing `{"cues":[...]}`. Source
 
 Stable IDs are a working translation contract, *not* a restriction on final SRT/ASS presentation. After validating chunks, cues may be merged or split for readability with an explicit source-to-display mapping. Do not silently omit source content or attribute uncertain speakers.
 
+Song names are a separate category from translated dialogue or lyrics. Preserve officially established Latin/romaji titles from `glossaries/songs.csv` (consult `glossaries/songs/README.md` for source priority). For a confirmed mention add `"song_ids": ["akb48-ai-no-imi"]` to the **source** cue JSON; do not drop it during review. `check_song_titles.py --strict` checks exact Latin spelling on the matching target ID, while unannotated apparent titles trigger only warnings. Never substitute a wiki's English *translation* of the title. Track official localized sister-group cover titles separately. See `examples/quality/song_source.json` and `song_translated.json`.
+
 Use an episode-specific, user-approved glossary first. Keep Japanese transcripts immutable and record uncertainty rather than inventing wording. Japanese lyric and signage tracks should be checked separately.
 
 ## Working directory and resumability
@@ -31,7 +33,7 @@ episode-001/
   report.json         # created when checks actually run
 ```
 
-The manifest stores paths, media metadata (when known), requested outputs, and glossary revision; it may contain `names` overrides, for example:
+The manifest stores paths, media metadata (when known), requested outputs, and glossary revision; it may contain `names` and `songs` overrides, for example:
 ```json
 {"names":{"武藤小麟":{"target":"Муто Орин","aliases":["Орин"],"forbidden":["Муто Олин"]}}}
 ```
@@ -42,6 +44,7 @@ When resuming, read existing chunks by ID and preserve completed text. Never bli
 
 ```sh
 python .agents/skills/akb48-video-subtitles/scripts/check_translation.py --input examples/quality/source.json --translated examples/quality/translated.json --target-lang ru --members .agents/skills/akb48-video-subtitles/glossaries/members/ru.csv --json
+python .agents/skills/akb48-video-subtitles/scripts/check_song_titles.py --input examples/quality/song_source.json --translated examples/quality/song_translated.json --strict --json
 python .agents/skills/akb48-video-subtitles/scripts/run_checks.py --project episode-001 --require-translation --json
 ```
 

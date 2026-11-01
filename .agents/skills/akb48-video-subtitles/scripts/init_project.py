@@ -32,7 +32,7 @@ def main(argv=None) -> int:
                  "translated": "work/chunks/translated.json"},
         "output": {"srt": f"output/dialogue.{args.locale}.srt",
                    "ass": f"output/subtitles.{args.locale}.ass", "video": None},
-        "names": {}
+        "names": {}, "songs": {}
     }
     manifest = root / "episode.json"
     manifest.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
