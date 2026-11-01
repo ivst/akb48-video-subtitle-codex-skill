@@ -94,3 +94,15 @@ python .agents/skills/akb48-video-subtitles/scripts/check_names.py --source exam
 ```
 
 Проверки японского письма эвристические: иероглифы допустимы в китайском, а названия песен и имена могут сохраняться на японском. Настройки: `--strict-japanese`, повторяемый `--allow-japanese`, `--allow-overlap`. `check_names.py` учитывает временные интервалы и варианты имён. Пропуск полного имени считается предупреждением (местоимение может быть переводчески правильным), запрещённые варианты — ошибкой.
+
+## Контракт перевода и проверяемый отчёт
+
+Для длинного выпуска добавлен [протокол перевода](.agents/skills/akb48-video-subtitles/references/translation-protocol.md): чанки примерно по 40–60 реплик, одинаковые ID и порядок в исходном и переводном JSON, отсутствие пустых переводов. Разделение или объединение финальных титров допустимо уже после проверки чанков.
+
+```powershell
+python .agents/skills/akb48-video-subtitles/scripts/check_translation.py --input examples/quality/source.json --translated examples/quality/translated.json --target-lang ru --json
+python .agents/skills/akb48-video-subtitles/scripts/init_project.py --project my-episode --episode-id episode-001 --locale ru
+python .agents/skills/akb48-video-subtitles/scripts/run_checks.py --project my-episode --require-translation
+```
+
+Рабочая папка содержит `episode.json`, `source/`, `work/chunks/`, `output/`, а после запуска проверок — `report.json`. Последний фиксирует **реально исполненные** команды, коды завершения и SHA256; отсутствующие данные отражаются как `not_run`, а не как пройденные проверки.

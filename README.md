@@ -114,3 +114,15 @@ python .agents/skills/akb48-video-subtitles/scripts/check_names.py --source exam
 ```
 
 For suspected untranslated Japanese, set `--target-lang ru` (enabled by `--profile ru`), and optionally `--strict-japanese`. Kanji are also used in Chinese and may appear as titles, so detection is deliberately **heuristic**, with `--allow-japanese` for approved expressions. For intentionally simultaneous SRT cues, `--allow-overlap` downgrades overlap to warnings. `check_names.py` flags unconfirmed translated names as warnings unless `--strict` is set, to avoid penalizing natural pronouns and nicknames. Explicit forbidden name variants are errors. Neither tool establishes semantic translation completeness.
+
+## Translation chunks and execution report
+
+The [ID-stable translation protocol](.agents/skills/akb48-video-subtitles/references/translation-protocol.md) uses source/translated JSON chunks of 40–60 cues, requires matching IDs and nonempty translations, and separates these working units from eventual SRT/ASS display segmentation.
+
+```sh
+python .agents/skills/akb48-video-subtitles/scripts/check_translation.py --input examples/quality/source.json --translated examples/quality/translated.json --target-lang ru --json
+python .agents/skills/akb48-video-subtitles/scripts/init_project.py --project my-episode --episode-id episode-001 --locale ru
+python .agents/skills/akb48-video-subtitles/scripts/run_checks.py --project my-episode --require-translation
+```
+
+The project initializer rejects overwriting an existing workspace. `report.json` is generated from **executed** validators with command arguments, exit codes, file SHA256 and explicit `not_run` entries; the report does not substitute for manual translation or visual review.
