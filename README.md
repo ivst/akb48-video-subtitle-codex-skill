@@ -9,6 +9,24 @@ A reusable workflow for translating and subtitling AKB48 and 48 Group videos. It
 
 The repository contains a Codex skill, language-profile starters, a basic SRT checker, setup notes, and two visual examples from recent Russian-localized episodes. Russian reflects a workflow used on full episodes. Korean is a draft pending fluent-speaker review; the other language profiles are starter guidance for contributors.
 
+## Quick install
+
+Prerequisites: Git, Python 3.11+, FFmpeg/FFprobe with libass, and access to Codex. These commands clone the repository and check the tools; they do not install prerequisites. Open the cloned folder in Codex and start a new chat.
+
+```sh
+git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
+cd akb48-video-subtitle-codex-skill
+python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
+```
+
+## Example prompt
+
+```text
+Use $akb48-video-subtitles to translate [local video path or authorized URL] into English, including on-screen text.
+Deliver separate SRT and ASS, a video with burned-in subtitles, and the checks report. Use the current compact layout near the bottom edge. Separate speakers with verified names or neutral roles; do not merge unknown voices.
+Omit background music and song lyrics. Review names, dialogue meaning, signs and final video frames; record uncertainties. Do not publish anything.
+```
+
 ## Preview
 
 **Episode 12 — speaker label and compact subtitle panel** ([source video](https://www.youtube.com/watch?v=aPznmLtjedw))
@@ -25,15 +43,13 @@ The repository contains a Codex skill, language-profile starters, a basic SRT ch
 
 The two images above are **separately attributed excerpts for technical commentary on subtitle design**, not freely reusable examples or a replacement for the source episodes. The original program footage, performer images, branding, and other third-party elements remain subject to their respective rights; the MIT license does **not** cover the screenshots. Source links and attribution do not themselves grant permission to republish them. See [NOTICE](NOTICE) for the sources, limitations, and relevant Japanese quotation-law context. No source video or full-episode subtitles are distributed.
 
-## Use with Codex
+## Install for other projects
 
-Clone the repository and open its folder in Codex. The skill is in `.agents/skills/akb48-video-subtitles/`; Codex can discover it as a project skill. For other projects, copy that folder into your Codex skills directory (usually `%USERPROFILE%\.codex\skills\akb48-video-subtitles` on Windows or `$CODEX_HOME/skills/akb48-video-subtitles` when configured). Start a new Codex session after installing.
+For other projects, copy `.agents/skills/akb48-video-subtitles/` into your Codex skills directory (usually `%USERPROFILE%\.codex\skills\akb48-video-subtitles` on Windows or `$CODEX_HOME/skills/akb48-video-subtitles` when configured). Start a new Codex session after installing.
 
-Invoke it with `$akb48-video-subtitles`, or ask Codex to translate or review an AKB48 video and specify the target language and requested files. Supply the local source file or an authorized source, a cast/name list if available, and the desired deliverables. No API key is required for the documented workflow.
+## Additional checks
 
-## Quick setup
-
-Required: Python 3.11+, FFmpeg, and FFprobe. ASS rendering needs FFmpeg built with libass support. Install FFmpeg using your operating system's package manager and make `ffmpeg` and `ffprobe` available on `PATH`.
+Check an existing SRT below, replacing the example path.
 
 ```powershell
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py

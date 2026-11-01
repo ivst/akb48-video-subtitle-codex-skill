@@ -9,6 +9,24 @@ Alur kerja yang dapat digunakan ulang untuk menerjemahkan dan membuat subtitle v
 
 Repositori ini berisi skill Codex, draf profil bahasa, pemeriksa SRT dasar, panduan pemasangan, dan dua contoh visual dari episode terbaru yang diterjemahkan ke bahasa Rusia. Profil Rusia didasarkan pada alur yang telah digunakan untuk episode penuh. Profil Korea masih berupa draf dan perlu ditinjau penutur asli; profil lainnya adalah titik awal bagi kontributor.
 
+## Instalasi singkat
+
+Siapkan Git, Python 3.11+, FFmpeg/FFprobe dengan libass, serta akses ke Codex. Perintah berikut mengklon repositori dan memeriksa alat; perintah ini tidak memasang prasyarat. Buka folder hasil klon di Codex dan mulai chat baru.
+
+```sh
+git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
+cd akb48-video-subtitle-codex-skill
+python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
+```
+
+## Contoh prompt
+
+```text
+Gunakan $akb48-video-subtitles untuk menerjemahkan [path video lokal atau URL yang diizinkan] ke bahasa Indonesia, termasuk teks di layar.
+Siapkan SRT dan ASS terpisah, video dengan subtitle tertanam, serta laporan pemeriksaan. Gunakan tata letak ringkas terbaru di dekat tepi bawah. Pisahkan pembicara dengan nama terverifikasi atau peran netral; jangan gabungkan suara yang belum dikenal.
+Abaikan musik latar dan lirik. Periksa nama, makna dialog, teks di layar, serta frame akhir; catat bagian yang belum jelas. Jangan publikasikan apa pun.
+```
+
 ## Pratinjau
 
 **Episode 12 — label pembicara dan panel subtitle ringkas** ([video sumber](https://www.youtube.com/watch?v=aPznmLtjedw))
@@ -25,15 +43,13 @@ Repositori ini berisi skill Codex, draf profil bahasa, pemeriksa SRT dasar, pand
 
 Kedua gambar tersebut adalah **cuplikan dengan atribusi untuk pembahasan teknis desain subtitle**, bukan materi yang bebas digunakan ulang atau pengganti episode aslinya. Hak atas rekaman, penampilan artis, logo, dan elemen pihak ketiga tetap berada pada pemegang hak masing-masing. Lisensi **MIT tidak mencakup tangkapan layar ini**. Penyebutan sumber tidak otomatis memberikan izin untuk menyebarluaskannya. Lihat [NOTICE](NOTICE) untuk sumber dan catatan mengenai kutipan menurut hukum Jepang. Video sumber dan subtitle lengkap tidak disertakan.
 
-## Menggunakan dengan Codex
+## Memasang untuk proyek lain
 
-Klon repositori ini dan buka foldernya di Codex. Skill berada di `.agents/skills/akb48-video-subtitles/` dan dapat ditemukan sebagai skill proyek. Untuk proyek lain, salin folder tersebut ke direktori skill Codex pengguna (biasanya `%USERPROFILE%\.codex\skills\akb48-video-subtitles` di Windows atau `$CODEX_HOME/skills/akb48-video-subtitles` jika `CODEX_HOME` dikonfigurasi). Mulai sesi Codex baru setelah pemasangan.
+Untuk proyek lain, salin folder `.agents/skills/akb48-video-subtitles/` ke direktori skill Codex pengguna (biasanya `%USERPROFILE%\.codex\skills\akb48-video-subtitles` di Windows atau `$CODEX_HOME/skills/akb48-video-subtitles` jika `CODEX_HOME` dikonfigurasi). Mulai sesi Codex baru setelah pemasangan.
 
-Panggil `$akb48-video-subtitles`, atau minta Codex menerjemahkan/meninjau video AKB48 dan sebutkan bahasa target serta berkas yang diperlukan. Sediakan video lokal atau sumber yang boleh digunakan, daftar anggota/nama jika ada, dan format hasil yang diinginkan. Alur yang dijelaskan tidak memerlukan API key.
+## Pemeriksaan tambahan
 
-## Persiapan cepat
-
-Diperlukan Python 3.11+, FFmpeg, dan FFprobe. Untuk merender ASS, gunakan build FFmpeg yang menyertakan libass. Pasang FFmpeg melalui package manager sistem operasi dan pastikan `ffmpeg` serta `ffprobe` tersedia di `PATH`.
+Periksa SRT yang sudah dibuat dengan mengganti path contoh.
 
 ```powershell
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py

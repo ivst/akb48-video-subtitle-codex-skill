@@ -9,6 +9,24 @@
 
 仓库包含 Codex Skill、语言配置初稿、基础 SRT 检查器、部署说明，以及两张近期俄语翻译视频的效果示例。俄语配置基于完整节目制作流程；韩语配置仍是草稿，需要韩语母语者审核；其他语言配置是供贡献者完善的起点。
 
+## 快速安装
+
+请先准备 Git、Python 3.11+、支持 libass 的 FFmpeg/FFprobe 和 Codex 访问权限。以下命令克隆仓库并检查工具，不会安装前置程序。在 Codex 中打开克隆后的目录并开始新聊天。
+
+```sh
+git clone https://github.com/ivst/akb48-video-subtitle-codex-skill.git
+cd akb48-video-subtitle-codex-skill
+python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --require-ass
+```
+
+## 提示词示例
+
+```text
+使用 $akb48-video-subtitles，将 [本地视频路径或已获授权的 URL] 翻译为简体中文，包括画面文字。
+提供独立的 SRT 和 ASS、内嵌字幕的视频及检查报告。使用靠近画面下边缘的最新紧凑布局，以已核实的姓名或中性角色区分说话人，不要合并身份不明的声音。
+省略背景音乐和歌词。核对姓名、对话含义、画面文字及成片帧，记录疑点。不要发布任何内容。
+```
+
 ## 预览
 
 **第 12 期——说话人标签与紧凑字幕条**（[源视频](https://www.youtube.com/watch?v=aPznmLtjedw)）
@@ -25,15 +43,13 @@
 
 以上两张截图是**用于技术性讨论字幕设计且标明来源的画面片段**，并非可自由复用的素材，也不能替代原节目。原始画面、出演者肖像、标志及其他第三方素材的权利仍归相关权利人所有。**MIT 许可证不涵盖这些截图。** 标注来源本身不构成转载授权。来源和日本著作权法引用规则的说明见 [NOTICE](NOTICE)。本仓库不提供原始视频或完整节目字幕。
 
-## 在 Codex 中使用
+## 为其他项目安装
 
-克隆仓库并在 Codex 中打开目录。Skill 位于 `.agents/skills/akb48-video-subtitles/`，可作为项目 Skill 被发现。若要在其他项目中使用，请将该目录复制到 Codex 用户 Skill 目录（Windows 通常为 `%USERPROFILE%\.codex\skills\akb48-video-subtitles`；设置了 `CODEX_HOME` 时为 `$CODEX_HOME/skills/akb48-video-subtitles`）。安装后重新启动一个 Codex 会话。
+若要在其他项目中使用，请将 `.agents/skills/akb48-video-subtitles/` 目录复制到 Codex 用户 Skill 目录（Windows 通常为 `%USERPROFILE%\.codex\skills\akb48-video-subtitles`；设置了 `CODEX_HOME` 时为 `$CODEX_HOME/skills/akb48-video-subtitles`）。安装后重新启动一个 Codex 会话。
 
-使用 `$akb48-video-subtitles` 调用，或要求 Codex 翻译/审校 AKB48 视频，并注明目标语言和所需文件。提供本地视频或已获授权的来源、成员/姓名清单（如有）以及输出格式。本文档所述流程不需要 API 密钥。
+## 其他检查
 
-## 快速配置
-
-需要 Python 3.11 或更新版本、FFmpeg 和 FFprobe。渲染 ASS 需要包含 libass 的 FFmpeg 构建版本。通过操作系统的包管理器安装 FFmpeg，并确保 `ffmpeg` 与 `ffprobe` 已加入 `PATH`。
+下面的 SRT 命令用于检查已创建的文件，请替换示例路径。
 
 ```powershell
 python .agents/skills/akb48-video-subtitles/scripts/check_environment.py
