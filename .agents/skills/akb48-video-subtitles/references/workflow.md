@@ -45,3 +45,9 @@ Consult `glossaries/terms/{locale}.csv` for member-facing event terms, fan termi
 Long episodes must use the chunk contract in [translation-protocol.md](translation-protocol.md), with stable IDs in source and translated JSON. A new episode workspace is created using `scripts/init_project.py`, never overwriting a previous run. Write a real file at each stage rather than relying on conversational memory.
 
 `scripts/run_checks.py --project PROJECT --require-translation` executes installed validators and generates `report.json` from actual commands, exit codes, hashes and missing checks. A report is **incomplete** if a required artifact is absent. Manual frame/audio review and speaker/translation correctness are separate evidence and must never be asserted as automated validation.
+
+## Definition of done and model setting
+
+Use [deliverables.md](deliverables.md) for concrete validation commands and for interpreting `report.json`. Static ASS validation permits intentional overlays and drawing events. Media metadata and audio checks require actual source/output files; do not claim results from tools that were not run. If audio must be unchanged, set `"audio_preservation": "unchanged"` in the episode manifest; set `"not_required"` only for intended modifications or silent sources, then report audio as unverified. Decoded PCM hashes are not proof of identical compressed audio packets.
+
+For difficult Japanese speech, GPT-6.1 Sol at Medium reasoning effort or higher is the recommended starting model when available. It does not remove the obligation to check Japanese audio, glossary forms, translated IDs and final rendered frames.
