@@ -67,3 +67,7 @@ La documentación y los scripts originales usan la licencia MIT. Las imágenes d
 ## Comprobación completa del video
 
 El informe de video incluye la decodificación completa del original y del resultado, errores del decodificador y comparación del número real de fotogramas (`check_decode.py`). El hash de audio tiene un límite de tiempo para toda la decodificación y evita bloqueos de los canales del proceso. `run_checks.py --media-timeout 1800` fija los segundos máximos por archivo. Se presupone que no hay conversión intencional de la frecuencia de fotogramas.
+
+## Opcional: transcripción japonesa y guía detallada
+
+**faster-whisper** permite obtener un borrador japonés o contrastar subtítulos. La traducción y la atribución de voces son pasos separados. Se instala en un entorno independiente; el modo CPU no requiere WSL ni GPU. Consulta la [instalación y el ejemplo de transcripción en inglés](.agents/skills/akb48-video-subtitles/references/transcription.md) y la [guía detallada en ruso](docs/workflow.ru.md).

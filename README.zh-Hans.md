@@ -67,3 +67,7 @@ python .agents/skills/akb48-video-subtitles/scripts/check_srt.py path\to\dialogu
 ## 完整视频检查
 
 视频报告包含源文件和成片的完整软件解码、解码错误检查及实际解码帧数比较（`check_decode.py`）。音频哈希对整个解码过程设置超时，并避免管道死锁。使用 `run_checks.py --media-timeout 1800` 设置每个文件的最长处理秒数。帧数比较假定没有有意改变帧率。
+
+## 可选：日语语音识别与详细流程
+
+**faster-whisper** 可用于生成日语转录草稿或交叉检查已有字幕，翻译和说话人判定仍是独立步骤。它是安装在独立环境中的可选依赖，CPU 模式不需要 WSL 或 GPU。参见[安装和转录示例（英语）](.agents/skills/akb48-video-subtitles/references/transcription.md)及[详细工作流程（俄语）](docs/workflow.ru.md)。
