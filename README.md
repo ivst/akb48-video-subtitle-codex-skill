@@ -15,11 +15,15 @@ The repository contains a Codex skill, language-profile starters, a basic SRT ch
 
 ![Episode 12 subtitle example](examples/preview-episode-12.jpg)
 
+*Source excerpt: AKB48, **AKB48の全力エンタメ学園**, episode 12 (18 April 2026), [original YouTube video](https://www.youtube.com/watch?v=aPznmLtjedw).* The still is included to examine the localized speaker-name label and its relationship to the compact dialogue panel. The example lets readers assess how the two elements distinguish the speaker from spoken text without relying on color alone.
+
 **Episode 13 — compact panel during the final handshake segment** ([source video](https://www.youtube.com/watch?v=mHF3TEk6lwQ))
 
 ![Episode 13 subtitle example](examples/preview-episode-13.jpg)
 
-These are illustrative frames from the source programs. The underlying footage, logos, and performers remain the property of their respective rights holders. This repository does not include the videos or full episode subtitle files.
+*Source excerpt: AKB48, **AKB48の全力エンタメ学園**, episode 13 (25 April 2026), [original YouTube video](https://www.youtube.com/watch?v=mHF3TEk6lwQ).* This still illustrates how the translated subtitle panel is positioned during a handshake segment. It is used to discuss readable placement alongside the original scene and on-screen graphics, rather than to reproduce the episode for entertainment.
+
+The two images above are **separately attributed excerpts for technical commentary on subtitle design**, not freely reusable examples or a replacement for the source episodes. The original program footage, performer images, branding, and other third-party elements remain subject to their respective rights; the MIT license does **not** cover the screenshots. Source links and attribution do not themselves grant permission to republish them. See [NOTICE](NOTICE) for the sources, limitations, and relevant Japanese quotation-law context. No source video or full-episode subtitles are distributed.
 
 ## Use with Codex
 

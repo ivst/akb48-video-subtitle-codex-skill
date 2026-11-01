@@ -15,11 +15,15 @@ Repositori ini berisi skill Codex, draf profil bahasa, pemeriksa SRT dasar, pand
 
 ![Contoh subtitle episode 12](examples/preview-episode-12.jpg)
 
+*Sumber cuplikan: AKB48, **AKB48の全力エンタメ学園**, episode 12 (18 April 2026), [video asli di YouTube](https://www.youtube.com/watch?v=aPznmLtjedw).* Bingkai ini dipakai untuk membahas secara teknis label nama pembicara dan panel subtitle terjemahan yang ringkas. Contohnya membantu menilai pemisahan nama dari dialog tanpa hanya bergantung pada warna.
+
 **Episode 13 — panel ringkas pada adegan jabat tangan terakhir** ([video sumber](https://www.youtube.com/watch?v=mHF3TEk6lwQ))
 
 ![Contoh subtitle episode 13](examples/preview-episode-13.jpg)
 
-Gambar ini adalah cuplikan ilustratif dari program. Video, logo, dan para pengisi acara tetap menjadi milik pemegang hak masing-masing. Repositori ini tidak menyertakan video atau berkas subtitle lengkap untuk episode.
+*Sumber cuplikan: AKB48, **AKB48の全力エンタメ学園**, episode 13 (25 April 2026), [video asli di YouTube](https://www.youtube.com/watch?v=mHF3TEk6lwQ).* Bingkai ini menjelaskan posisi panel subtitle pada adegan jabat tangan. Fokusnya adalah keterbacaan teks dan hubungannya dengan elemen visual asli, bukan menayangkan ulang episode sebagai hiburan.
+
+Kedua gambar tersebut adalah **cuplikan dengan atribusi untuk pembahasan teknis desain subtitle**, bukan materi yang bebas digunakan ulang atau pengganti episode aslinya. Hak atas rekaman, penampilan artis, logo, dan elemen pihak ketiga tetap berada pada pemegang hak masing-masing. Lisensi **MIT tidak mencakup tangkapan layar ini**. Penyebutan sumber tidak otomatis memberikan izin untuk menyebarluaskannya. Lihat [NOTICE](NOTICE) untuk sumber dan catatan mengenai kutipan menurut hukum Jepang. Video sumber dan subtitle lengkap tidak disertakan.
 
 ## Menggunakan dengan Codex
 

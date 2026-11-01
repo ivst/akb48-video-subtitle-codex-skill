@@ -15,11 +15,15 @@ El repositorio incluye un skill de Codex, perfiles de idioma iniciales, un verif
 
 ![Ejemplo de subtítulos del episodio 12](examples/preview-episode-12.jpg)
 
+*Fotograma citado: AKB48, **AKB48の全力エンタメ学園**, episodio 12 (18 de abril de 2026), [video original en YouTube](https://www.youtube.com/watch?v=aPznmLtjedw).* Se incluye para analizar técnicamente la etiqueta de identificación de quien habla y el panel compacto de subtítulos traducidos. Permite evaluar la separación entre el nombre y el diálogo sin depender únicamente del color.
+
 **Episodio 13 — panel compacto durante la escena final de apretones de manos** ([video original](https://www.youtube.com/watch?v=mHF3TEk6lwQ))
 
 ![Ejemplo de subtítulos del episodio 13](examples/preview-episode-13.jpg)
 
-Son fotogramas ilustrativos de los programas. Los videos, logotipos e intérpretes pertenecen a sus respectivos titulares de derechos. Este repositorio no incluye los videos ni archivos completos de subtítulos de los episodios.
+*Fotograma citado: AKB48, **AKB48の全力エンタメ学園**, episodio 13 (25 de abril de 2026), [video original en YouTube](https://www.youtube.com/watch?v=mHF3TEk6lwQ).* Se utiliza para explicar la colocación de los subtítulos durante la escena de apretones de manos. El análisis se centra en la legibilidad y la relación con los elementos visuales originales, no en reproducir el episodio como entretenimiento.
+
+Ambas imágenes son **fragmentos atribuidos para comentar aspectos técnicos del diseño de subtítulos**; no son recursos de libre reutilización ni sustituyen los episodios originales. Los derechos sobre las imágenes, los intérpretes, los logotipos y demás elementos de terceros pertenecen a sus respectivos titulares. La licencia **MIT no cubre estas capturas**. Indicar la fuente no concede por sí mismo permiso para redistribuirlas. Consulta [NOTICE](NOTICE) para las fuentes y las consideraciones sobre la cita en Japón. No se incluyen los videos ni los subtítulos completos.
 
 ## Usar con Codex
 
