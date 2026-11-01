@@ -1,0 +1,6 @@
+song_id,artist,source_ja,preferred_latin,source_kind,source_url,official_source_url,review_status,notes
+akb48-ai-no-imi,AKB48,愛の意味を考えてみた,Ai no Imi wo Kangaete Mita,akb48_original,https://akb48.fandom.com/wiki/Ai_no_Imi_wo_Kangaete_Mita,,community_reference,AKB48 Wiki distinguishes romaji title from English meaning; preserve romanization
+akb48-koi-suru-fortune-cookie,AKB48,恋するフォーチュンクッキー,Koi Suru Fortune Cookie,akb48_original,https://akb48.fandom.com/wiki/Koi_Suru_Fortune_Cookie,https://www.akb48.co.jp/news/detailpage/11814,community_reference,Hybrid Japanese and English wording; do not replace with translated English meaning
+akb48-heavy-rotation,AKB48,ヘビーローテーション,Heavy Rotation,akb48_original,https://akb48.fandom.com/wiki/Heavy_Rotation,,community_reference,Established English-form release title; do not produce phonetic Hebii Roteeshon
+akb48-sakura-no-hanabiratachi,AKB48,桜の花びらたち,Sakura no Hanabiratachi,akb48_original,https://akb48.fandom.com/wiki/Sakura_no_Hanabiratachi,,community_reference,Canonical Wiki title; do not translate as Cherry Blossom Petals
+akb48-aitakatta,AKB48,会いたかった,Aitakatta,akb48_original,https://akb48.fandom.com/wiki/Aitakatta,,community_reference,Canonical Latin title; not I Wanted to Meet You

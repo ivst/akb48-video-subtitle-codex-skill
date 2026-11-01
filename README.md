@@ -136,3 +136,16 @@ The project initializer rejects overwriting an existing workspace. `report.json`
 For complex Japanese-to-target-language translation, **GPT-6.1 Sol at Medium reasoning effort or higher is recommended when available** (a preference, not a requirement or guaranteed quality improvement). For difficult jokes, voices or cultural context, use a higher setting or a stronger available model, and always verify against Japanese audio.
 
 The skill adds `check_ass.py`, `probe_media.py`, `compare_media.py`, and `compare_audio.py`. The last tool hashes **decoded PCM**, not compressed audio packets, so distinguish audio preservation checks from exact compressed-stream identity. Media tools require FFmpeg/FFprobe in PATH. See [Definition of done](.agents/skills/akb48-video-subtitles/references/deliverables.md) and [CHANGELOG](CHANGELOG.md). Current repository version is in [VERSION](VERSION).
+
+## Song title spelling (romaji rather than semantic translation)
+
+A **song title is a proper name**, not a lyric line to translate. For original AKB48 songs, keep the established Latin release title or **romaji** in all target languages: `愛の意味を考えてみた` → **Ai no Imi wo Kangaete Mita**, not *Thinking About the Meaning of Love*; `恋するフォーチュンクッキー` → **Koi Suru Fortune Cookie**; `ヘビーローテーション` → **Heavy Rotation**. For an officially localized sister-group cover, check the actual version and use its published title only when that recording is being discussed. Translate the lyrics themselves when requested.
+
+Prefer an officially published Latin title; otherwise consult AKB48 Wiki or a dedicated 48 Group wiki. The bundled five-song starter glossary retains per-song sources and review statuses; do not invent romaji for titles not yet catalogued. See [song title policy](.agents/skills/akb48-video-subtitles/glossaries/songs/README.md).
+
+```sh
+python .agents/skills/akb48-video-subtitles/scripts/lookup_song.py "愛の意味を考えてみた"
+python .agents/skills/akb48-video-subtitles/scripts/check_song_titles.py --input examples/quality/song_source.json --translated examples/quality/song_translated.json --strict --json
+```
+
+For reliable validation, annotate confirmed mentions with `song_ids` in source translation chunks. Unmarked phrases matching song titles are only warnings, since lyrics or natural speech can contain the same phrase. `run_checks.py` includes this title check whenever translation chunks exist.

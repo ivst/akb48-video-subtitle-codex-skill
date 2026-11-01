@@ -36,6 +36,14 @@ An output report should distinguish language review, speaker/visual review, and 
 
 Name validation: consult `glossaries/members/{locale}.csv` and `glossaries/aliases.csv` in the installed skill folder. Preserve row-level `review_status` and never call an unverified spelling approved. Episode-specific contributor glossaries take precedence. If the localized field is blank, request verification or explicitly disclose a fallback instead of inventing a spelling.
 
+## Song titles are proper nouns, not lyrics
+
+For an original AKB48 song mentioned in dialogue, on a sign, in a caption, or in a setlist, use the **established Latin/romaji title**, **not** a semantic translation into the subtitle language. Prefer official discography/label Latin spellings, then AKB48 Wiki and dedicated 48 Group wikis; record title spelling and source for the episode. Consult `glossaries/songs.csv` and [the title policy](../glossaries/songs/README.md). User-approved episode spellings take precedence.
+
+Do **not** translate an original Japanese title because a wiki happens to list an English *meaning*. Preserve mixed Japanese/English titles such as `Koi Suru Fortune Cookie`; an original English title `Heavy Rotation` should remain English. Sister-group translated cover titles are separate releases; only use those when the video specifically refers to that version. Unknown titles are `pending_source_verification`, not an occasion to improvise romaji.
+
+Annotate confirmed song references in working source JSON with `"song_ids": ["akb48-..."]`. `check_song_titles.py --strict` enforces those annotated canonical spellings; mere exact Japanese phrase matches can be ordinary dialogue or lyrics, so they are *warnings* pending editorial review. Translate actual **lyrics** separately when requested, and do not make a lyric line into a song-name replacement.
+
 ## Subtitle terminology
 
 Consult `glossaries/terms/{locale}.csv` for member-facing event terms, fan terminology, and theater stages; use `scripts/lookup_term.py` for a JSON lookup with semantic cautions. The locale forms are marked `editorial_draft` except blank Thai entries, which remain pending. Prefer an episode-specific user-approved lexicon over this starter dataset. Do not treat the Russian name glossary as approval of newly introduced Russian term translations. Historical formats (such as elections and former team arrangements) must be interpreted in the period described by the program.

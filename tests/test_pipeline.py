@@ -99,10 +99,10 @@ class TranslationProtocolTests(unittest.TestCase):
             self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
             result = json.loads((project / "report.json").read_text(encoding="utf-8"))
             self.assertEqual(result["status"], "pass")
-            self.assertEqual(result["executed_checks"], 3)
+            self.assertEqual(result["executed_checks"], 4)
             self.assertTrue(all(entry["status"] == "pass" for entry in result["checks"]))
             self.assertTrue(all(entry["result"].get("sha256") for entry in result["checks"]))
-            self.assertEqual(len(result["checks"]), 3)
+            self.assertEqual(len(result["checks"]), 4)
 
 
 if __name__ == "__main__":
