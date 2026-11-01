@@ -161,9 +161,9 @@ characters/second is a review flag, not a universal limit for every language.
 Names and spaces also add reading load. Short reactions and paired exchanges
 need individual decisions.
 
-The following table describes a historical manual layout reference for
-1920×1080, rather than mandatory settings for all videos. For current renderer
-defaults and placement overrides use the [presentation guide](../.agents/skills/akb48-video-subtitles/references/presentation.md).
+The following 1920×1080 reference is now the skill's `episode-12` preset:
+translucent light panels, semibold dialogue, separate colored names/rails and
+purple signs with cyan borders. For renderer defaults and placement overrides use the [presentation guide](../.agents/skills/akb48-video-subtitles/references/presentation.md).
 
 | Element | Reference |
 |---|---|
@@ -171,7 +171,7 @@ defaults and placement overrides use the [presentation guide](../.agents/skills/
 | Height | 82 px for one line, 128 px for two |
 | Body | 40 px, dark text on a light panel |
 | Name | 26 px, or 22 px for a long label; thin colored rail |
-| Paired exchange | separately labeled rows, historically 38/32 px depending on wrapping |
+| Paired exchange | separately labeled rows, 38/32 px depending on wrapping |
 | Upper title | two narrow bars without covering faces |
 
 A character count from one font/language does not guarantee a line fits another.

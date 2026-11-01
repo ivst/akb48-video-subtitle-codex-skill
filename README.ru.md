@@ -29,6 +29,14 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 
 ## Примеры
 
+### Актуальное оформление skill — образец выпуска №12
+
+Пример создан штатным сборщиком: светлая полупрозрачная плашка, отдельное цветное имя с маркером и тёмная полужирная реплика. Это оформление используется по умолчанию; обычные подложки под текстом ему не соответствуют.
+
+![Одна реплика](examples/compact-single-preview.jpg)
+
+[Парный обмен](examples/compact-preview.jpg) · [Длинная реплика и надпись](examples/compact-long-preview.jpg) · [ASS](examples/compact.ass)
+
 **Выпуск №12 — подпись говорящей и компактная плашка** ([видео](https://www.youtube.com/watch?v=aPznmLtjedw))
 
 ![Пример субтитров, выпуск 12](examples/preview-episode-12.jpg)
@@ -158,4 +166,4 @@ python .agents/skills/akb48-video-subtitles/scripts/check_song_titles.py --input
 
 ## Говорящие и компактное оформление (0.5.0)
 
-Для ASS/видео теперь нужна проверенная `work/presentation.json`. Сборщик `build_presentation.py` и проверка `check_presentation.py` обеспечивают имена/роли, раздельные реплики и отдельные плашки надписей. Неизвестные голоса автоматически не объединяются. Нижний отступ по умолчанию — 30 логических px на 1080p, то есть 20 px на 720p. Фоновые и концертные песни пропускаются без явного запроса. Старые проекты без разметки получают incomplete. См. [схему и команды](.agents/skills/akb48-video-subtitles/references/presentation.md) и [синтетическое превью](examples/compact-preview.jpg) нового оформления; кадры программы показывают прежнюю локальную работу.
+Для ASS/видео теперь нужна проверенная `work/presentation.json`. Сборщик `build_presentation.py` и проверка `check_presentation.py` обеспечивают имена/роли, раздельные реплики и отдельные плашки надписей. Неизвестные голоса автоматически не объединяются. Нижний отступ по умолчанию — 30 логических px на 1080p, то есть 20 px на 720p. Фоновые и концертные песни пропускаются без явного запроса. Старые проекты без разметки получают incomplete. См. [схему и команды](.agents/skills/akb48-video-subtitles/references/presentation.md) и [синтетическое превью](examples/compact-preview.jpg) нового оформления; кадры программы служат исходными референсами оформления.

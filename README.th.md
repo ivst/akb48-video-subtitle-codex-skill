@@ -29,6 +29,14 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 
 ## ตัวอย่าง
 
+### รูปแบบปัจจุบันของ skill — พรีเซ็ตตอนที่ 12
+
+ตัวอย่างนี้สร้างด้วยตัวเรนเดอร์ที่ให้มา ใช้แผงสีอ่อนโปร่งแสง ชื่อผู้พูดและแถบสีแยกจากบทพูดสีเข้มตัวกึ่งหนาเป็นค่าเริ่มต้น กล่องพื้นหลังข้อความธรรมดาไม่ใช่รูปแบบเดียวกัน
+
+![ผู้พูดคนเดียว](examples/compact-single-preview.jpg)
+
+[บทสนทนาสองคน](examples/compact-preview.jpg) · [บทพูดยาวและข้อความบนจอ](examples/compact-long-preview.jpg) · [ASS](examples/compact.ass)
+
 **ตอนที่ 12 — ป้ายชื่อผู้พูดและแถบซับขนาดกะทัดรัด** ([วิดีโอต้นฉบับ](https://www.youtube.com/watch?v=aPznmLtjedw))
 
 ![ตัวอย่างซับตอนที่ 12](examples/preview-episode-12.jpg)

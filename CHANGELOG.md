@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.0 — 2026-11-01
+- Made the episode-12 reference panel an explicit renderer preset: semibold dialogue, separate colored names/rails, translucent light panels, pale borders and purple/cyan sign panels. Kept the 30px logical lower margin and speaker/lyrics checks.
+- Added reproducible single, paired and long/sign previews using the actual renderer, with FFmpeg font-selection logs and explicit font portability guidance.
+- Updated preview placement across all README languages; existing MP4 files require a separate rebuild.
+
 ## 0.5.1 — 2026-11-01
 - Added a full English practical workflow, EN/RU navigation and English guide links in seven non-Russian READMEs; clarified that these guides are not installed runtime requirements.
 - Expanded the sourced song-title catalogue from 5 to 78 entries, preserving existing IDs and documenting coverage, source status and romanization limitations.

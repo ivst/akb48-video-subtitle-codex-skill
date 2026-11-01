@@ -7,6 +7,7 @@ The skill itself is plain Markdown. Its SRT checker uses only the Python standar
 - Windows 10/11, macOS, or a current Linux distribution.
 - Python 3.11 or newer for the included helper scripts.
 - FFmpeg and FFprobe available on `PATH`. For ASS rendering, use a build with libass support.
+- An installed font covering the target language. The `episode-12` reference uses Segoe UI Semibold (normally on Windows); font files are not distributed. On other systems choose an installed alternative explicitly and inspect wrapping and FFmpeg font-selection logs.
 - A local source video that the user is authorized to process.
 
 ## Practical machine sizing

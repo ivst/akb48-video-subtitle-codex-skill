@@ -1,5 +1,6 @@
 """Prevent the real-trial failures: mixed voices, unsolicited lyrics and raised panels."""
 import json
+import shutil
 from pathlib import Path
 import subprocess
 import sys
@@ -26,6 +27,41 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('Викторина',tracks['inscriptions'])
         self.assertEqual(tracks['lyrics'],'')
         self.assertIn(r'\pos(110,968)',ass) # 82px panel, bottom=1050 => 30px margin.
+
+    def test_published_ass_is_generated_from_the_installed_example(self):
+        expected, _, _ = render(self.data, self.episode)
+        published = SKILL.parents[2] / 'examples' / 'compact.ass'
+        self.assertEqual(published.read_text(encoding='utf-8-sig'), expected)
+
+    def test_unknown_preset_cannot_silently_change_style(self):
+        self.data['style_preset'] = 'plain-text-boxes'
+        with self.assertRaisesRegex(ValueError, 'unsupported style_preset'):
+            render(self.data, self.episode)
+
+    @unittest.skipUnless(shutil.which('ffmpeg'), 'FFmpeg unavailable')
+    def test_real_previews_keep_lower_baseline_and_expand_upwards(self):
+        with tempfile.TemporaryDirectory() as folder:
+            result = subprocess.run([
+                sys.executable, str(SKILL/'scripts/render_style_previews.py'),
+                '--output-dir', folder, '--font', 'Arial'
+            ], capture_output=True, text=True, timeout=60)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            def pixel(name, x, y):
+                result = subprocess.run([
+                    'ffmpeg', '-nostdin', '-v', 'error', '-i', str(Path(folder)/name),
+                    '-vf', f'format=rgb24,crop=1:1:{x}:{y}', '-frames:v', '1',
+                    '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'
+                ], capture_output=True, timeout=20)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(len(result.stdout), 3)
+                return min(result.stdout)
+            for name in ('compact-single-preview.jpg', 'compact-preview.jpg',
+                         'compact-long-preview.jpg'):
+                self.assertGreater(pixel(name, 90, 680), 230) # Light panel.
+                self.assertLess(pixel(name, 90, 710), 160) # Lower margin stays clear.
+            self.assertLess(pixel('compact-single-preview.jpg', 90, 610), 160)
+            self.assertGreater(pixel('compact-preview.jpg', 90, 610), 230)
+            self.assertGreater(pixel('compact-long-preview.jpg', 90, 630), 230)
 
     def test_mixed_known_speakers_cannot_be_merged(self):
         self.data['events'][0]['rows'][0]['source_ids']=['t1','t2']

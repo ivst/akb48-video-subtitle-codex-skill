@@ -29,6 +29,14 @@ $akb48-video-subtitles를 사용해 [로컬 영상 경로 또는 사용 권한�
 
 ## 미리보기
 
+### 현재 Skill 레이아웃 — 12화 프리셋
+
+포함된 렌더러로 생성한 예시입니다. 반투명한 밝은 패널, 별도의 색상 화자 이름과 표시선, 짙은 반굵은 대사를 기본으로 사용합니다. 단순한 텍스트 배경 상자는 이 형식과 다릅니다.
+
+![한 화자](examples/compact-single-preview.jpg)
+
+[두 화자의 응답](examples/compact-preview.jpg) · [긴 대사와 화면 문구](examples/compact-long-preview.jpg) · [ASS](examples/compact.ass)
+
 **12화 — 화자 이름과 간결한 자막 패널** ([원본 영상](https://www.youtube.com/watch?v=aPznmLtjedw))
 
 ![12화 자막 예시](examples/preview-episode-12.jpg)

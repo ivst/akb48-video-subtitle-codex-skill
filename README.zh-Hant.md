@@ -29,6 +29,14 @@ python .agents/skills/akb48-video-subtitles/scripts/check_environment.py --requi
 
 ## 預覽
 
+### 目前 skill 樣式 — 第12集預設
+
+此範例由內建算繪工具產生：淺色半透明底板、獨立的彩色說話者姓名及標記條，以及深色半粗體台詞。這是預設樣式，普通文字背景框不能取代。
+
+![單人台詞](examples/compact-single-preview.jpg)
+
+[雙人對話](examples/compact-preview.jpg) · [長台詞與畫面文字](examples/compact-long-preview.jpg) · [ASS](examples/compact.ass)
+
 **第 12 集——說話者標籤與精簡字幕面板**（[來源影片](https://www.youtube.com/watch?v=aPznmLtjedw)）
 
 ![第 12 集字幕示例](examples/preview-episode-12.jpg)

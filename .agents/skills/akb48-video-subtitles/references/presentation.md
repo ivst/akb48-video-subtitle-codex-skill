@@ -3,7 +3,7 @@
 The independent trial found three failures despite valid media: short replies
 were joined without speaker evidence, neutral text boxes lost the name-label
 layout, and two unrequested song fragments were burned into the output.
-The supported default now has an executable display contract and renderer.
+The supported default now has an executable display contract and renderer. The `episode-12` preset follows the compact panel in the episode 12 reference: translucent white panel, pale border, colored name and matching rail, and dark semibold dialogue. Ordinary per-text background boxes do not implement this preset.
 
 ## Scope first: background songs are omitted by default
 
@@ -31,10 +31,11 @@ spellings and are a separate content class.
 
 Use [the bundled example](../assets/presentation.example.json) as the schema
 example. The matching [settings](../assets/presentation.settings.json) are only
-for the six-second synthetic demo; use the real initialized `episode.json` for
+for the ten-second synthetic demo; use the real initialized `episode.json` for
 an episode. These assets are included when installing the standalone skill.
 
 - `schema_version`: 1.
+- `style_preset`: `"episode-12"` (also the default when omitted). Unknown preset names fail; do not invent a replacement.
 - `speakers`: safe stable IDs mapped to concise visible `label` and `color`
   (`#RRGGBB`). Use verified names or evidence-backed neutral voice roles.
 - `turns`: source turn ID mapped to `speaker_id` (or null) and attribution
@@ -60,7 +61,7 @@ an episode. These assets are included when installing the standalone skill.
 - Inscriptions/song titles use `text` and an explicit `box: [x,y,width,height]`
   on the logical 1920x1080 canvas. Position them near their source text while
   avoiding faces and dialogue. Inscriptions have distinct dark colored panels
-  and white text; speech has a light panel, dark text, colored name and thin rail.
+  and white text with a cyan border; speech has a translucent light panel, dark text, colored name and matching thin rail.
 
 ## Generate and validate
 
@@ -95,8 +96,17 @@ baseline; long exchanges must be split, not squeezed into tiny type.
 
 Use optional event-level `bottom_margin` only for a scene with conflicting source
 graphics. Values above 60 logical pixels require `placement_reason`; do not
-raise the whole video preemptively. Fonts default to Arial; supply a locally
-available, language-capable `font` family if necessary. Font files are not bundled.
+raise the whole video preemptively. The reference font is **Segoe UI Semibold**, used by default, with 40 logical px for a single speaker, 38 px for paired one-line replies and 32 px for a paired two-line reply; names use 26/22 px. The panel spans x=110–1810, with ASS fill alpha `0A`, a 3px pale outline and a same-color outlined name rail. Sign panels use purple fill, a cyan outline and 26px white text.
+
+Segoe UI Semibold is normally available on Windows. Font files are **not bundled**; on other systems or for missing glyph coverage, explicitly set an installed language-capable `font`, such as Arial or Noto Sans. This preserves geometry but can change wrapping and appearance; never claim a pixel-identical match after substitution. Inspect FFmpeg `fontselect` and missing-glyph messages as well as the actual frames.
+
+Generate all three synthetic checks using the **same renderer** as real episodes:
+
+```sh
+python .agents/skills/akb48-video-subtitles/scripts/render_style_previews.py --output-dir work/style-previews
+```
+
+Use a new output directory (the command refuses existing files). The script saves ASS, single, paired and two-line-with-sign JPGs, plus FFmpeg font-selection logs. Use `--font Arial` only as an explicit font override. These previews prove the installed renderer can draw the preset; inspect additional frames from the actual episode too. In a production project, compare the first rendered frames to the approved example before encoding the full video. Old manually styled ASS must be regenerated from reviewed presentation data; a skill update alone does not restyle existing MP4 files.
 
 The renderer uses approximate character widths and requires explicit appropriate
 breaks for long unspaced scripts. It deliberately rejects long text instead of

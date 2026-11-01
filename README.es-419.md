@@ -29,6 +29,14 @@ Omite la música de fondo y las letras. Revisa los nombres, el sentido del diál
 
 ## Vista previa
 
+### Diseño actual del skill — estilo del episodio 12
+
+Ejemplo generado con el renderizador incluido: panel claro semitransparente, nombre y marca de color separados, y diálogo oscuro en seminegrita. Es el diseño predeterminado; una simple caja de fondo detrás del texto no es equivalente.
+
+![Una persona](examples/compact-single-preview.jpg)
+
+[Intercambio entre dos personas](examples/compact-preview.jpg) · [Diálogo largo y texto en pantalla](examples/compact-long-preview.jpg) · [ASS](examples/compact.ass)
+
 **Episodio 12 — identificación de quien habla y panel compacto** ([video original](https://www.youtube.com/watch?v=aPznmLtjedw))
 
 ![Ejemplo de subtítulos del episodio 12](examples/preview-episode-12.jpg)
